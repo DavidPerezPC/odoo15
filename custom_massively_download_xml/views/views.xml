@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+   <record id="download_massive_XML" model="ir.actions.server">
+            <field name="name">Descargar XML</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                    list_xml = list()
+                    for rec in records:
+                        if rec.edi_state == "sent":
+                            action = rec.dowlowad_massive_xml()
+                            list_xml.append(action)
+                        elif rec.edi_state != "sent":
+                            raise UserError("La factura: " + str(rec.name) + " no contiene XML")
+                    if list_xml:
+                        action = rec.comprido_massive(list_xml)
+            </field>
+        </record>
+  </data>
+</odoo>

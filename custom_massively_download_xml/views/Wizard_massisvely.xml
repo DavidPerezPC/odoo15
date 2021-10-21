@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="wizard_XML" model="ir.ui.view">
+            <field name="name">wizard.XML</field>
+            <field name="model">download.zip</field>
+            <field name="arch" type="xml">
+                <form string="_form">
+                    <sheet>
+                        <group>
+                            <field name="binary_zip" filename="field_name_binary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="open_wizard_massively" model="ir.actions.act_window">
+            <field name="name">Descarga masiva de XML</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">download.zip</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+
+</odoo>
