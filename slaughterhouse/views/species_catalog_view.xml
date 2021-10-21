@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="slaughterhouse_specie_catalog_tree">
+            <field name="name">Specie catalog</field>
+            <field name="model">specie.catalog</field>
+            <field name="arch" type="xml">
+                <tree sample="1" editable="bottom">
+                    <field name="reference" attrs="{'required': 1 }" />
+                    <field name="name" attrs="{'required': 1 }" />
+                </tree>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="slaughterhouse_specie_catalog_form">
+            <field name="name">Specie catalog form</field>
+            <field name="model">specie.catalog</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group style="float:left;">
+                                <field name="reference" attrs="{'required': 1 }"/>
+                                <field name="active" invisible="1"/>
+                            </group>
+                            <group style="float:right;">
+                                <field name="name" attrs="{'required': 1 }"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="slaughter_specie_catalog_action">
+            <field name="name">Specie catalog window</field>
+            <field name="res_model">specie.catalog</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="slaughter_specie_catalog" action="slaughter_specie_catalog_action" name="Specie catalog"
+                  parent="slaughterhouse.slaughterhouse_entrance_booth" sequence="1"/>
+    </data>
+</odoo>

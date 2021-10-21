@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="slaughter_passage_concepts_tree">
+            <field name="name">Slaughter passage concepts tree</field>
+            <field name="model">slaughter.passage.concepts</field>
+            <field name="arch" type="xml">
+                <tree sample="1">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name_passage_concept"/>
+                    <field name="short_code" optional="show"/>
+                    <field name="concept_type" optional="show"/>
+                    <field name="movement_type" optional="show"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="slaughter_passage_concepts_form">
+            <field name="name">Slaughter passage concepts form</field>
+            <field name="model">slaughter.passage.concepts</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group>
+                            <field name="name_passage_concept" attrs="{'required': 1 }"
+                                   placeholder="Name of the passage concept"/>
+                        </group>
+                        <group>
+                            <group style="float:left;">
+                                <field name="short_code" attrs="{'required': 1 }"/>
+                                <field name="concept_type" attrs="{'required': 1 }"/>
+                                <field name="movement_type" attrs="{'required': 1 , 'readonly':[('concept_type', '=', 'purchase'), ('concept_type', '=', 'shipment'), ('concept_type', '=', 'sale'), ('concept_type', '=', 'won'), ('concept_type', '=', 'transfer')]}"/>
+                            </group>
+                            <group style="float:right;">
+                                <field name="active" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="slaughter_passage_concepts_kanban">
+            <field name="name">Slaughter passage concepts Kanban</field>
+            <field name="model">slaughter.passage.concepts</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong class="o_kanban_record_title">
+                                            <span>
+                                                <field name="name_passage_concept"/>
+                                                <field name="active" invisible="1"/>
+                                            </span>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                        <div>
+                                            <span>
+                                                <strong>Short code:&#160;</strong>
+                                                <field name="short_code"/>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <strong>Concept type:&#160;</strong>
+                                                <field name="concept_type"/>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <strong>Movement type:&#160;</strong>
+                                                <field name="movement_type"/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="slaughter_passage_concepts_search">
+            <field name="name">Slaughter passage concepts Search</field>
+            <field name="model">slaughter.passage.concepts</field>
+            <field name="arch" type="xml">
+                <search string="Records">
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                    <field name="name_passage_concept"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="slaughter_passage_concepts_action">
+            <field name="name">Slaughter passage concepts</field>
+            <field name="res_model">slaughter.passage.concepts</field>
+            <field name="view_mode">tree,form,search,kanban</field>
+        </record>
+
+        <menuitem id="slaughter_passage_concepts" action="slaughter_passage_concepts_action" name="Passage concept"
+                  parent="slaughterhouse.slaughterhouse_entrance_booth" sequence="3"/>
+    </data>
+</odoo>

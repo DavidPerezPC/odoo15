@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="slaughter_sub_product_identification_tree" model="ir.ui.view">
+            <field name="name">Slaughter Sub Product Identification Tree</field>
+            <field name="model">slaughter.sub.product.identification</field>
+            <field name="arch" type="xml">
+                <tree string="Sub Product Identification" sample="1">
+                    <field name="sequence_line" widget="handle"/>
+                    <field name="primary_code" string="Reference" optional="show"/>
+                    <field name="classification" optional="hide"/>
+                    <field name="name"/>
+                    <field name="product_uom_id" string="UOM"/>
+                    <field name="secondary_code"/>
+                    <field name="is_pz_per_animal" optional="show"/>
+                    <field name="pz_per_animal_qty" optional="hide"/>
+                    <field name="weight_per_pz" optional="hide"/>
+                    <field name="record_control" optional="show"/>
+                    <field name="is_lot_control" optional="show"/>
+                    <field name="container_weight" optional="show"/>
+                    <field name="apportion_based_on" optional="show"/>
+                    <field name="has_natural_wastes" optional="show"/>
+                    <field name="waste_type" optional="hide"/>
+                    <field name="qty_or_percentage" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="slaughter_sub_product_identification_form" model="ir.ui.view">
+            <field name="name">Slaughter Sub Product Identification Form</field>
+            <field name="model">slaughter.sub.product.identification</field>
+            <field name="arch" type="xml">
+                <form string="Sub Product Identification">
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group string="Primary Product">
+                            <group>
+                                <h1 class="o_row" style="font-size:14px;">
+                                <field name="product_id" required="1" class="oe_line" options="{'no_edit': True,'no_create': True}" placeholder="Product Name"/>
+                            </h1>
+                            </group>
+                            <group>
+                                <field name="product_uom_id" class="oe_line" placeholder="UOM"/>
+                            </group>
+
+                        </group>
+                        <group string="Secondary Product">
+                            <group>
+                                <field name="secondary_code"/>
+                                <field name="classification"/>
+                                <field name="specie_id" options="{'no_edit': True,'no_create': True}"/>
+                                <field name="sub_product_type_id" options="{'no_edit': True,'no_create': True}"/>
+                                <field name="is_pz_per_animal" required="1"/>
+                                <field name="pz_per_animal_qty" attrs="{'invisible': [('is_pz_per_animal','=',False)]}"/>
+                                <field name="weight_per_pz" attrs="{'invisible': [('is_pz_per_animal','=',False)]}"/>
+                            </group>
+                            <group>
+                                <field name="record_control" required="1"/>
+                                <field name="is_lot_control" required="1"/>
+                                <field name="container_weight"/>
+                                <field name="apportion_based_on" required="1"/>
+                                <field name="has_natural_wastes" required="1"/>
+                                <field name="waste_type" attrs="{'invisible': [('has_natural_wastes','=',False)],'required': [('has_natural_wastes','=',True)]}"/>
+                                <field name="qty_or_percentage" attrs="{'invisible': [('has_natural_wastes','=',False)], 'required': [('has_natural_wastes','=',True)]}"/>
+                            </group>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="slaughter_sub_product_identification_kanban" model="ir.ui.view">
+            <field name="name">Slaughter Sub Product Identification Kanban</field>
+            <field name="model">slaughter.sub.product.identification</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile" on_create="quick_create" sample="1">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div id="slaughter_sub_product_identification" class="o_kanban_record_top mb0">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <span>
+                                                <field name="product_id"/>
+                                                <field name="product_uom_id"/>
+                                            </span>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div/>
+                                <div>
+                                    <span>Type of the sub product:
+                                        <field name="sub_product_type_id"/>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span>Record Control:
+                                        <field name="record_control"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="slaughter_sub_product_identification_search" model="ir.ui.view">
+            <field name="name">Slaughter Sub Product Identification Search</field>
+            <field name="model">slaughter.sub.product.identification</field>
+            <field name="arch" type="xml">
+                <search string="Search Slaughter Sub Product Identification">
+                    <field name="name" string="Description" filter_domain="[('name', 'ilike', self)]"/>
+                    <field name="product_id" string="Product" filter_domain="[('product_id', 'ilike', self)]"/>
+                    <field name="secondary_code" string="Secondary Code"
+                           filter_domain="[('secondary_code', 'ilike', self)]"/>
+                    <filter string="Active" help="Active record" name="active" domain="[('active', '=', 'true')]"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Name" name="name" domain="[]" context="{'group_by': 'name'}"/>
+                        <filter string="Product" name="product_id" domain="[]" context="{'group_by': 'product_id'}"/>
+                        <filter string="Secondary Code" name="secondary_code" domain="[]"
+                                context="{'group_by': 'secondary_code'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="slaughter_sub_product_identification_action" model="ir.actions.act_window">
+            <field name="name">Slaughter Sub Product Ientification</field>
+            <field name="res_model">slaughter.sub.product.identification</field>
+            <field name="view_mode">tree,form,kanban,search</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new sub product identification
+                </p>
+                <p>
+                    You must define an identification for everything sub products.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="slaughter_sub_product_identification" action="slaughter_sub_product_identification_action"
+                  name="Sub Product Identification"
+                  parent="slaughterhouse_slaughter" sequence="6"/>
+    </data>
+</odoo>

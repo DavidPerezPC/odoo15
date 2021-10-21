@@ -1,0 +1,2429 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* slaughterhouse
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-12 19:10+0000\n"
+"PO-Revision-Date: 2021-10-12 19:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_channels_classification_form
+msgid ""
+"<span>\n"
+"                                                <strong>Final rank</strong>\n"
+"                                            </span>"
+msgstr ""
+"<span>\n"
+"                                                <strong>Final</strong>\n"
+"                                            </span>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_channels_classification_form
+msgid ""
+"<span>\n"
+"                                                <strong>Starting rank</strong>\n"
+"                                            </span>"
+msgstr ""
+"<span>\n"
+"                                                <strong>Rango inicial</strong>\n"
+"                                            </span>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_form
+msgid "<span> kg</span>"
+msgstr ""
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_relationship_kanban
+msgid "<strong>By product type: </strong>"
+msgstr "<strong>Por tipo de subproducto: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.relationship_introducer_type_cattle_kanban
+msgid "<strong>Cattle type: </strong>"
+msgstr "<strong>Tipo de ganado: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_channels_classification_kanban
+msgid "<strong>Classification type: </strong>"
+msgstr "<strong>Tipo de clasificación: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_passage_concepts_kanban
+msgid "<strong>Concept type: </strong>"
+msgstr "<strong> Tipo de concepto: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_channels_classification_kanban
+msgid "<strong>Description sort code: </strong>"
+msgstr "<strong>Descripción de código de clasificación: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_sacrifice_quotas_kanban
+msgid "<strong>Fee per head: </strong>"
+msgstr "<strong>Cuota por cabeza: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_sacrifice_quotas_kanban
+msgid "<strong>Handle fee per head: </strong>"
+msgstr "<strong>Maneja cuota por sobre peso: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_relationship_kanban
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_types_forfeiture_kanban
+msgid "<strong>Location: </strong>"
+msgstr "<strong>Ubicación: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_passage_concepts_kanban
+msgid "<strong>Movement type: </strong>"
+msgstr "<strong>Tipos de movimientos: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_source_sites_kanban
+msgid "<strong>Origin site name: </strong>"
+msgstr "<strong>Nombre del sitio de origen: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_source_sites_introducer_kanban
+msgid "<strong>Origin site: </strong>"
+msgstr "<strong>Sitio de origen: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_source_sites_kanban
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_types_forfeiture_kanban
+msgid "<strong>Reference: </strong>"
+msgstr "<strong>Referencia:</strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_source_sites_kanban
+msgid "<strong>Responsible Site: </strong>"
+msgstr "<strong>Responsable de sitio: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_passage_concepts_kanban
+msgid "<strong>Short code: </strong>"
+msgstr "<strong>Código corto: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.relationship_introducer_type_cattle_kanban
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_channels_classification_kanban
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_sacrifice_quotas_kanban
+msgid "<strong>Specie: </strong>"
+msgstr "<strong>Especie: </strong>"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_types_forfeiture_kanban
+msgid "<strong>Type: </strong>"
+msgstr "<strong>Tipo: </strong>"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_cattle_type__gender__a_-_both
+msgid "A - Both"
+msgstr "A - Ambos"
+
+#. module: slaughterhouse
+#: code:addons/slaughterhouse/models/types_forfeiture.py:0
+#, python-format
+msgid "A reference equal to this already exists: "
+msgstr "Ya existe una referencia igual a esta:"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_needaction
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_needaction
+msgid "Action Needed"
+msgstr "Acción Requerida"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__active
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__active
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_search
+msgid "Active"
+msgstr "Activo"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_search
+msgid "Active record"
+msgstr "Registro activo"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__activity_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__activity_exception_decoration
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de Actividad  de Excepción"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__activity_state
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__activity_state
+msgid "Activity State"
+msgstr "Estado de actividad"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__activity_type_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ícono de tipo de actvidad"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__apportion_based_on
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__apportion_based_on
+msgid "Apportion based on"
+msgstr "Prorratear kilos a entregar en base a"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__channels_classification__quality__approved_quality
+msgid "Approved Quality"
+msgstr "Calidad aprobada"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__container_weight
+msgid "Approximate weight of the container"
+msgstr "Peso aproximado de contenedor"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.relationship_introducer_type_cattle_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.relationship_introducer_type_cattle_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_passage_concepts_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_passage_concepts_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_source_sites_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_source_sites_introducer_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_source_sites_introducer_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_source_sites_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_ticket_scheduling_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_cattle_type_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_cattle_type_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_channels_classification_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_channels_classification_kanban_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_configuration_kanban_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_relationship_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_relationship_kanban_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_sacrifice_quotas_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_sacrifice_quotas_kanban_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_types_forfeiture_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_attachment_count
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nº de archivos adjuntos"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__weight_per_pz
+msgid "Average weight per piece"
+msgstr "Peso promedio por pieza"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_cattle_type__gender__b_-_male
+msgid "B - Male"
+msgstr "B - Macho"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__record_control__by_introducer
+msgid "By Introducer"
+msgstr "Por introductor"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__record_control__by_slaughter_date
+msgid "By Slaughter Date"
+msgstr "Por fecha de sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__by_product_type
+msgid "By product type"
+msgstr "Tipos de subproducto"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__types_forfeiture__type__by-product
+msgid "By-Product"
+msgstr "Subproducto"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_ticket_scheduling_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_ticket_scheduling__state__cancel
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__channels_classification__classification_type__carcass_/_truck_weight_performance
+msgid "Carcass / Truck Weight Performance"
+msgstr "Rendimiento peso canal/camión"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__channels_classification__classification_type__carcass_weight
+msgid "Carcass Weight"
+msgstr "Peso en canal"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_relationship__type_register__carry_entrails
+msgid "Carry entrails"
+msgstr "Llevar vísceras"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughterhouse_entrance_booth
+msgid "Cattle"
+msgstr "Caseta"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_slaughter_cattle_type
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__cattle_type
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__cattle_type
+msgid "Cattle type"
+msgstr "Tipos de ganado"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughter_cattle_type
+msgid "Cattle type catalog"
+msgstr "Tipos de ganado"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__types_forfeiture__type__channel
+msgid "Channel"
+msgstr "Canal"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughterhouse_chanels
+msgid "Channel classification"
+msgstr "Clasificación de canales"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__channel_weight
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_form
+msgid "Channel weight"
+msgstr "Peso rola en canal"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_kanban
+msgid "Channel weight:"
+msgstr "Peso rola en canal"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughterhouse_channels_classification_action
+msgid "Channels Classification"
+msgstr "Clasificación de canales"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_channels_classification
+#: model:ir.model,name:slaughterhouse.model_slaughter_source_sites_introducer
+msgid "Channels classification"
+msgstr "Clasificación de canal"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__city_id
+msgid "City"
+msgstr "Ciudad"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__classification
+msgid "Classification"
+msgstr "Clasificación"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__code
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_search
+msgid "Code"
+msgstr "Referencia"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__code
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_form
+msgid "Code of the line"
+msgstr "Código de la línea"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__concept_type
+msgid "Concept type"
+msgstr "Tipo de concepto"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughterhouse_configurations
+msgid "Configurations"
+msgstr "Configuración"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__container_weight
+msgid "Container Weight"
+msgstr "Peso del contenedor"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__country_id
+msgid "Country"
+msgstr "País"
+
+#. module: slaughterhouse
+#: model_terms:ir.actions.act_window,help:slaughterhouse.slaughter_line_action
+msgid "Create a new slaughter line"
+msgstr "Crea una nueva línea de sacrificio"
+
+#. module: slaughterhouse
+#: model_terms:ir.actions.act_window,help:slaughterhouse.slaughter_sub_product_identification_action
+msgid "Create a new sub product identification"
+msgstr "Crea un nuevo identificador de subproducto"
+
+#. module: slaughterhouse
+#: model_terms:ir.actions.act_window,help:slaughterhouse.slaughter_sub_product_type_action
+msgid "Create a new sub product type"
+msgstr "Crea un nuevo tipo de subproducto"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__create_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__create_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_passage_concepts__movement_type__departure
+msgid "Departure"
+msgstr "Salida"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__name
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__name
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__name
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__description
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_search
+msgid "Description"
+msgstr "Descripción"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__name
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_form
+msgid "Description of the line"
+msgstr "Descripción de la linea"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__name
+msgid "Description of the sub product"
+msgstr "Descripción del subproducto"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__name
+msgid "Description of the type of cattle"
+msgstr "Descripción del tipo de ganado"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__description_sort_code
+msgid "Description sort code"
+msgstr "Descripción de código de clasificación"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_ticket_scheduling_form
+msgid "Discard"
+msgstr "Deshechar"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_res_partner__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_stock_location__display_name
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_ticket_scheduling__state__done
+msgid "Done"
+msgstr "Hecho"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_ticket_scheduling__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_passage_concepts__movement_type__entry
+msgid "Entry"
+msgstr "Entrada"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__fee_per_head
+msgid "Fee per head"
+msgstr "Cuota por cabeza"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__cattle_type
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__cattle_type
+msgid "Field function: It shows the different types of cattle that exist."
+msgstr "Función de campo: Muestra los diferentes tipos de ganado que existen."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__classification_type
+msgid ""
+"Field function: It shows the different types of classifications that exist.d"
+" function: Show users who are introducers."
+msgstr ""
+"Función de campo: Muestra los diferentes tipos de clasificaciones que "
+"existen."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__reference
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__type
+msgid ""
+"Field function: It shows the different types of confiscation to select."
+msgstr ""
+"Función de campo: Muestra los diferentes tipos de decomiso a seleccionar."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__quality
+msgid "Field function: It shows the different types of quality to select."
+msgstr ""
+"Función de campo: Muestra los diferentes tipos de calidad a seleccionar."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__type_register
+msgid "Field function: It shows the different types of records to select."
+msgstr ""
+"Función de campo: Muestra los diferentes tipos de registros a seleccionar."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__by_product_type
+msgid "Field function: Show users who are by product type."
+msgstr "Subproductos existentes en el sistema"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__partner_id
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__partner_id
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__partner_id
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__partner_id
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__partner_id
+msgid "Field function: Show users who are introducers."
+msgstr "Introductores existentes en el sistema"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__location_id
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__location_id
+msgid "Field function: Show users who are location."
+msgstr "Ubicación destino a donde serán enviados todos aquellos decomisos."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__origin_site_id
+msgid "Field function: Show users who are origin site."
+msgstr ""
+"La función de este campo es mostrar a los usuarios el catálogo de sitios de "
+"origen."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__slaughter_date
+msgid "Field function: Show users who are slaughter date."
+msgstr "Fecha de alta del sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__slaughter_line
+msgid "Field function: Show users who are slaughter line."
+msgstr "Línea de sacrificio que será programada."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__specie_id
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__specie_id
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__specie_id
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__specie_id
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__specie_id
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__specie_id
+msgid "Field function: Show users who are specie."
+msgstr "Función de campo: muestra a los usuarios el catálogo de especies."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__description
+msgid ""
+"Field function: The description of the type of seizure is required in this "
+"field."
+msgstr ""
+"Función de campo: en este campo se requiere la descripción del tipo de "
+"decomiso."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__final_weight_over_weight
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__starting_weight_over_weight
+msgid "Field to assign the initial overweight weight."
+msgstr "Asignación del sobrepeso inicial."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__final_rank
+msgid "Final rank"
+msgstr "Rango final"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__final_weight_over_weight
+msgid "Final weight over weight"
+msgstr "Peso final sobre peso"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__classification__finished_product
+msgid "Finished Product"
+msgstr "Producto terminado"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_follower_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_channel_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_partner_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Contactos)"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__activity_type_icon
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icono de Font Awesome ej. fa-tasks"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__full_name
+msgid "Full name of the line"
+msgstr "Nombre completo"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__gender
+msgid "Gender"
+msgstr "Sexo"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_cattle_type__gender__h_-_female
+msgid "H - Female"
+msgstr "H - Hembra"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__has_natural_wastes
+msgid "Has natural wastes"
+msgstr "Tiene merma natural"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__has_natural_wastes
+msgid "Has natural wastes?."
+msgstr "Tiene merma natural?"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_res_partner__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_stock_location__id
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__id
+msgid "ID"
+msgstr "Identificación"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__short_code
+msgid "IThe code is defined in this field."
+msgstr "El código se define en este campo."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__activity_exception_icon
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__activity_exception_icon
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__is_pz_per_animal
+msgid "Identify piece per animal"
+msgstr "Identifica piezas por animal"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__message_unread
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__message_needaction
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado hay nuevos mensajes que requieren su atención."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__message_has_sms_error
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__message_has_error
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_ticket_scheduling__state__in_progress
+msgid "In progress"
+msgstr "En progreso"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__overweight_fee
+msgid "In this field it is requested to add the sacrifice quota."
+msgstr "En este campo se solicita agregar las cotizaciones de sacrificio."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__sow_quota
+msgid "In this field it is required to assign quota per sow."
+msgstr "En este campo se requiere asignar cuota por marrana."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__city_id
+msgid "In this field the catalog of city will be displayed."
+msgstr "En este campo se mostrará el catálogo de la ciudad."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__country_id
+msgid "In this field the catalog of countries will be displayed."
+msgstr "En este campo se mostrará el catálogo de países."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__provincia_id
+msgid "In this field the catalog of provincia will be displayed."
+msgstr "En este campo se desplegará el catálogo de ciudades."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__concept_type
+msgid ""
+"In this field the different types of concepts that exist will be shown."
+msgstr ""
+"En este campo se mostrarán los diferentes tipos de conceptos que existen."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__movement_type
+msgid "In this field the different types of movements will be shown.."
+msgstr "En este campo se mostrarán los diferentes tipos de movimientos."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__gender
+msgid "In this field the genus of the species is defined."
+msgstr "En este campo se define el género de la especie."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__locality_id
+msgid "In this field the locality will be defined."
+msgstr "En este campo se definirá la localidad."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__name_passage_concept
+msgid "In this field the name of the passage concept will be defined."
+msgstr "En este campo se definirá el nombre del concepto de pesaje."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__reference
+msgid "In this field the reference of the site of origin will be specified."
+msgstr "En este campo se especificará la referencia del lugar de origen."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__fee_per_head
+msgid "In this field the user is asked to add the fee per head."
+msgstr "En este campo se le pide al usuario que agregue la tarifa por cabeza."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__receive_source_reference
+msgid ""
+"In this field the user specified if it is required to receive a referral to "
+"enter the trail."
+msgstr ""
+"En este campo el usuario especificara si requiere recibir remisión para "
+"ingresar al rastro."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__sending_files
+msgid ""
+"In this field, the sending of files grouped in this classification will be "
+"defined."
+msgstr ""
+"En este campo se definirá el envío de archivos agrupados en esta "
+"clasificación."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__is_overweight_fee
+msgid "In this field, the user is asked if they drive due to overweight."
+msgstr "En este campo se pregunta al usuario si maneja cuota por sobrepeso."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__qty_or_percentage
+msgid "Indicates the qty or the percentage depends on the type of waste"
+msgstr "Indica la cantidad o el porcentaje dependiendo del tipo de merma"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__code
+msgid "Internal reference "
+msgstr "Referencia interna"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__partner_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__partner_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__partner_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__partner_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__partner_id
+msgid "Introducer"
+msgstr "Introductor"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.relationship_introducer_type_cattle_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_channels_classification_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_relationship_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_sacrifice_quotas_form
+msgid "Introducer's name and number"
+msgstr "Introductor"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.relationship_introducer_type_cattle
+msgid "Introducer/type of cattle relationship"
+msgstr "Relación introductor/tipo de ganado"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_stock_location
+msgid "Inventory Locations"
+msgstr "Ubicaciones de inventario"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_is_follower
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_is_follower
+msgid "Is Follower"
+msgstr "Es un seguidor"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_res_partner__is_introductory
+#: model:ir.model.fields,field_description:slaughterhouse.field_res_users__is_introductory
+msgid "Is introductory"
+msgstr "Es un introductor"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_stock_location__is_loss_of_inventories
+msgid "Is loss of inventories"
+msgstr "Es perdida de inventario?"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__is_lot_control
+msgid "Is the entry batch controlled by lot."
+msgstr "Control por lote de sacrificio de entrada"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__is_pz_per_animal
+msgid "Is the entry identify per animal."
+msgstr "Identifica piezas por animal"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_res_partner____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_stock_location____last_update
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__write_uid
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__write_uid
+msgid "Last Updated by"
+msgstr "Ultima modificación realizada por"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__write_date
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__write_date
+msgid "Last Updated on"
+msgstr "Ultima modificación realizada el"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_relationship__type_register__leave_entrails
+msgid "Leave entrails"
+msgstr "Dejar vísceras"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__code
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_tree
+msgid "Line"
+msgstr "Línea"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__full_name
+msgid "Line name"
+msgstr "Nombre de linea"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__locality_id
+msgid "Locality"
+msgstr "Localidad"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__location_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__location_id
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughterhouse_relationship
+msgid "Location/by-product/introducer relationship"
+msgstr "Relación Ubicación/subproducto/introductor"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__is_lot_control
+msgid "Lot control"
+msgstr "Control por lote"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__channels_classification__quality__low_quality_+30
+msgid "Low Quality +30"
+msgstr "Baja calidad +30"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__channels_classification__quality__low_quality_chiclan
+msgid "Low Quality Chiclan"
+msgstr "Baja calidad chiclan"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__channels_classification__quality__low_quality_headless
+msgid "Low Quality Headless"
+msgstr "Baja calidad sin cabeza"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__channels_classification__quality__low_quality_machacas
+msgid "Low Quality Machacas"
+msgstr "Baja calidad machacas"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_main_attachment_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjuntos principales"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_has_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de Envío de Mensaje"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__movement_type
+msgid "Movement type"
+msgstr "Tipos de movimientos"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Siguiente plazo de actividad"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__name
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_search
+msgid "Name"
+msgstr "Nombre"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__name_passage_concept
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_passage_concepts_form
+msgid "Name of the passage concept"
+msgstr "Nombre del concepto de pesaje"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__activity_date_deadline
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Siguiente plazo de actividad"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__activity_summary
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de la siguiente actividad"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__activity_type_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__activity_type_id
+msgid "Next Activity Type"
+msgstr "Siguiente tipo de actividad"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__is_lot_control__no
+msgid "No"
+msgstr ""
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_needaction_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_has_error_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_has_error_counter
+msgid "Number of errors"
+msgstr "Numero de errores"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__message_needaction_counter
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__message_has_error_counter
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de envío"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__message_unread_counter
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes no leidos"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_ticket_scheduling_form
+msgid "Operations"
+msgstr "Operaciones"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__origin_site_id
+msgid "Origin site"
+msgstr "Sitio de origen"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__origin_site_name
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_source_sites_form
+msgid "Origin site name"
+msgstr "Nombre del sitio de origen"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughter_source_sites
+msgid "Origin sites"
+msgstr "Sitios de origen"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughter_source_sites_introducer
+msgid "Origin sites/introducer"
+msgstr "Sitios de origen/introductor"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_sacrifice_quotas_form
+msgid "Overweight"
+msgstr "Sobrepeso"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__overweight_fee
+msgid "Overweight fee"
+msgstr "Cuota por sobre peso"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_passage_concepts__movement_type__passage
+msgid "Passage"
+msgstr "Pesaje"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_slaughter_passage_concepts
+msgid "Passage Concepts"
+msgstr "Conceptos de pesaje"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughter_passage_concepts
+msgid "Passage concept"
+msgstr "Conceptos de pesaje"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__waste_type__percent
+msgid "Percent"
+msgstr "Porcentaje"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__apportion_based_on__piece_weight
+msgid "Piece weight"
+msgstr "Peso promedio por pieza"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__pz_per_animal_qty
+msgid "Pieces per animal"
+msgstr "Número  de piezas por animal"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__primary_code
+msgid "Primary Code"
+msgstr "Código primario"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_form
+msgid "Primary Product"
+msgstr "Producto primario"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__product_id
+msgid "Primary product"
+msgstr "Producto primario"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__product_id
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_search
+msgid "Product"
+msgstr "Producto"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_form
+msgid "Product Name"
+msgstr "Nombre del producto"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__product_code_channel
+msgid "Product code in channel"
+msgstr "Código de producto en canal"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__provincia_id
+msgid "Provincia"
+msgstr ""
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_passage_concepts__concept_type__purchase
+msgid "Purchase"
+msgstr "Compra"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__quality
+msgid "Quality"
+msgstr "Calidad"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__waste_type__qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__pz_per_animal_qty
+msgid "Quantity of pieces per animal"
+msgstr "Número  de piezas por animal"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__qty_or_percentage
+msgid "Quantity or Percentage"
+msgstr "Cantidad/Porcentaje"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__rank
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_channels_classification_form
+msgid "Rank"
+msgstr "Rango"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__classification__raw_material
+msgid "Raw Material"
+msgstr "Materia prima"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__record_control
+msgid "Record Control"
+msgstr "Control de registro"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_kanban
+msgid "Record Control:"
+msgstr "Control de registro:"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.relationship_introducer_type_cattle_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_passage_concepts_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_source_sites_introducer_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_source_sites_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_ticket_scheduling_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_channels_classification_kanban_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_configuration_kanban_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_relationship_kanban_search
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_sacrifice_quotas_kanban_search
+msgid "Records"
+msgstr "Registros"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_cattle_type_search
+msgid "Records cattle type"
+msgstr "Registros tipo de ganado"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_types_forfeiture_search
+msgid "Records forfeiture"
+msgstr "Registros decomisos"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__reference
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__reference
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__reference
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_tree
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_relationship_introducer_type_cattle
+msgid "Relationship Introducer Type Cattle"
+msgstr "Relación introductor/tipo de ganado"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.relationship_action
+msgid "Relationship Table"
+msgstr "Relación Ubicación/subproducto/introductor"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.relationship_introducer_type_cattle_action
+msgid "Relationship introducer type cattle"
+msgstr "Relación introductor/tipo ganado"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__activity_user_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__responsible_site
+msgid "Responsible for the site"
+msgstr "Responsable del sitio"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_has_sms_error
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega del SMS"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_sacrifice_quotas
+#: model:ir.ui.menu,name:slaughterhouse.slaughterhouse_sacrifice_quotas
+msgid "Sacrifice quotas"
+msgstr "Cuotas de sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughterhouse_sacrifice_quotas_action
+msgid "Sacrifice quotas Table"
+msgstr "Cuotas de sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_passage_concepts__concept_type__sale
+msgid "Sale"
+msgstr "Venta"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_search
+msgid "Search Slaughter Sub Product Identification"
+msgstr "Búsqueda de identificación de subproductos"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_search
+msgid "Search Slaughter line"
+msgstr "Búsqueda de líneas de sacrificio"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_search
+msgid "Secondary Code"
+msgstr "Código secundario"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_form
+msgid "Secondary Product"
+msgstr "Producto secundario"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__secondary_code
+msgid "Secondary code"
+msgstr "Código secundario"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__secondary_code
+msgid "Secondary code of the sub-product"
+msgstr "Código secundario del subproducto"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__sending_files
+msgid "Sending files grouped in this classification."
+msgstr "Envío de archivos de sacrificio agrupados en esta clasificación."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__sequence
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__sequence
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__sequence
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__sequence
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__sequence
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__sequence
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__sequence
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__sequence
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__sequence
+msgid "Sequence"
+msgstr "Secuencía"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__sequence_line
+msgid "Sequence Line"
+msgstr "Línea de secuencía"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__sequence_line
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__sequence_line
+msgid "Sequence line"
+msgstr "Línea de secuencia"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_passage_concepts__concept_type__shipment
+msgid "Shipment"
+msgstr "Embarque"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__short_code
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__short_code
+msgid "Short code"
+msgstr "Código corto"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughterhouse_slaughter
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.res_partner_modify
+msgid "Slaughter"
+msgstr "Sacrificio"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_form
+msgid "Slaughter Line"
+msgstr "Línea de sacrificio"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_tree
+msgid "Slaughter Lines"
+msgstr "Líneas de sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughter_sub_product_identification_action
+msgid "Slaughter Sub Product Ientification"
+msgstr "Identificación de subproductos"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.action_window
+msgid "Slaughter Table"
+msgstr "Sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughter_line
+msgid "Slaughter and cutting lines"
+msgstr "Líneas de sacrificio y corte"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__apportion_based_on__slaughter_count
+msgid "Slaughter count"
+msgstr "Numero de animal sacrificado"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__slaughter_date
+msgid "Slaughter date"
+msgstr "Fecha de sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_slaughter_line
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__slaughter_line
+msgid "Slaughter line"
+msgstr "Línea de sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughter_line_action
+msgid "Slaughter lines"
+msgstr "Líneas de sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughter_passage_concepts_action
+msgid "Slaughter passage concepts"
+msgstr "Conceptos de pesaje"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughter_source_sites_action
+msgid "Slaughter source sites"
+msgstr "Sitios de origen"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughter_source_sites_introducer_action
+msgid "Slaughter source sites introducer"
+msgstr "Sitios de origen/introductor"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_slaughter_ticket_scheduling
+#: model:ir.ui.menu,name:slaughterhouse.slaughter_ticket_scheduling
+msgid "Slaughter ticket scheduling"
+msgstr "Programación de entradas a sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughter_ticket_scheduling_action
+msgid "Slaughter ticket scheduling window"
+msgstr "Programación de entradas a sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_slaughterhouse_slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.menu_root
+#: model:ir.ui.menu,name:slaughterhouse.slaughterhouse
+msgid "Slaughterhouse"
+msgstr "Sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__sort_code
+msgid "Sort code"
+msgstr "Código de clasificación"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__sow_quota
+msgid "Sow quota"
+msgstr "Cuota marrana"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_source_sites
+#: model:ir.model,name:slaughterhouse.model_specie_catalog
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughterhouse_sacrifice_quotas_form
+msgid "Specie"
+msgstr "Nombre de la especie"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughter_specie_catalog
+msgid "Specie catalog"
+msgstr "Especies"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughter_specie_catalog_action
+msgid "Specie catalog window"
+msgstr "Tipo de especie"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__specie_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__specie_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__specie_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__specie_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__specie_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__specie_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__specie_id
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__name
+msgid "Species name"
+msgstr "Nombre de la especie"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__specie_id
+msgid "Species that exist in the BD"
+msgstr "Especies existente en el sistema."
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__types_forfeiture__type__standing_animal
+msgid "Standing Animal"
+msgstr "Animal en Pie"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__channels_classification__classification_type__standing_weight
+msgid "Standing Weight"
+msgstr "Peso en pie"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__standing_weight
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_form
+msgid "Standing weight"
+msgstr "Peso rola en pie"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_kanban
+msgid "Standing weight:"
+msgstr "Peso rola en pie"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__starting_range
+msgid "Starting rank"
+msgstr "Rango inicial"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__starting_weight_over_weight
+msgid "Starting weight over weight"
+msgstr "Peso inicial sobre peso"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__state
+msgid "State"
+msgstr "Provincia"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__activity_state
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Vencida: la fecha tope ya ha pasado\n"
+"Hoy: La fecha tope es hoy\n"
+"Planificada: futuras actividades."
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_slaughter_sub_product_identification
+#: model:ir.ui.menu,name:slaughterhouse.slaughter_sub_product_identification
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_tree
+msgid "Sub Product Identification"
+msgstr "Identificación de subproductos"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__sub_product_type_id
+msgid "Sub Product Type"
+msgstr "Tipos de subproducto"
+
+#. module: slaughterhouse
+#: model:ir.ui.menu,name:slaughterhouse.slaughter_sub_product_type
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_type_form
+msgid "Sub product type"
+msgstr "Tipos de subproducto"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughter_sub_product_type_action
+msgid "Sub product type action"
+msgstr "Tipos de subproducto"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_type_tree
+msgid "Sub product types"
+msgstr "Tipos de subproducto"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__product_code_channel
+msgid "The channel product code will be defined in this field."
+msgstr "El código del canal es definido aqui"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__description_sort_code
+msgid "The classification code description will be defined in this field."
+msgstr "La descripción de la clasificación es definida en este campo"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__sort_code
+msgid "The classification code will be defined in this field."
+msgstr "El código de clasificación es definido en este campo"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__name
+msgid "The description is defined in this field"
+msgstr "La descripción se define en este campo."
+
+#. module: slaughterhouse
+#: code:addons/slaughterhouse/models/channels_classification.py:0
+#, python-format
+msgid "The final range cannot be a negative number!."
+msgstr "El rango final no puede ser un valor negativo!"
+
+#. module: slaughterhouse
+#: code:addons/slaughterhouse/models/channels_classification.py:0
+#, python-format
+msgid "The final range must be greater than the initial value!."
+msgstr "El valor final debe ser mayor que el valor inicial"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__final_rank
+msgid "The final range will be defined in this field."
+msgstr "El valor final es definido en este campo."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__starting_range
+msgid "The initial range will be defined in this field."
+msgstr "El valor inicial es definido en este campo."
+
+#. module: slaughterhouse
+#: code:addons/slaughterhouse/models/channels_classification.py:0
+#: code:addons/slaughterhouse/models/channels_classification.py:0
+#, python-format
+msgid ""
+"The initial weight, overlaps with the classification code  ,whose range is  "
+"impossible to continue!!."
+msgstr ""
+"El peso inicial se superpone con el código de clasificación  ,el cual tiene "
+"un rango de  por lo que es imposible continuar!!."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__code
+msgid "The internal reference is specified in this field."
+msgstr "La referencia interna se especifica en este campo."
+
+#. module: slaughterhouse
+#: code:addons/slaughterhouse/models/slaughter_line.py:0
+#, python-format
+msgid "The line [{}] is already registered: "
+msgstr "La línea [{}] ya está registrada en el sistema: "
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__partner_id
+msgid "The livestock supplier will be chosen in this field."
+msgstr "El proveedor de ganado será elegido en este campo."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__origin_site_name
+msgid "The name of the source site will be specified in this field"
+msgstr "El nombre del sitio de origen se especificará en este campo."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__responsible_site
+msgid "The person responsible for the site will be specified in this field."
+msgstr "En este campo se especificará la persona responsable del sitio."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_res_partner__is_introductory
+#: model:ir.model.fields,help:slaughterhouse.field_res_users__is_introductory
+msgid "The purpose of this field is to know if the contact is an introducer"
+msgstr "El contacto es un introductor?"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_stock_location__is_loss_of_inventories
+msgid ""
+"The purpose of this field is to know if the location is lost from inventory"
+msgstr "La ubicación es una ubicación de perdida?"
+
+#. module: slaughterhouse
+#: code:addons/slaughterhouse/models/slaghter_source_sites_introducer.py:0
+#, python-format
+msgid ""
+"The same introducer:  /origin:  relationship cannot be established more than"
+" once."
+msgstr ""
+"Introductor:  / origen:  la relación no se puede establecer más de una vez."
+
+#. module: slaughterhouse
+#: code:addons/slaughterhouse/models/relationship_introducer_type_cattle.py:0
+#, python-format
+msgid ""
+"The same introducer:  cannot be established with the same type of cattle: "
+msgstr ""
+"El mismo introductor:  no se puede establecer con el mismo tipo de ganado: "
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__short_code
+msgid "The short code is specified in this field"
+msgstr "El código corto se especifica en este campo"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__name
+msgid "The species of cattle is defined in this field."
+msgstr "El nombre de la especie es asignado en este campo"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__reference
+msgid "The species reference is defined in this field."
+msgstr "La referencia de especie se define en este campo."
+
+#. module: slaughterhouse
+#: code:addons/slaughterhouse/models/channels_classification.py:0
+#, python-format
+msgid "The starting range cannot be a negative number!."
+msgstr "El rango inicial no puede ser un valor negativo"
+
+#. module: slaughterhouse
+#: code:addons/slaughterhouse/models/slaughter_sub_product_type.py:0
+#, python-format
+msgid "The sub product code [{}] is already registered: "
+msgstr "El subproducto[{}] ya está registrado en el sistema: "
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__code
+msgid "The sub product code is defined in this field"
+msgstr "El código de subproducto es definido en este campo"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__apportion_based_on__total_channel_weight
+msgid "Total channel weight"
+msgstr "Total de peso en canales"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__apportion_based_on__total_standing_weight
+msgid "Total standing weight"
+msgstr "Total de peso en pie"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_passage_concepts__concept_type__transfer
+msgid "Transfer"
+msgstr "Transferencia"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__classification_type
+msgid "Type Classification"
+msgstr "Tipo de clasificación"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__type_register
+msgid "Type of register"
+msgstr "Tipo de registro"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__sub_product_type_id
+msgid "Type of sub product"
+msgstr "Tipo de subprodcuto"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__activity_exception_decoration
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción registrada."
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_slaughter_sub_product_type
+msgid "Type of the sub product"
+msgstr "Tipo de subproductos"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_kanban
+msgid "Type of the sub product:"
+msgstr "Tipo de subproductos:"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__waste_type
+msgid "Type pf waste."
+msgstr "Tipo de merma"
+
+#. module: slaughterhouse
+#: model:ir.model,name:slaughterhouse.model_slaughter_relationship
+#: model:ir.model,name:slaughterhouse.model_types_forfeiture
+#: model:ir.ui.menu,name:slaughterhouse.slaughter_types_forfetire
+msgid "Types Forfeiture"
+msgstr "Tipos de decomiso"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughter_types_forfeiture_action
+msgid "Types Forfeiture window"
+msgstr "Tipo de decomiso"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_form
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_sub_product_identification_tree
+msgid "UOM"
+msgstr "Unidad de medida"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__product_uom_id
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__product_uom_id
+msgid "Unit of measure of the sub-product"
+msgstr "Unidad de medida del subproducto"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_unread
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes sin leer"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__message_unread_counter
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Nº de mensajes sin leer"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__waste_type
+msgid "Waste type"
+msgstr "Tipo de merma"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_channels_classification__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_relationship_introducer_type_cattle__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_cattle_type__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_line__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_passage_concepts__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_relationship__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_type__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_ticket_scheduling__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughterhouse_slaughterhouse__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_specie_catalog__website_message_ids
+#: model:ir.model.fields,field_description:slaughterhouse.field_types_forfeiture__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_channels_classification__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_relationship_introducer_type_cattle__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_sacrifice_quotas__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_cattle_type__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_passage_concepts__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_relationship__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_source_sites_introducer__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_identification__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_sub_product_type__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_ticket_scheduling__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_slaughterhouse_slaughterhouse__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_source_sites__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_specie_catalog__website_message_ids
+#: model:ir.model.fields,help:slaughterhouse.field_types_forfeiture__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_form
+msgid "Weight in kg"
+msgstr "Peso en kg"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_sub_product_identification__weight_per_pz
+msgid "Weight per piece"
+msgstr "Peso por pieza"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__channel_weight
+msgid "Weight when is in the channel"
+msgstr "Peso cuando está en el canal"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,help:slaughterhouse.field_slaughter_line__standing_weight
+msgid "Weight when is standing"
+msgstr "Peso cuando esta en pie"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_passage_concepts__concept_type__won
+msgid "Won"
+msgstr "Ganado"
+
+#. module: slaughterhouse
+#: model:ir.model.fields.selection,name:slaughterhouse.selection__slaughter_sub_product_identification__is_lot_control__yes
+msgid "Yes"
+msgstr "Si"
+
+#. module: slaughterhouse
+#: model_terms:ir.actions.act_window,help:slaughterhouse.slaughter_sub_product_type_action
+msgid "You must define a type for everything sub products."
+msgstr "Definir el tipo a cada subproducto existente."
+
+#. module: slaughterhouse
+#: model_terms:ir.actions.act_window,help:slaughterhouse.slaughter_sub_product_identification_action
+msgid "You must define an identification for everything sub products."
+msgstr "Definir un identificador a cada subproducto existente."
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_sacrifice_quotas__is_overweight_fee
+msgid "is overweight fee"
+msgstr "Maneja cuota por sobre peso"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.slaughter_line_kanban
+msgid "kg"
+msgstr ""
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_source_sites__partner_id
+msgid "livestock supplier"
+msgstr "Proveedor de ganado"
+
+#. module: slaughterhouse
+#: model:ir.model.fields,field_description:slaughterhouse.field_slaughter_source_sites_introducer__receive_source_reference
+msgid "requires receiving referral of origin to enter the trail"
+msgstr "Requiere recibir remisión para ingresar al rastro"
+
+#. module: slaughterhouse
+#: model_terms:ir.ui.view,arch_db:slaughterhouse.res_partner_modify
+msgid "slaughter"
+msgstr "Sacrificio"
+
+#. module: slaughterhouse
+#: model:ir.actions.act_window,name:slaughterhouse.slaughter_cattle_type_action
+msgid "slaughter cattle type window"
+msgstr "Tipo de ganado"

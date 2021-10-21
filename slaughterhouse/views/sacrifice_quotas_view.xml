@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="slaughterhouse_sacrifice_quotas_tree">
+            <field name="name">Sacrifice quotas list</field>
+            <field name="model">sacrifice.quotas</field>
+            <field name="arch" type="xml">
+                <tree sample="1">
+                    <field name="sequence" widget="handle"/>
+                    <field name="partner_id"/>
+                    <field name="specie_id" optional="show"/>
+                    <field name="fee_per_head" optional="show"/>
+                    <field name="sow_quota" optional="show"/>
+                    <field name="is_overweight_fee" optional="show"/>
+                    <field name="starting_weight_over_weight" optional="show"/>
+                    <field name="final_weight_over_weight" optional="show"/>
+                    <field name="overweight_fee" optional="show"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="slaughterhouse_sacrifice_quotas_form">
+            <field name="name">Sacrifice quotas form</field>
+            <field name="model">sacrifice.quotas</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group>
+                            <field name="partner_id" attrs="{'required': 1 }" domain="[('category_id.name', '=', 'Introductor')]"
+                                   options="{'no_create':True}"
+                                   placeholder="Introducer's name and number"/>
+                        </group>
+                        <group>
+                            <group string="Specie" style="float:left;">
+                                <field name="specie_id" attrs="{'required': 1 }"  options="{'no_create':True}"/>
+                                <field name="fee_per_head" attrs="{'required': 1 }" options="{'no_create':True}"/>
+                                <field name="sow_quota" options="{'no_create':True}"/>
+                            </group>
+                            <group string="Overweight" style="float:right;">
+                                <field name="is_overweight_fee"/>
+                                <field name="starting_weight_over_weight" attrs="{'invisible': [('is_overweight_fee','!=',True)]}"/>
+                                <field name="final_weight_over_weight" attrs="{'invisible': [('is_overweight_fee','!=',True)]}"/>
+                                <field name="overweight_fee" attrs="{'invisible': [('is_overweight_fee','!=',True)]}"/>
+                                <field name="active" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="slaughterhouse_sacrifice_quotas_kanban">
+            <field name="name">Sacrifice quotas kanban</field>
+            <field name="model">sacrifice.quotas</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong class="o_kanban_record_title">
+                                            <span>
+                                                <field name="partner_id"/>
+                                                <field name="active" invisible="1"/>
+                                            </span>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                        <div>
+                                            <span>
+                                                <strong>Specie:&#160;</strong>
+                                                <field name="specie_id"/>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <strong>Fee per head:&#160;</strong>
+                                                <field name="fee_per_head"/>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <strong>Handle fee per head:&#160;</strong>
+                                                <field name="is_overweight_fee"/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="slaughterhouse_sacrifice_quotas_kanban_search">
+            <field name="name">Sacrifice quotas form</field>
+            <field name="model">sacrifice.quotas</field>
+            <field name="arch" type="xml">
+                <search string="Records">
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                    <field name="partner_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="slaughterhouse_sacrifice_quotas_action">
+            <field name="name">Sacrifice quotas Table</field>
+            <field name="res_model">sacrifice.quotas</field>
+            <field name="view_mode">tree,form,search,kanban</field>
+        </record>
+
+        <!-- Top menu item -->
+
+        <!-- menu categories -->
+        <menuitem id="slaughterhouse_sacrifice_quotas" name="Sacrifice quotas"
+                  parent="slaughterhouse.slaughterhouse_slaughter"
+                  action="slaughterhouse_sacrifice_quotas_action" sequence="9"/>
+    </data>
+</odoo>

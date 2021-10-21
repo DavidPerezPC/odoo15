@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_slaughterhouse,slaughterhouse,model_slaughterhouse_slaughterhouse,base.group_user,1,1,1,1
+access_slaughter_cattle_type,slaughter_cattle_type,model_slaughter_cattle_type,base.group_user,1,1,1,1
+access_slaughter_line,slaughter_line,model_slaughter_line,base.group_user,1,1,1,1
+access_slaughter_sub_product_type,slaughter_sub_product_type,model_slaughter_sub_product_type,base.group_user,1,1,1,1
+access_slaughter_sub_product_identification,slaughter_sub_product_identification,model_slaughter_sub_product_identification,base.group_user,1,1,1,1
+access_channels_classification,channels_classification,model_channels_classification,base.group_user,1,1,1,1
+access_relationship,relationship,model_slaughter_relationship,base.group_user,1,1,1,1
+access_sacrifice_quotas,sacrifice_quotas,model_sacrifice_quotas,base.group_user,1,1,1,1
+access_species_catalog,species_catalog,model_specie_catalog,base.group_user,1,1,1,1
+access_type_forfeiture,type_forfeiture,model_types_forfeiture,base.group_user,1,1,1,1
+access_slaughter_ticket_scheduling,slaughter_ticket_scheduling,model_slaughter_ticket_scheduling,base.group_user,1,1,1,1
+
+access_slaughter_source_sites,slaughter_source_sites,model_source_sites,base.group_user,1,1,1,1
+access_slaughter_passage_concepts,slaughter_passage_concepts,model_slaughter_passage_concepts,base.group_user,1,1,1,1
+access_slaughter_source_sites_introducer,slaughter_source_sites_introducer,model_slaughter_source_sites_introducer,base.group_user,1,1,1,1
+access_relationship_introducer_type_cattle,relationship_introducer_type_cattle,model_relationship_introducer_type_cattle,base.group_user,1,1,1,1

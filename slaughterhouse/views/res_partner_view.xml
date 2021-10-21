@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="res_partner_modify" model="ir.ui.view">
+            <field name="name">res.partner.modify</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="is_introductory" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//page[@name='geo_location']" position="after">
+                    <page string="slaughter" name="slaughter_page">
+                        <group colspan="2" col="2">
+                            <separator string="Slaughter" colspan="2"/>
+                            <form id="is_introductory_fields">
+
+                            </form>
+                        </group>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

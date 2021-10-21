@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="slaughterhouse_cattle_type_tree">
+            <field name="name">type of cattle</field>
+            <field name="model">slaughter.cattle.type</field>
+            <field name="arch" type="xml">
+                <tree sample="1">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name" attrs="{'required': 1 }"/>
+                    <field name="gender" attrs="{'required': 1 }" optional="show"/>
+                    <field name="specie_id" attrs="{'required': 1 }" optional="show"/>
+                    <field name="short_code" attrs="{'required': 1 }" optional="show"/>
+                    <field name="code" attrs="{'required': 1 }" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="slaughterhouse_cattle_type_form">
+            <field name="name">Cattle type form</field>
+            <field name="model">slaughter.cattle.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group>
+                            <field name="name" attrs="{'required': 1 }"/>
+                        </group>
+                        <group>
+                            <group style="float:left;">
+                                <field name="gender" attrs="{'required': 1 }"/>
+                                <field name="specie_id" attrs="{'required': 1 }" options="{'no_create':True}"/>
+                                <field name="short_code" attrs="{'required': 1 }"/>
+                                <field name="code" attrs="{'required': 1 }"/>
+                                <field name="active" invisible="1"/>
+                            </group>
+                            <group style="float:right;">
+                                <field name="active" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="slaughterhouse_cattle_type_search">
+            <field name="name">slacattle type search </field>
+            <field name="model">slaughter.cattle.type</field>
+            <field name="arch" type="xml">
+                <search string="Records cattle type">
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="slaughter_cattle_type_action">
+            <field name="name">slaughter cattle type window</field>
+            <field name="res_model">slaughter.cattle.type</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+
+        <!-- menu categories -->
+        <menuitem id="slaughter_cattle_type" action="slaughter_cattle_type_action" name="Cattle type catalog"
+                  parent="slaughterhouse.slaughterhouse_entrance_booth" sequence="4"/>
+    </data>
+</odoo>

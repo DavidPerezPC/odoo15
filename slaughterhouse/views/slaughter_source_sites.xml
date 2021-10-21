@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="slaughter_source_sites_tree">
+            <field name="name">Slaughter source sites tree</field>
+            <field name="model">source.sites</field>
+            <field name="arch" type="xml">
+                <tree sample="1">
+                    <field name="sequence" widget="handle"/>
+                    <field name="origin_site_name"/>
+                    <field name="reference" optional="show"/>
+                    <field name="partner_id" optional="show"/>
+                    <field name="responsible_site" optional="show"/>
+                    <field name="country_id" optional="show"/>
+                    <field name="provincia_id" optional="show"/>
+                    <field name="city_id" optional="hide"/>
+                    <field name="locality_id" optional="hide"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="slaughter_source_sites_form">
+            <field name="name">Slaughter source sites form</field>
+            <field name="model">source.sites</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                         <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group>
+                            <field name="origin_site_name" attrs="{'required': 1 }" placeholder="Origin site name"/>
+                        </group>
+                        <group>
+                            <group style="float:left;">
+                                <field name="reference" attrs="{'required': 1 }"/>
+                                <field name="partner_id" attrs="{'required': 1 }" options="{'no_create':True}" domain="[('category_id.name', '=', 'Proveedor de ganado')]"/>
+                                <field name="responsible_site" attrs="{'required': 1 }" options="{'no_create':True}"/>
+                            </group>
+                            <group style="float:right;">
+                                <field name="country_id" attrs="{'required': 1 }" options="{'no_create':True}"/>
+                                <field name="provincia_id" attrs="{'required': 1 }" options="{'no_create':True}" domain="[('country_id', '=', country_id)]"/>
+                                <field name="city_id" attrs="{'required': 1 }" options="{'no_create':True}" domain="[('state_id', '=', provincia_id)]"/>
+                                <field name="locality_id" attrs="{'required': 1 }"/>
+                                <field name="active" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="slaughter_source_sites_kanban">
+            <field name="name">Slaughter source sites Kanban</field>
+            <field name="model">source.sites</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong class="o_kanban_record_title">
+                                            <span>
+                                                <field name="partner_id"/>
+                                                <field name="active" invisible="1"/>
+                                            </span>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                        <div>
+                                            <span>
+                                                <strong>Origin site name:&#160;</strong>
+                                                <field name="origin_site_name"/>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <strong>Reference:&#160;</strong>
+                                                <field name="reference"/>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <strong>Responsible Site:&#160;</strong>
+                                                <field name="responsible_site"/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="slaughter_source_sites_search">
+            <field name="name">Slaughter Source Sites Search</field>
+            <field name="model">source.sites</field>
+            <field name="arch" type="xml">
+                <search string="Records">
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                    <field name="partner_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="slaughter_source_sites_action">
+            <field name="name">Slaughter source sites</field>
+            <field name="res_model">source.sites</field>
+            <field name="view_mode">tree,form,search,kanban</field>
+        </record>
+
+        <menuitem id="slaughter_source_sites" action="slaughter_source_sites_action" name="Origin sites"
+                  parent="slaughterhouse.slaughterhouse_entrance_booth" sequence="2"/>
+    </data>
+</odoo>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="slaughter_ticket_scheduling_tree">
+            <field name="name">Slaughter ticket scheduling</field>
+            <field name="model">slaughter.ticket.scheduling</field>
+            <field name="arch" type="xml">
+                <tree sample="1">
+                    <field name="slaughter_line"/>
+                    <field name="specie_id"/>
+                    <field name="slaughter_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="slaughter_ticket_scheduling_form">
+            <field name="name">Slaughter ticket scheduling form</field>
+            <field name="model">slaughter.ticket.scheduling</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_discard" string="Discard" type="object"/>
+                        <button name="action_cancel" string="Cancel" type="object"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group style="float:left;">
+                                <field name="slaughter_line" attrs="{'required': 1 }" options="{'no_create':True}"/>
+                                <field name="specie_id" attrs="{'required': 1 }" options="{'no_create':True}"/>
+                                <field name="active" invisible="1"/>
+                            </group>
+                            <group style="float:right;">
+                                <field name="slaughter_date" attrs="{'required': 1 }" widget="date"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Operations" name="operations_page">
+                                <p/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="slaughter_ticket_scheduling_search">
+            <field name="name">Slaughter ticket scheduling search</field>
+            <field name="model">slaughter.ticket.scheduling</field>
+            <field name="arch" type="xml">
+                <search string="Records">
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                    <field name="specie_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="slaughter_ticket_scheduling_action">
+            <field name="name">Slaughter ticket scheduling window</field>
+            <field name="res_model">slaughter.ticket.scheduling</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+
+        <!-- menu categories -->
+        <menuitem id="slaughter_ticket_scheduling" action="slaughter_ticket_scheduling_action"
+                  name="Slaughter ticket scheduling"
+                  parent="slaughterhouse" sequence="3"/>
+    </data>
+</odoo>
