@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="inventory_moves_report" model="ir.actions.report">
+        <field name="name">Reporte de ordenes de clientes con nivel de inventario y Duración en días</field>
+        <field name="model">stock.generate.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stock_duration_days.stock_duration_days</field>
+        <field name="report_file">stock_duration_days.stock_duration_days</field>
+        <field name="binding_model_id" ref="model_stock_generate_report"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="export_inventory_xlsx" model="ir.actions.report">
+        <field name="name">Reporte xlsx</field>
+        <field name="model">stock.generate.report</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">stock_duration_days.export_report_xlsx</field>
+        <field name="report_file">Reporte de duración en dias</field>
+    </record>
+
+    <template id="stock_duration_days">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <style>
+                            th, td {
+                            padding: 5px;
+                            font-family: Times New Roman;
+                            font-size:14px;
+                            font-weight: normal;
+                            text-align: center;
+                            vertical-align: middle;
+                            }
+                            th {
+                            color: #AF8127;
+                            font-weight: bold;
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                            }
+                            td {
+                            border-bottom: 1px solid black;
+                            border-collapse: collapse;
+                            }
+                        </style>
+
+                        <h5 style="text-align:center;font-weight:bold;">Reporte de ordenes de clientes con nivel de
+                            inventario y duración en días
+                        </h5>
+                        <t t-if="o.out_of_stock">
+                            <h6>Incluye artículos sin existencia en inventario</h6>
+                        </t>
+                        <t t-else="">
+                            <h6>Articulos con existencia en inventario</h6>
+                        </t>
+
+                        <h6>A la fecha:   
+                            <span t-field="o.end_date"/>
+                        </h6>
+                        <h6>El Consumo Promedio Diario se calcula de las fechas:  
+                            <span t-field="o.initial_date"/>
+                              al:  <span t-field="o.end_date"/>    (
+                            <span t-field="o.months"/>  meses)
+                        </h6>
+
+                        <t t-set="locations" t-value="o.inventory_lines.mapped('location_id')"/>
+                        <t t-set="categories" t-value="o.inventory_lines.mapped('category')"/>
+
+                        <table style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th width="10%" rowspan="2">Artículo</th>
+                                    <th width="55%" rowspan="2">Descripción del Artículo</th>
+                                    <th width="15%" rowspan="2">Unidad</th>
+                                    <th width="5%" rowspan="2">Pendiente de surtir</th>
+                                    <th width="5%" rowspan="2">Inventario Actual</th>
+                                    <th width="2.5%" rowspan="2">Consumo promedio diario</th>
+                                    <th width="2.5%" colspan="2" scope="colgroup">Disponible al surtir</th>
+                                    <tr>
+                                        <th width="2.5%" scope="col">Cantidad de producto</th>
+                                        <th width="2.5%" scope="col">Duración en Días</th>
+                                    </tr>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="locations" t-as="location">
+                                    <tr>
+                                        <td style="text-align:left;" colspan="8">
+                                            <strong style="color: #AF8127">Ubicación:</strong>
+                                            <strong t-esc="location.display_name"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="text-align:left;" colspan="8">
+                                            <strong style="color: #AF8127">Categorias:</strong>
+                                            <t t-foreach="o.category" t-as="categ">
+                                                <strong t-esc="str(categ.name) + ', '"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <t t-set="pendding" t-value="0"/>
+                                    <t t-set="qty_on_hand" t-value="0"/>
+                                    <t t-set="daily_consumption" t-value="0"/>
+                                    <t t-set="qty_product" t-value="0"/>
+                                    <t t-set="products_qty" t-value="0"/>
+
+                                    <tr t-foreach="o.inventory_lines.filtered(lambda line: line.location_id.id == location.id)"
+                                        t-as="a">
+                                        <t t-set="products_qty" t-value="products_qty + 1"/>
+                                        <td>
+                                            <span t-field="a.default_code"/>
+                                        </td>
+                                        <td style='text-align: left;'>
+                                            <span t-field="a.product_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="a.product_uom"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="'{0:,.2f}'.format(a.qty_per_supply)"/>
+                                            <t t-set="pendding" t-value="pendding + a.qty_per_supply"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="'{0:,.2f}'.format(a.qty_on_hand)"/>
+                                            <t t-set="qty_on_hand" t-value="qty_on_hand + a.qty_on_hand"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="a.daily_consumption_average"/>
+                                            <t t-set="daily_consumption"
+                                               t-value="daily_consumption + a.daily_consumption_average"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="a.qty_product"/>
+                                            <t t-set="qty_product" t-value="qty_product + a.qty_product"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="a.duration_days"/>
+                                        </td>
+                                    </tr>
+                                    <td colspan="3">
+                                        <span>Total</span>
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{0:,.2f}'.format(round(pendding, 2))"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{0:,.2f}'.format(round(qty_on_hand, 2))"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{0:,.2f}'.format(round(daily_consumption, 2))"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{0:,.2f}'.format(round(qty_product, 2))"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="daily_consumption &gt; 0">
+                                            <span t-esc="int(round(qty_product/daily_consumption))"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-esc="0"/>
+                                        </t>
+                                    </td>
+
+                                    <tr>
+                                        <td style="border: 0px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="8" style="border: 0px;text-align: left;">
+                                            <strong>Total de articulos mostrados en esta bodega:</strong>
+                                            <span t-esc="products_qty"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

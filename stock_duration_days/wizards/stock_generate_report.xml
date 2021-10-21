@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="stock_generate_report_form_view" model="ir.ui.view">
+        <field name="name">Niveles de inventario en días</field>
+        <field name="model">stock.generate.report</field>
+        <field name="arch" type="xml">
+            <form string="Generar reporte">
+                <header>
+                    <button name="load_inventory" string="Generar" class="btn-primary" type="object"/>
+                    <button name="print_report" string="Imprimir" class="btn_secondary" type="object"/>
+                    <button name="export_report" string="Exportar Excel" class="btn_secondary" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Fechas">
+                            <field name="end_date" widget="date"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                        <group string="Producto">
+                            <field name="location_id" widget="many2many_tags" domain="[('usage','=','internal')]"
+                                   options="{'no_create':True}"/>
+                            <field name="category" widget="many2many_tags" options="{'no_create':True}"/>
+                            <field name="product_ids" widget="many2many_tags" options="{'no_create':True}"/>
+                        </group>
+                        <group string="Calculo de consumo">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <field name="out_of_stock"/>
+                                    </td>
+                                    <td>Procesar articulos sin existencia en inventario</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <field name="consumption_in_months"/>
+                                    </td>
+                                    <td>Calcular consumo en días en los ultimos</td>
+                                    <td>
+                                        <field style="text-align:center" name="months" min="1"/>
+                                    </td>
+                                    <td>meses</td>
+                                </tr>
+                            </table>
+                        </group>
+                    </group>
+                    <field name="inventory_lines">
+                        <tree default_order='location_id asc, duration_days asc' create="false" delete="false"
+                              options="{'no_open':True}"
+                              decoration-warning="duration_days == 0">
+                            <field name="default_code" optional="show"/>
+                            <field name="product_id" optional="show"/>
+                            <field name="product_uom" optional="show"/>
+                            <field name="category" optional="show"/>
+                            <field name="qty_pendding_supply" string="Cantidad reservada" optional="show"/>
+                            <field name="qty_per_supply" string="Pendiente por surtir" optional="show"/>
+                            <field name="qty_on_hand" optional="show"/>
+                            <field name="daily_consumption_average" optional="show"/>
+                            <field name="qty_product" optional="show"/>
+                            <field name="duration_days" optional="show"/>
+                            <field name="company_id" optional="hide"/>
+                            <field name="location_id" optional="hide"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="stock_generate_report_wizard" model="ir.actions.act_window">
+        <field name="name">Accion de wizard</field>
+        <field name="res_model">stock.generate.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
+
+    <menuitem id="load_wizard_product_report" name="Nivel de inventario en días"
+              parent="stock.menu_warehouse_report" action="stock_generate_report_wizard"/>
+</odoo>
