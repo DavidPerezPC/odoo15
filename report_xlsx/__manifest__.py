@@ -15,7 +15,7 @@
      # Modificación para ODOO V15
      "assets": {
         "web.assets_backend": [
-            "report_xlsx/static/src/js/report/action_manager_report.js",
+            "/report_xlsx/static/src/js/report/action_manager_report.js",
         ]
     },
 
