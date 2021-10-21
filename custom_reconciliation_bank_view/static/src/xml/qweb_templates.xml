@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+     <div t-name="custom_reconciliation_line_match" t-inherit="account_accountant.reconciliation.line.match" t-inherit-mode="extension" owl="1">
+        <xpath expr="//table" position="attributes">
+            <attribute name="class" add="sortable_custom"/>
+            <attribute name="id" add="sortableTable"/>
+        </xpath>
+          
+        <xpath expr="//table" position="inside">
+             <thead>
+             </thead>
+        </xpath>  
+        
+          
+        <xpath expr="//thead" position="inside">
+             <script>
+                function sortTable(n) {
+                  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+                  table = document.getElementById("sortableTable");
+                  switching = true;
+                  // Colocar como default el modo ascendente:
+                  dir = "asc";
+                  // ciclo mientras no se hayan ordenado todas las lineas
+                  while (switching) {
+                    // estado inicial: switching como falso:
+                    switching = false;
+                    rows = table.rows;
+                    /* Ciclo a traves de todos los renglones de la tabla (excepto el primero
+                       ya que es el cabecero): */
+                    for (i = 1; i &lt; (rows.length - 1); i++) {
+                      // Estado inicial indicando que no ordene:
+                      shouldSwitch = false;
+                      // Obtener los dos elementos a comparar del renglon actual y el siguiente
+                      x = rows[i].getElementsByTagName("TD")[n];
+                      y = rows[i + 1].getElementsByTagName("TD")[n];
+                      /* Checar si el renglon actual y el siguiente deben ser intercambiados,
+                      basado en la dirección asc o desc: */
+                      if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                          // Si es así, marca como intercambiable y rompe el ciclo:
+                          shouldSwitch = true;
+                          break;
+                        }
+                      } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() &lt; y.innerHTML.toLowerCase()) {
+                          // Si es así, marca como intercambiable y rompe el ciclo:
+                          shouldSwitch = true;
+                          break;
+                        }
+                      }
+                    }
+                    if (shouldSwitch) {
+                      /* Si un intercambio ha sido marcado, realiza el cambio y marca
+                         ese movimiento como hecho: */
+                      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                      switching = true;
+                      // Cada vez que un cambio ha sido hecho, incrementa en 1 el contador:
+                      switchcount ++;
+                    } else {
+                      /* Si un cambio no ha sido hecho y la dirección es asc entonces asigna la dirección desc
+                         y corre el ciclo while nuevamente.*/
+                      if (switchcount == 0 &amp; dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                      }
+                    }
+                  }
+                }
+             </script>
+            <tr>
+                <th onclick="sortTable(0)">Referencia</th>
+                <th onclick="sortTable(1)">Fecha</th>
+                <th onclick="sortTable(2)">Nombre</th>
+                <th/>
+                <th/>
+            </tr>
+         </xpath>
+     </div>
+</templates>
