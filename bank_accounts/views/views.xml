@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="add_field" model="ir.ui.view">
+            <field name="name">add_field</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='l10n_mx_edi_clabe']" position="after">
+                    <field name="x_branch_office"/>
+                    <field name="x_accounts_to_show"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="modify_res_partner_bank" model="ir.ui.view">
+            <field name="name">modify.res.partner.bank</field>
+            <field name="model">res.partner.bank</field>
+            <field name="inherit_id" ref="base.view_partner_bank_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='bank_name']" position="after">
+                    <field name="x_branch_office"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
