@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Template: Sin uso debido a cambios hechos en ODOO v15 -->
+<odoo>
+    <template id="assets_backend" name="custom_reconciliation_bank_view assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/custom_reconciliation_bank_view/static/src/css/style.css"/>
+        </xpath>
+    </template>
+</odoo>
