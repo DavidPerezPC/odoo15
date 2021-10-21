@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+     <t t-name="custom_mrp_control_panel_buttons" t-inherit="mrp_mps.mrp_mps_control_panel_buttons" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div" position="inside">
+            <button type="button" class="btn o_hidden btn-warning o_mrp_mps_replenish1">REABASTECER POR SEPARADO</button>
+        </xpath>
+     </t>
+
+    <t t-name="custom_mrp_mps_production_schedule_buttons" t-inherit="mrp_mps.mrp_mps_production_schedule" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[@title='Replenish']" position="after">
+
+            <button type="button" title="Reabastecer unico" t-attf-class="{{! groups.mrp_mps_show_to_replenish and 'o_hidden' or 'btn btn-warning  o_no_padding o_mrp_mps_procurement1'}}">
+                            REABASTECER POR SEPARADO
+            </button>
+        </xpath>
+     </t>
+
+ </templates>
