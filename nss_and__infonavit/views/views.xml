@@ -6,7 +6,7 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//group[@name='work_permit']" position="after">
+                <xpath expr="//group[@name='has_work_permit']" position="after">
                     <group string="Otros datos">
                         <field name="x_NSS"/>
                         <field name="x_INFONAVIT"/>
