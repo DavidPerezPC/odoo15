@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <record id="custom_addenda_fields_form_inherit" model="ir.ui.view">
+        <field name="name">custom.addenda.fields.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="partner_addenda.account_form_custom"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='x_order_reference']" position="after">
+                <field name="has_addenda" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='x_order_reference']" position="attributes">
+                <attribute name="attrs">{'required': [('has_addenda','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='x_order_reference_date']" position="attributes">
+                <attribute name="attrs">{'required': [('has_addenda','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='x_delivery_reference']" position="attributes">
+                <attribute name="attrs">{'required': [('has_addenda','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='x_delivery_reference_date']" position="attributes">
+                <attribute name="attrs">{'required': [('has_addenda','=',True)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>
