@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <template id="pdf-modify" inherit_id="mrp_account_enterprise.mrp_cost_structure">
+            <xpath expr="//div/t[1]" position="before">
+                <div class="row">
+                    <div class="col-7">
+                        <h2 style="font-weight: normal;">
+                            <span t-field="productions.name"/>
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-3" style="font-weight: lighter;">
+                    <strong>Documento de origen:</strong>
+                    <br/>
+                    <span t-field="productions.origin"/>
+                </div>
+                <div class="col-3" style="font-weight: lighter;">
+                    <strong>Responsable:</strong>
+                    <br/>
+                    <span t-field="productions.user_id.name"/>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>
