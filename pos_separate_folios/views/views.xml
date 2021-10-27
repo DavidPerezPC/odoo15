@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="pos_separate" model="ir.ui.view">
+            <field name="name">pos.separate</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='session_id']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='date_order']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='pos_reference']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='pos_reference']" position="after">
+                    <field name="x_pos_invoice" invisible="1"/>
+                    <field name="x_pos_invoice_store" optional="show"/>
+                </xpath>
+
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='employee_id']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='amount_total']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='state']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="separate_dos" model="ir.ui.view">
+            <field name="name">separate.dos</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='name']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="x_invoice" invisible="1"/>
+                    <field name="x_invoice_store" optional="show"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
