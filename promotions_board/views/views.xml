@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <!--         explicit list view definition -->
+
+        <record model="ir.ui.view" id="view_tree_promotions_board">
+            <field name="name">Promociones Activas</field>
+            <field name="model">promotions.board</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="x_name_promotion"/>
+                    <field name="x_customers"/>
+                    <field name="x_products"/>
+                    <field name="x_route"/>
+                    <field name="x_active"/>
+                    <field name="x_reward_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record id="action_promotions_board" model="ir.actions.act_window">
+            <field name="name">Promociones Activas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">promotions.board</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Promociones activas" id="promotions_board.menu_1" parent="sale.menu_sale_report"
+                  action="action_promotions_board"/>
+
+    </data>
+</odoo>
