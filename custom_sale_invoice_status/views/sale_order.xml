@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="custom_sale_invoice_status_form" model="ir.ui.view">
+            <field name="name">custom.sale.invoice.status.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='586']" position="after">
+                    <button name="586" string="Create Invoice" type="action"
+                            attrs="{'invisible': ['|',('invoice_status', '!=', 'partial_invoiced'), ('state', '!=', 'sale')]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

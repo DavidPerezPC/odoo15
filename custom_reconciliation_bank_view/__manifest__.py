@@ -18,14 +18,8 @@
 
     'depends': ['base','account_accountant','bank_accounts'],
 
-     "assets": {
-        "web.assets_backend": [
-            "custom_reconciliation_bank_view/static/src/css/style.css",
-        ]
-    },
-
     'data': [
-        # 'views/account_templates.xml',
+        'views/account_templates.xml',
     ],
 
     'qweb': [
