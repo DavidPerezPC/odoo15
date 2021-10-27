@@ -11,17 +11,7 @@
     "license": "AGPL-3",
     "external_dependencies": {"python": ["xlsxwriter", "xlrd"]},
     "depends": ["base", "web"],
-
-     # Modificación para ODOO V15
-     "assets": {
-        "web.assets_backend": [
-            "/report_xlsx/static/src/js/report/action_manager_report.js",
-        ]
-    },
-
-    "data": [
-            #"views/webclient_templates.xml",
-        ],
+    "data": ["views/webclient_templates.xml"],
     "demo": ["demo/report.xml"],
     "installable": True,
 }
