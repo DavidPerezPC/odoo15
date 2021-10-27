@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="custom_report_scrap_orders">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <style>
+                            td,p {
+                                font-size:12px;
+                            }
+                        </style>
+                        <t t-set="lang" t-value="es_MX"/>
+                        <div class="page">
+                            <h1 t-field="o.name" class="mt0 float-left"/>
+                            <div class="row mt48 mb32">
+                                <div t-if="o.origin" class="col-auto" name="div_origin">
+                                    <strong>Origen:</strong>
+                                    <p t-field="o.origin"/>
+                                </div>
+                                <div t-if="o.picking_id and not o.origin" class="col-auto" name="div_origin">
+                                    <strong>Origen:</strong>
+                                    <p t-field="o.picking_id.name"/>
+                                </div>
+                                <div class="col-auto" name="div_state">
+                                    <strong>Estado:</strong>
+                                    <p t-field="o.state"/>
+                                </div>
+                                <div class="col-auto" name="div_sched_date">
+                                    <strong>Fecha:</strong>
+                                    <p t-field="o.date_done"/>
+                                </div>
+                            </div>
+                            <table class="table table-sm">
+                                <t t-set="has_barcode"
+                                   t-value="o.product_id and o.product_id.sudo().barcode or o.package_id"/>
+                                <t t-set="has_serial_number" t-value="o.lot_id"/>
+                                <thead>
+                                    <tr>
+                                        <th name="th_product">
+                                            <strong>Producto</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Cantidad</strong>
+                                        </th>
+                                        <th name="th_from" align="left">
+                                            <strong>De</strong>
+                                        </th>
+                                        <th name="th_to">
+                                            <strong>Hasta</strong>
+                                        </th>
+                                        <th name="th_serial_number" class="text-center" t-if="has_serial_number">
+                                            <strong>Lote/Número de serie</strong>
+                                        </th>
+                                        <th name="th_barcode" class="text-center" t-if="has_barcode">
+                                            <strong>Código de barras</strong>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- In case you come across duplicated lines, ask NIM or LAP -->
+                                    <tr>
+                                        <td>
+                                            <span t-field="o.product_id.display_name"/>
+                                            <br/>
+                                            <span t-field="o.product_id.description_picking"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="o.scrap_qty"/>
+                                            <span t-field="o.product_uom_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="o.location_id.display_name"/>
+                                            <t t-if="o.package_id">
+                                                <span t-field="o.package_id"/>
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span t-field="o.scrap_location_id"/>
+                                            </div>
+                                        </td>
+                                        <td class=" text-center h6" t-if="has_serial_number">
+                                            <img t-if="has_serial_number and (o.lot_id)"
+                                                 t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' % ('Code128', o.lot_id.name or o.lot_name, 400, 100)"
+                                                 style="width:100%;height:35px;" alt="Barcode"/>
+
+                                        </td>
+                                        <td class="text-center" t-if="has_barcode">
+                                            <t t-if="product_barcode != o.product_id.barcode">
+                                                <span t-if="o.product_id and o.product_id.barcode">
+                                                    <img t-if="len(o.product_id.barcode) == 13"
+                                                         t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN13', o.product_id.barcode, 400, 100, 0)"
+                                                         style="height:35px" alt="Barcode"/>
+                                                    <img t-elif="len(o.product_id.barcode) == 8"
+                                                         t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN8', o.product_id.barcode, 400, 100, 0)"
+                                                         style="height:35px" alt="Barcode"/>
+                                                    <img t-else=""
+                                                         t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('Code128', o.product_id.barcode, 400, 100, 0)"
+                                                         style="height:35px" alt="Barcode"/>
+
+                                                </span>
+                                                <t t-set="product_barcode" t-value="o.product_id.barcode"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

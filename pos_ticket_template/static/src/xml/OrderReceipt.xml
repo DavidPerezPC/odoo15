@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="point_of_sale.template" xml:space="preserve">
+<t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+<xpath expr="//div[hasclass('pos-receipt-contact')]" position="replace">
+    <div class="pos-receipt" >
+        <t >
+            <h5 class="pos-receipt-center-align">
+                <t t-esc="receipt.company.name" />
+            </h5>
+            <br/>
+        </t>
+        <t t-if="env.pos.config.cod_shop">
+           Casa Matriz:
+              <span t-esc="receipt.company.complete_address || ''"/>
+            <br/>
+        </t>
+        <div class="pos-receipt-contact">
+            <strong>
+            RFC.:
+            <t t-esc="receipt.company.vat"/>
+            <br/>
+                Teléfono:
+                <t t-esc="receipt.company.phone"/>
+            <br/>
+            </strong>
+            <t t-if="!env.pos.config.cod_shop">
+                Dirección:
+                <span t-esc="receipt.company.address || ''"/>
+                <br/>
+            </t>
+            <t>
+                Calle:
+                <span t-esc="env.pos.company.street_name"/>
+                <br/>
+            </t>
+            <t>
+                Nro exterior:
+                <span t-esc="env.pos.company.street_number || ''"/>
+                <br/>
+            </t>
+            <t>
+                Colonia:
+                <span t-if="env.pos.company.l10n_mx_edi_colony" t-esc="env.pos.company.l10n_mx_edi_colony"></span>
+                <br/>
+            </t>
+            <t>
+                Municipio:
+                <span t-esc="env.pos.company.city"></span>
+                <br/>
+            </t>
+            <t>
+                Region:
+                <span t-esc="env.pos.company.state_id[1] || ''"></span>
+                <br/>
+            </t>
+            <t>
+                Referencia:
+                <span t-esc="receipt.company.ref"></span>
+                <br/>
+            </t>
+            <t>
+                Codigo postal:
+                <span t-esc="env.pos.company.zip || ''"></span>
+                <br/>
+            </t>
+            <t>
+                Pais:
+                <span t-esc="env.pos.company.country_id[1] || ''"></span>
+                <br/>
+            </t>
+
+            <t t-if="receipt.cashier">
+                <div class="cashier">
+                    <div>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</div>
+                    <div>Vendedor: <t t-if="env.pos.config.name">
+                                        <t t-esc="env.pos.config.name"/>
+                        - <t t-esc="receipt.cashier" /></t>
+                    </div>
+                </div>
+            </t>
+
+            <t t-if='receipt.client'>
+                <div>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</div>
+                <div style="font-weight:bold;">Cliente:
+                    <t t-if="receipt.client.parent_id">
+                        <t t-esc="receipt.client.parent_id[1]"/>,
+                    </t>   <t t-esc='receipt.client.name'/>
+                    <br/>
+                </div>
+                <div style="font-weight:bold;">Clave:<t t-if="receipt.client.ref" t-esc='receipt.client.ref'/></div>
+                <br/>
+                RFC:
+                <t t-esc="receipt.client.vat"/>
+                <br/>
+                Teléfono:
+                <t t-esc="receipt.client.phone"/>
+                <br/>
+                Dirección:
+                <t t-esc="receipt.client.street"/><t t-esc="receipt.client.street_number"/><br/>
+                <t t-if="receipt.client.l10n_mx_edi_colony" t-esc="receipt.client.l10n_mx_edi_colony"/>,
+                 <t t-if="receipt.client.l10n_mx_edi_locality_id" t-esc="receipt.client.l10n_mx_edi_locality_id"></t>, <span t-if="receipt.client.zip" t-esc="receipt.client.zip"></span><br/>
+                 <t t-esc="receipt.client.city"/>, <t t-esc="receipt.client.state_id[1]"/>, <t t-esc="receipt.client.country_id[1]"/>
+
+                <br/>
+            </t>
+         </div>
+    </div>
+</xpath>
+<xpath expr="//div[hasclass('pos-receipt-contact')]" position="after">
+    <div class="pos-receipt-left-align" style="font-size:12px;">
+        <strong>
+        <t t-if="!receipt.inv_folio and receipt.folio">
+        Folio N°<t t-esc="receipt.folio"/>
+            <br/>
+        </t>
+
+        <t t-if="receipt.date.localestring">
+            Fecha Facturacion:
+            <t t-esc="receipt.date.localestring"/>
+            <br/>
+            <t t-if="receipt.invoice_number">
+               <div> N° Factura:
+               <t t-esc="receipt.invoice_number" /></div>
+            </t>
+        </t><t t-else="">
+            Fecha Pedido:
+            <t t-esc="receipt.date.isostring"/>
+            <br/>
+           </t>
+            <t>
+               <div> N° Pedido:
+               <t t-esc="receipt.name" /></div>
+            </t>
+        </strong>
+          <t t-if="receipt.date.localestring">Forma de pago:
+           <span t-foreach="receipt.paymentlines" t-as="line" t-key="line.cid">
+
+               <t t-if="line.name=='Crédito'" t-esc="line.name + ' a '  + receipt.client.property_payment_term_id[1] "/>
+                  <t t-else="" t-esc="line.name"/>
+
+            </span><!-- <span class="pull-right" t-esc="order.x_l10n_mx_edi_payment_method_id[0]"></span>-<span t-esc="order.x_l10n_mx_edi_payment_method_id[1]"></span>-->
+          </t>
+
+    </div>
+
+</xpath>
+<xpath expr="//div[hasclass('orderlines')]" position="replace">
+
+    <div class="orderlines">
+          <t t-set="discountpromo" t-value="0.00"/>
+           <t t-set="discountsecundary" t-value="0.00"/>
+           <t t-set="discountpreticket" t-value="0.00"/>
+
+        <table style="border-top: 1px solid grey;">
+            <colgroup >
+                <col width="25%"/>
+                <col width="75%"/>
+            </colgroup>
+            <tr name="line_header" style="font-size:10px; border-top: 1px solid grey;border-bottom: 1px solid grey;">
+                <th style="text-align:left;">Producto -</th>
+                <th style="text-align:left;">Descripción</th>
+                <th style="width:100%;"><span></span></th>
+                <th style="width:100%;"><span></span></th>
+            </tr>
+        </table>
+        <table class="receipt-orderlines">
+            <tr name="line_header" style="font-size:10px; font-size:10px; border-top: 1px solid grey; border-bottom: 1px solid grey;">
+                <th style="text-align:left; width:15%;">Cantidad</th>
+                <th style="text-align:left; width:20%;">Unidad</th>
+                <th style="text-align:right; width:20%;">Precio</th>
+                 <th style="text-align:right; width:20%;">Desc</th>
+                <th style="text-align:right; width:25%;">Sub Total</th>
+
+            </tr>
+            <tbody>
+
+                 <t t-foreach="orderlines" t-as="orderline" t-key="orderline.id" style="font-size:9px;" t-if="orderline.price > 0">
+
+                    <tr>
+                        <td style="text-align:left; font-size:9px;" colspan='5'>
+                            <span t-esc="orderline.get_product().default_code"/> - <span t-esc="orderline.get_product().display_name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left; font-size:9px; ">
+                            <t t-set="quantity" t-value="env.pos.format_currency_no_symbol(orderline.quantity)"/>
+                            <span t-esc="quantity" t-options='{"widget": "float", "precision": 2}'/>
+                        </td>
+                        <td style="text-align:left; font-size:9px; ">
+                            <span t-if="orderline.uom_id" t-esc="orderline.get_unit().name"/>
+                            <span t-else="" t-esc="orderline.product.uom_id[1]"/>
+                        </td>
+                        <!--  Precio  -->
+                          <t t-if="!orderline.is_reward_line">
+                             <t t-set="line_price"    t-value="(orderline.get_fixed_lst_price()*env.pos.units_by_id[orderline.product.uom_id[0]].factor)/orderline.get_unit().factor"/>
+                          <!--   <t t-else="" t-set="line_price" t-value="orderline.get_unit_price()"/>-->
+                          </t>
+                           <t t-else="" t-set="line_price" t-value="orderline.get_unit_display_price()">
+                           </t>
+
+                        <td style="text-align:right; font-size:9px;">
+                            <span  t-esc="line_price.toFixed(6)"/>
+                        </td>
+                        <!-- FIN PRECIO-->
+                        <!--  DESCUENTOS  -->
+                        <td style="text-align:right; font-size:9px;">
+                           <t t-set="discountpromo" t-value="discountpromo + (orderline.quantity*orderline.get_fixed_lst_price())*(orderline.discount_promotions/100)"></t>
+                           <!--  <t t-if="orderline.is_reward_line == false" t-esc="discount_tarifa"/>-->
+                            <t t-if="orderline.is_reward_line == false">
+                                <t t-if="!orderline.uom_id">
+                                    <t  t-set="discount_tarifa" t-value="orderline.quantity*(orderline.get_fixed_lst_price()-orderline.get_unit_display_price())"/>
+                                    <t t-set="discountpreticket" t-value="discountpreticket + orderline.quantity*(orderline.get_fixed_lst_price()-orderline.get_unit_display_price())"/>
+                                </t>
+                                <t t-else="" >
+                                    <t t-if="orderline.uom_id==orderline.product.uom_id[0]">
+                                          <t  t-set="discount_tarifa" t-value="orderline.quantity*(orderline.get_fixed_lst_price()-orderline.get_unit_display_price())"/>
+                                    <t t-set="discountpreticket" t-value="discountpreticket + orderline.quantity*(orderline.get_fixed_lst_price()-orderline.get_unit_display_price())"/>
+                                 <!--        <t t-set="discount_tarifa" t-value="env.pos.format_currency(orderline.quantity*(orderline.price_unit_pdf*orderline.descuento_pdf/100))"/>
+                                          <t t-set="discountpreticket" t-value="discountpreticket + orderline.quantity*(orderline.price_unit_pdf*orderline.descuento_pdf/100)"/>-->
+                                         </t>
+                                    <t t-if="orderline.uom_id!=orderline.product.uom_id[0] and orderline.descuento_pdf==0">
+                                        <t t-set="discount_tarifa" t-value="orderline.quantity*(orderline.get_unit_display_price()*(receipt.price_discount/100))"/>
+                                        <t t-set="discountpreticket" t-value="discountpreticket + orderline.quantity*(orderline.get_unit_display_price()*(receipt.price_discount/100))"/>
+                                    </t>
+                                    <t t-else="">
+                                          <t t-if="orderline.price_unit_pdf" t-set="discount_tarifa" t-value="orderline.quantity*(orderline.price_unit_pdf*orderline.descuento_pdf/100)"/>
+                                          <t t-if="orderline.price_unit_pdf" t-set="discountpreticket" t-value="discountpreticket + orderline.quantity*(orderline.price_unit_pdf*orderline.descuento_pdf/100)"/>
+                                    </t>
+                                </t>
+
+                               <t t-esc="discount_tarifa.toFixed(6)"/>
+                            </t>
+                            <t t-else="">
+
+                                <t t-set="discountsecundary" t-value="discountsecundary+ orderline.quantity*(orderline.get_lst_price()-orderline.get_unit_display_price())"/>
+
+                                <t  t-esc="orderline.quantity*orderline.discount.toFixed(6)"/>
+                            </t>
+                        </td>
+                        <!-- FIN DESCUENTOS-->
+                        <!--  SUBTOTAL LINEA  -->
+                         <td style="text-align:right; font-size:9px;">
+                            <span t-esc="env.pos.format_currency(orderline.get_price_without_tax())"/>
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+    </div>
+</xpath>
+<!--  DESCUENTOS  -->
+<!--<xpath expr="//t[@t-foreach='receipt.paymentlines']" position="before" style="font-size:10px;">-->
+    <xpath expr="//div[hasclass('pos-receipt-amount')]" position="replace">
+<!--  <div style="font-size:11px;">
+    Descuento de cliente:
+    <span t-esc="'0'" class="pos-receipt-right-align"/>
+    </div>
+    <div t-if="receipt.global_discount != 0" style="font-size:11px;">
+    Descuento de vendedor:
+    <span t-esc="'0'" class="pos-receipt-right-align"/>
+    </div>-->
+        <div style="font-size:10px;">
+
+            <span>Desc. Precio Tarifa</span>
+            <span  t-if="receipt.total_discount_tarifa" t-esc="env.pos.format_currency(receipt.total_discount_tarifa)" class="pos-receipt-right-align"/>
+            <span t-else="" t-esc="env.pos.format_currency(discountpreticket)" class="pos-receipt-right-align"/>
+        </div>
+        <div style="font-size:10px;">
+            <span>Desc. Promo</span><span t-if="receipt.discountpromo" t-esc="env.pos.format_currency(receipt.discountpromo)" class="pos-receipt-right-align"/>
+        </div>
+         <!--  SUBTOTAL Y TOTAL -->
+        <div style="font-size:11px;">Subtotal<span t-esc="env.pos.format_currency(receipt.subtotal)" class="pos-receipt-right-align"/></div>
+                    <t t-foreach="receipt.tax_details" t-as="tax" t-key="tax.name">
+                        <div  style="font-size:11px;">
+                            <t t-esc="tax.name" />
+                            <span t-esc='env.pos.format_currency_no_symbol(tax.amount)' class="pos-receipt-right-align"/>
+                        </div>
+                    </t>
+
+    <div style="font-size:11px;">
+    <strong>
+    TOTAL:
+    <span t-esc="env.pos.format_currency(receipt.total_with_tax)" class="pos-receipt-right-align"/>
+        <br></br>
+          <t t-esc="receipt.amount_in_words"  class="pos-amount-words"/>
+    </strong><br></br>
+     <t>
+            Límite de crédito:
+            <span  t-if="receipt.client and receipt.client.credit_limit" t-esc="env.pos.format_currency(receipt.client.credit_limit)"  class="pos-receipt-right-align"></span>
+     </t>
+    </div>
+
+
+</xpath>
+    <xpath expr="//t[@t-if='!isTaxIncluded']" position="replace">
+     <div class="pos-receipt-right-align">------------------------------</div>
+     <br/>
+   </xpath>
+    <xpath expr="//t[@t-if='receipt.total_discount']" position="replace">
+        <t t-if="receipt.total_discount">
+            <span></span>
+        </t>
+    </xpath>
+    <xpath expr="//t[@t-if='isTaxIncluded']" position="replace">
+        <t t-if="isTaxIncluded">
+              <span></span>
+            </t>
+   </xpath>
+
+
+<xpath expr="//div[hasclass('pos-receipt-amount') and hasclass('receipt-change')]" position="replace"> </xpath>
+<!--  TOTAL <p style="text-align:center; font-size:8px;"> <xpath expr="//div[hasclass('pos-receipt-amount')]" position="replace"></xpath>-->
+<xpath expr="//div[hasclass('pos-receipt-right-align')]" position="replace"></xpath>
+<xpath expr="//t[@t-foreach='receipt.paymentlines']" position="replace" >
+    <t t-foreach="receipt.paymentlines" t-as="line" t-key="line.cid">
+    <div  style="font-size:10px;">
+    <t t-esc="line.name"/>
+    <span t-esc="env.pos.format_currency_no_symbol(line.amount)" class="pos-receipt-right-align"/>
+    </div>
+    </t>
+   <!--  VUELTO  -->
+     <div style="font-size:10px;">
+    <i>VUELTO</i>
+    <span t-esc="env.pos.format_currency(receipt.change)" class="pos-receipt-right-align"/>
+    </div>
+     </xpath>
+<!--  Footer  -->
+<xpath expr="//div[hasclass('pos-receipt-order-data')]" position="replace">
+
+                                     <div  class="pos-receipt-order-data" style="font-size:10px;">
+                                         <t t-if="!receipt.date.localestring">
+                                             <i class="fa fa-file-text-o"> Este documento no surte efectos fiscales de deducción</i>
+                                         </t>
+                                           <t t-if="receipt.date.localestring">
+                                               <div  class="text-center" style="font-size:10px;">
+                                                <i class="fa">POR ESTE PAGARE ME(NOS) OBLIGO(AMOS) A PAGAR INCONDICIONALMENTE, A LA ORDEN DE <strong> <t t-esc="receipt.company.name" /></strong>, EL DÍA</i>
+                                                 <t t-if="receipt.pos_date_due" t-esc="receipt.pos_date_due" /><t t-else="" t-esc="receipt.date.localestring"/> <i>  EN ESTA CIUDAD, O EN CUALQUIER OTRA QUE SEA(MOS)
+                                                 REQUERIDO(OS) A ELECCION DEL TENEDOR DE ESTE PAGARE EL DIA DEL VENCIMIENTO INDICADO, LA CANTIDAD DE,
+                                                   <t t-esc="env.pos.format_currency(receipt.total_with_tax)"></t> VALOR RECIBIDO
+                                                 EN MERCANCIA.</i>
+                                                 </div>
+                                               <br></br>
+                                                <i > ------------------------------------------</i>
+                                               <br></br>
+                                                <i> Nombre y firma de quien recibe la mercancia</i>
+                                               <br></br>
+                                               <br></br>
+                                                  <i class="fa fa-file-text-o"> Documento sin validez fiscal</i>
+                                           </t>
+                                     </div>
+
+</xpath>
+</t>
+</templates>

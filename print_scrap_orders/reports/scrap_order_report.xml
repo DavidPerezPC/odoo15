@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="custom_report_scrap_order" model="ir.actions.report">
+            <field name="name">Operaciones de desecho</field>
+            <field name="model">stock.scrap</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">print_scrap_orders.custom_report_scrap_orders</field>
+            <field name="report_file">print_scrap_orders.custom_report_scrap_orders</field>
+            <field name="binding_model_id" ref="model_stock_scrap"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>
