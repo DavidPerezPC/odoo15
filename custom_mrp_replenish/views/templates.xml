@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Template: Sin uso debido a cambios hechos en ODOO v15 -->
 <odoo>
     <data>
        <template id="assets_backend" name="custom_mrp_replenish assets" inherit_id="web.assets_backend">

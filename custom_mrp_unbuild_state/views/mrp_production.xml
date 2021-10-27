@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="custom_mrp_production_state_form" model="ir.ui.view">
+            <field name="name">custom.mrp.production.state.form</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='button_mark_done']" position="attributes">
+                    <attribute name="attrs">{'invisible':["|",["state","in",["draft","cancel","done","to_close","unbuild"]],["qty_producing","=",0]]}</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='action_cancel']" position="attributes">
+                    <attribute name="attrs">{'invisible':["|","|",["id","=",False],["state","in",["done","cancel","unbuild"]],["confirm_cancel","=",True]]}</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='358']" position="attributes">
+                    <attribute name="states">done,unbuild</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='467']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('state','not in',('progress','done','unbuild'))]}</attribute>
+                </xpath>
+
+
+                <xpath expr="//field[@name='qty_producing']" position="attributes">
+                    <attribute name="attrs">{'readonly':["|","|",["state","=","cancel"],["state","=","unbuild"],"&amp;",["state","=","done"],["is_locked","=",True]]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='date_planned_start']" position="attributes">
+                    <attribute name="attrs">{'readonly':[["state","in",["done","cancel","unbuild"]]]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[["state","in",["done","cancel","unbuild"]]]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='move_raw_ids']" position="attributes">
+                    <attribute name="attrs">{'readonly':["|","|",["state","=","cancel"],["state","=","unbuild"],"&amp;",["state","=","done"],["is_locked","=",True]]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='workorder_ids']" position="attributes">
+                    <attribute name="attrs">{'readonly':[["state","in",["done","cancel","unbuild"]]]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='move_byproduct_ids']" position="attributes">
+                    <attribute name="attrs">{'readonly':["|","|",["state","=","cancel"],["state","=","unbuild"],"&amp;",["state","=","done"],["is_locked","=",True]]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='origin']" position="attributes">
+                    <attribute name="attrs">{'readonly':[["state","in",["done","cancel","unbuild"]]]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="custom_mrp_production_state_form1" model="ir.ui.view">
+            <field name="name">custom.mrp.production.state.form1</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp_account_enterprise.mrp_production_form_inherit_view6"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='507']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('state','not in',('done','unbuild'))]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

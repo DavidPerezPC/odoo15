@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record id="link_sale_to_invoice_form" model="ir.ui.view">
+            <field name="name">Enlace con factura</field>
+            <field name="model">link.sale.to.invoice</field>
+            <field name="arch" type="xml">
+                <form string="Enlace con factura">
+                    <group>
+                        <group>
+                            <field name="invoice" domain="[('state','=','posted'),('move_type','=','out_invoice')]" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="sale_order" options="{'no_create': True, 'no_open': True}" readonly="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="link" string="Enlazar" type="object" class="btn btn-primary"/>
+                        <button string="Cerrar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

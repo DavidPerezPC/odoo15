@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="pos_link_to_invoice_wizard" model="ir.ui.view">
+            <field name="name">pos.link.to.invoice.wizard</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='refund']" position="after">
+                    <button name="link_pos_to_invoice" attrs="{'invisible': [('state','in',('draft','cancel','paid'))]}"
+                            string="Enlazar factura" groups="base.group_system" type="object" class="btn btn-secondary"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="link_pos_to_invoice_form" model="ir.ui.view">
+            <field name="name">Enlace con factura</field>
+            <field name="model">link.pos.to.invoice</field>
+            <field name="arch" type="xml">
+                <form string="Enlace con factura">
+                    <group>
+                        <group>
+                            <field name="invoice" domain="[('state','=','posted'),('move_type','=','out_invoice')]" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="pos_order" options="{'no_create': True, 'no_open': True}" readonly="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="link_pos" string="Enlazar" type="object" class="btn btn-primary"/>
+                        <button string="Cerrar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
