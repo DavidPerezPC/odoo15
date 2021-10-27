@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <record id="add_tag_cancel_account" model="ir.ui.view">
+            <field name="name">add.tag.cancel.account</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//div[@name='button_box']" position="before">
+                    <!-- Add your fields or attributes here -->
+                    <widget name="web_ribbon" title="Cancelado" bg_color="bg-danger"
+                            attrs="{'invisible': [('state', '!=', 'cancel')]}"/>
+                </xpath>
+
+            </field>
+        </record>
+        
+        <template id="add_markwater_cancel" inherit_id="account.report_invoice_document">
+            <xpath expr="//div[hasclass('page')]" position="inside">
+                <t t-if="o.state == 'cancel'">
+                    <div style="position:absolute; top:300px; left:20px; width:100%; opacity:0.20; height:auto; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(-45deg);">
+                        <div style="font-size:150px;">
+                            <span style="color:#0000;">CANCELADO</span>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+        
+        <template id="add_markwater_cancel_account_move_report" inherit_id="custom_print_account_move.custom_print_account_move">
+            <xpath expr="//div[@class='page']" position="inside">
+                <t t-if="o.state == 'cancel'">
+                    <div style="position:absolute; top:300px; left:20px; width:100%; opacity:0.20; height:auto; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(-45deg);">
+                        <div style="font-size:150px;">
+                            <span style="color:#0000;">CANCELADO</span>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+        
+    </data>
+</odoo>
