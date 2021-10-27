@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="custom_account_bank_statement_form" model="ir.ui.view">
+            <field name="name">custom.account.bank.statement.form</field>
+            <field name="model">custom.account.bank.statement.validate</field>
+            <field name="arch" type="xml">
+                <form string="Validar/Importar Extracto">
+                    <sheet>
+                        <group>
+                            <field name="file_data" filename="file_name"/>
+                        </group>
+                        <group>
+                            <field name="journal_id" options="{'no_create': True}" readonly="True"/>
+                            <field name="company_id" options="{'no_create': True}" invisible="1"/>
+                            <field name="date"/>
+                        </group>
+                        <footer>
+                            <button string="Importar" name="validate_import" type="object" class="btn btn-success"/>
+                            <button string="Cerrar" class="btn-secondary" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="custom_statement_bank_import" model="ir.actions.act_window">
+            <field name="name">Importación De Extractos Bancarios</field>
+            <field name="res_model">custom.account.bank.statement.validate</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="custom_account_bank_statement_form"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

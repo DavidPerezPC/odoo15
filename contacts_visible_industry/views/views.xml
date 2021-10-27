@@ -1,0 +1,15 @@
+<odoo>
+  <data>
+    <!-- Inherit Form View to Modify it -->
+    <record id="visible_industry" model="ir.ui.view">
+        <field name="name">visible.industry</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='industry_id']" position="attributes">
+                <attribute name="attrs">{"invisible": 0}</attribute>
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>
