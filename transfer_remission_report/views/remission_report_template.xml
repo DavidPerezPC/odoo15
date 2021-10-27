@@ -1,0 +1,196 @@
+<odoo>
+    <data>
+        <template id="report_picking_remission" >
+            <t t-call="web.html_container">
+<!--            <t t-call="web.internal_layout">-->
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                    <t t-set="lang" t-value="o.user_id.sudo().lang if o.user_id else o.partner_id.lang"/>
+                    <t  t-if="o.sale_id">
+                    <div class="page" style="position:relative;top: -50px;">
+                        <section class="addresses">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div style="padding: 10px; font-size:10px;">
+                                        <div>VENDIDO A:</div>
+                                        <div>
+                                            <div>
+                                                <span t-field="o.sale_id.partner_invoice_id.display_name"/>,
+                                            </div>
+                                            <div>
+                                                <span t-field="o.sale_id.partner_invoice_id.street"/>, Col. 
+                                                <span t-field="o.sale_id.partner_invoice_id.l10n_mx_edi_colony"/> 
+                                                <span t-field="o.sale_id.partner_invoice_id.zip"/>,
+                                            </div>
+                                            <div>
+                                                <span t-field="o.sale_id.partner_invoice_id.city"/>, 
+                                                <span t-field="o.sale_id.partner_invoice_id.state_id.name"/>, 
+                                                <span t-field="o.sale_id.partner_invoice_id.country_id.name"/>,
+                                            </div>
+                                        </div>
+                                        <span t-if="o.sale_id.partner_invoice_id.vat">
+                                            <t t-if="o.sale_id.company_id.country_id.vat_label" t-esc="o.company_id.country_id.vat_label" id="inv_tax_id_label">R.F.C </t>
+                                            <t t-else="">Tax ID</t>: <span t-field="o.sale_id.partner_invoice_id.vat"/>
+                                        </span>
+                                        <div>
+                                            DÍAS DE CRÉDITO: <span t-if="o.sale_id.payment_term_id">crédito <span t-field="o.sale_id.payment_term_id"/></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div style="padding: 10px; font-size:10px;">
+                                        <div>ENVIAR A:</div>
+                                        <div>
+                                            <div>
+                                                <span t-if="o.sale_id.partner_shipping_id.ref">[<t t-esc="o.sale_id.partner_shipping_id.ref"></t>] - </span>
+                                                <span t-field="o.sale_id.partner_shipping_id.name"/>,
+                                            </div>
+                                            <div>
+                                                <span t-field="o.sale_id.partner_shipping_id.street"/>, Col. 
+                                                <span t-field="o.sale_id.partner_shipping_id.l10n_mx_edi_colony"/> 
+                                                <span t-field="o.sale_id.partner_shipping_id.zip"/>,
+                                            </div>
+                                            <div>
+                                                <span t-field="o.sale_id.partner_shipping_id.city"/>, 
+                                                <span t-field="o.sale_id.partner_shipping_id.state_id.name"/>, 
+                                                <span t-field="o.sale_id.partner_shipping_id.country_id.name"/>,
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-right" style="font-size:14px;">
+                                    <div style="font-size:18px;">
+                                        <strong>REMISION <span t-field="o.name"></span></strong>
+                                    </div>
+                                    <div>
+                                        <strong>Fecha Remision <span t-field="o.date"></span></strong>
+                                    </div>
+                                    <div>
+                                        <strong>Pedido <span t-field="o.sale_id.name" t-if="o.sale_id"></span></strong>
+                                    </div>
+                                    <div>
+                                        <span>Fecha hora de impresion</span>
+                                        <div>
+                                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y %H:%M:%S')"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- detalles -->
+                        <br/>
+                        <t t-set="sale_line_calculated_values" t-value="o.calculate_remission_details()"></t>
+                        <t t-set="sale_values" t-value="o.sale_id"></t>
+                        <t t-set="descto_line_total" t-value="0"/>
+                        <t t-set="iva_total" t-value="0"/>
+                        <t t-set="total_amount_untaxed" t-value="0"/>
+                        <table class="table table-xsm o_main_table" style="font-size: 10px;padding:0px;margin:0px;border-bottom:1px solid lightgray" name="invoice_line_table">
+                            <thead>
+                                <tr class="text-center" style="padding:0px;margin:0px;">
+                                    <th name="th_quantity" style="padding:0px;margin:0px;"><span>CANT.</span></th>
+                                    <th name="th_uom" style="padding:0px;margin:0px;"><span>UM</span></th>
+                                    <th name="th_barcode" style="padding:0px;margin:0px;"><span>CODIGO</span></th>
+                                    <th name="th_description" style="padding:0px;margin:0px;"><span>DESCRIPCIÓN</span></th>
+                                    <th name="th_priceunit" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="padding:0px;margin:0px;"><span>PRECIO</span></th>
+                                    <th name="th_price_discount" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="padding:0px;margin:0px;">
+                                        <span>DESC PROM</span>
+                                    </th>
+                                    <th name="th_subtotal" class="text-right" style="padding:0px;margin:0px;">
+                                        <span groups="account.group_show_line_subtotals_tax_excluded">IMPORTE</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="invoice_tbody"  style="font-size: 9px">
+                                <t t-set="current_subtotal" t-value="0"/>
+                                <t t-set="lines" t-value="[x['line_original'] for x in sale_line_calculated_values.values()]"/>
+
+                                <t t-foreach="lines" t-as="line">
+                                    <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                                    <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+
+                                    <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''" style="padding:0px;margin:0px;" >
+                                        <t t-if="not line.display_type" name="account_invoice_line_accountable">
+                                            <td class="text-center" style="padding:0px;margin:0px;">
+                                                <span t-esc="round(sale_line_calculated_values[line.id]['line_qty'],2)"/>
+                                            </td>
+                                            <td class="text-center" style="padding:0px;margin:0px;">
+                                                <span t-esc="line.product_id.uom_id.name" groups="uom.group_uom"/>
+                                            </td>
+                                            <td class="text-center" style="padding:0px;margin:0px;">
+                                                <span t-field="line.product_id.barcode"/>
+                                            </td>
+                                            <td class="text-left" name="account_invoice_line_name" style="padding:0px;margin:0px;">
+                                                <span t-field="line.product_id.display_name" t-options="{'widget': 'text'}"/>
+                                            </td>
+                                            <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="padding:0px;margin:0px;">
+                                                <span class="text-nowrap" t-field="line.price_unit"/>
+                                            </td>
+                                            <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" style="padding:0px;margin:0px;">
+                                                <span class="text-nowrap">
+                                                    <t t-esc="sale_line_calculated_values[line.id]['discount_promotion']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: sale_values.currency_id}"></t>
+                                                </span>
+                                            </td>
+                                            <td class="text-right o_price_total" style="padding:0px;margin:0px;">
+                                                <span class="text-nowrap">
+                                                    <t t-esc="sale_line_calculated_values[line.id]['total_wo_discount']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: sale_values.currency_id}"></t>
+                                                </span>
+                                            </td>
+                                            <t t-set="descto_line_total" t-value="descto_line_total + sale_line_calculated_values[line.id]['discount_amount']"/>
+                                            <t t-set="iva_total" t-value="iva_total + sale_line_calculated_values[line.id]['total_line_taxes']"/>
+                                            <t t-set="total_amount_untaxed" t-value="total_amount_untaxed + sale_line_calculated_values[line.id]['total_wo_discount']"/>
+                                        </t>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <div class="clearfix" name="rm_total_summary">
+                            <div id="total" class="row" name="total">
+                                <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                                    <table class="table table-sm" style="font-size: 9px;padding:0px;margin:0px;">
+                                        <tr style="padding:0px;margin:0px;">
+                                            <td name="td_amount_untaxed_label" style="padding:0px;margin:0px;">Sub-Total</td>
+                                            <td name="td_amount_untaxed" class="text-right" style="padding:0px;margin:0px;">
+                                                <span t-esc="total_amount_untaxed" t-options='{"widget": "monetary", "display_currency": o.sale_id.currency_id}'/>
+                                            </td>
+                                        </tr>
+                                        <tr style="padding:0px;margin:0px;">
+                                            <td name="td_descto_line_total_label" style="padding:0px;margin:0px;">Descto Linea</td>
+                                            <td name="td_descto_line_total" class="text-right" style="padding:0px;margin:0px;">
+                                                <span t-esc="descto_line_total" t-options='{"widget": "monetary", "display_currency": o.sale_id.currency_id}'/>
+                                            </td>
+                                        </tr>
+                                        <tr style="padding:0px;margin:0px;">
+                                            <td name="td_iva_total_label">IVA</td>
+                                            <td name="td_iva_total" class="text-right">
+                                                <span t-esc="iva_total" t-options='{"widget": "monetary", "display_currency": o.sale_id.currency_id}'/>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-black o_total" style="padding:0px;margin:0px;">
+                                            <td name="td_amount_total_label" style="padding:0px;margin:0px;">Total</td>
+                                            <td name="td_amount_total" class="text-right" style="padding:0px;margin:0px;">
+                                                <span t-esc="total_amount_untaxed + iva_total - descto_line_total" t-options='{"widget": "monetary", "display_currency": o.sale_id.currency_id}'/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <div class="row" style="font-size:10px; padding-left:20px;font-weight: bold;">
+                                <span>Importe </span><span>con </span><span>letra</span><span>: </span>
+                            </div>
+                            <div class="row" style="text-decoration: underline;text-transform: uppercase;font-size:10px;padding-left:20px;">
+                                <span t-esc="o.sale_id._l10n_mx_edi_cfdi_amount_picking_to_text(total_amount_untaxed + iva_total - descto_line_total)"></span>
+                            </div>
+                        </div>
+                    </div>
+                    </t>
+                    <t t-else="">
+                        <h2>Ese reporte solo puede ser impreso desde transferencias relacionadas a ventas</h2>
+                    </t>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

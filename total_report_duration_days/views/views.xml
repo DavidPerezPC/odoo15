@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="new_fields" model="ir.ui.view">
+            <field name="name">new.fields</field>
+            <field name="model">stock.generate.report</field>
+            <field name="inherit_id" ref="stock_duration_days.stock_generate_report_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='inventory_lines']" position="after">
+                    <group string="Totales">
+                        <table style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th width="20%" rowspan="2">Pendiente de surtir</th>
+                                    <th width="20%" rowspan="2">Inventario actual</th>
+                                    <th width="20%" rowspan="2">Consumo promedio diario</th>
+                                    <th width="20%" rowspan="2">Cantidad de producto</th>
+                                    <th width="20%" rowspan="2">Duración días</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <field name="x_sum_qty_pendding_supply"/>
+                                    </td>
+                                    <td>
+                                        <field name="x_sum_qty_on_hand"/>
+                                    </td>
+                                    <td>
+                                        <field name="x_sum_daily_consumption_average"/>
+                                    </td>
+                                    <td>
+                                        <field name="x_sum_qty_product"/>
+                                    </td>
+                                    <td>
+                                        <field name="x_sum_duration_days"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

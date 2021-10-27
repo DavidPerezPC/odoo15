@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="tote_porcentage" model="ir.ui.view">
+            <field name="name">tote.porcentage</field>
+            <field name="model">account.analytic.tag</field>
+            <field name="inherit_id" ref="analytic.account_analytic_tag_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='percentage']" position="attributes">
+                    <attribute name="sum">Sum of Porcentaje</attribute>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
