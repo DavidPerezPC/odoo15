@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+        <!--         explicit list view definition -->
+
+        <record model="ir.ui.view" id="view_tree_order_service">
+            <field name="name">Nivel de servicio</field>
+            <field name="model">order.service.report</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false">
+                    <field name="x_route_pos" optional="show"/>
+                    <field name="x_customer_pos" optional="show"/>
+                    <field name="x_commercial_user_pos" optional="show"/>
+                    <field name="x_receipt_number_pos" optional="show"/>
+                    <field name="x_cashier_pos" optional="show"/>
+                    <field name="x_authorizing_pos" optional="show"/>
+                    <field name="x_product_pos" optional="show"/>
+                    <field name="x_state_pos" optional="show"/>
+                    <field name="x_creation_date_pos" optional="show"/>
+                    <field name="x_authorization_date_pos" optional="show"/>
+                    <field name="x_remaining_days_pos" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record id="action_order_service" model="ir.actions.act_window">
+            <field name="name">Nivel de servicio</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">order.service.report</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Nivel de servicio" id="order_service.menu_1" parent="point_of_sale.menu_point_rep"
+                  action="action_order_service"/>
+
+    </data>
+</odoo>

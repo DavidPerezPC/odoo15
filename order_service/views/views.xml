@@ -1,0 +1,16 @@
+<odoo>
+  <data>
+    <record id="order_service" model="ir.ui.view">
+            <field name="name">order.service</field>
+            <field name="model">pos.autorizacion</field>
+            <field name="inherit_id" ref="pos_autorizacion.pos_autorizacion_tree_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="remaining_days" optional="show"/>
+                </xpath>
+
+            </field>
+        </record>
+  </data>
+</odoo>

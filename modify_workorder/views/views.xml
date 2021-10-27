@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="modify_workorder" model="ir.ui.view">
+            <field name="name">modify workorder</field>
+            <field name="model">mrp.workorder</field>
+            <field name="inherit_id" ref="mrp.mrp_production_workorder_tree_editable_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='date_planned_start']" position="before">
+                    <field name="production_id" optional="show"/>
+                    <field name="product_id" optional="show"/>
+                </xpath>
+
+                 <xpath expr="//field[@name='workcenter_id']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+
+
+            </field>
+        </record>
+    </data>
+</odoo>

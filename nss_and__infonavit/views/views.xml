@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="nss_and_infonavit" model="ir.ui.view">
+            <field name="name">nss.and.infonavit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='work_permit']" position="after">
+                    <group string="Otros datos">
+                        <field name="x_NSS"/>
+                        <field name="x_INFONAVIT"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
