@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_sale_unstamped_document_report"
+                  inherit_id="send_electronic_reports.unstamped_document_report">
+            <xpath expr="//t[@t-if]" position="after">
+                <t t-elif="o.move_type == 'sale_to_invoice'">
+                    <table style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Número de cliente</th>
+                                <th>Nombre del cliente</th>
+                                <th>Fecha de venta</th>
+                                <th>Folio</th>
+                                <th>Comercial</th>
+                                <th>Importe</th>
+                                <th>Estado de factura</th>
+                                <th style="width:20px">Almacén</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="records" t-as="a">
+                                <td t-esc="a.partner_id.ref or ' '"/>
+                                <td t-esc="a.partner_id.name or ' '"/>
+                                <td t-esc="a.date_order or ' '"/>
+                                <td t-esc="a.name or ' '"/>
+                                <td t-esc="a.user_id.name or ' '"/>
+                                <td t-esc="'{0:,.2f}'.format(a.amount_total) or ' '"/>
+                                <td t-esc="a.invoice_status or ' '"/>
+                                <td t-esc="a.warehouse_id.name or ' '"/>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

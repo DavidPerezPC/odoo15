@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_statements_bank_document_report" inherit_id="send_electronic_reports.unstamped_document_report">
+            <xpath expr="//t[@t-if]" position="after">
+                <t t-elif="o.move_type == 'statement_bank'">
+                    <table style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Número de cliente</th>
+                                <th>Nombre del cliente</th>
+                                <th>Fecha contable</th>
+                                <th>Origen</th>
+                                <th>Referencia</th>
+                                <th>Importe</th>
+                                <th>Estatus SAT</th>
+                                <th style="width:20px">Error</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="records" t-as="a">
+                                <td t-esc="a.partner_id.ref or ' '"/>
+                                <td t-esc="a.partner_id.name or ' '"/>
+                                <td t-esc="a.date or ' '"/>
+                                <td t-esc="a.name or ' '"/>
+                                <td t-esc="a.ref or ' '"/>
+                                <td t-esc="'{0:,.2f}'.format(a.amount_total) or ' '"/>
+                                <t t-set="status" t-value="a.l10n_mx_edi_sat_status or ' '"/>
+                                <t t-if="status == 'none'">
+                                    <td t-esc="'Estado no defenido'"/>
+                                </t>
+                                <t t-elif="status == 'undefined'">
+                                    <td t-esc="'No Sincronizado Aún'"/>
+                                </t>
+                                <t t-elif="status == 'not_found'">
+                                    <td t-esc="'No encontrado'"/>
+                                </t>
+                                <t t-elif="status == 'cancelled'">
+                                    <td t-esc="'Cancelado'"/>
+                                </t>
+                                <t t-else="">
+                                    <td t-esc="'Valido'"/>
+                                </t>
+                                <t t-set="error" t-value="' '"/>
+                                <t t-foreach="a.edi_document_ids" t-as="d">
+                                    <t t-if="d.error">
+                                        <t t-set="error" t-value="d.error"/>
+                                    </t>
+                                </t>
+                                <td t-esc="error or ' '"/>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>
