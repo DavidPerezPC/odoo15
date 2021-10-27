@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="res_partner_auto_invoice_send" model="ir.ui.view">
+           <field name="name">res.partner.auto.invoice.send</field>
+           <field name="model">res.partner</field>
+           <field name="inherit_id" ref="account.view_partner_property_form"/>
+           <field name="arch" type="xml">
+               <xpath expr="//group[@name='accounting_entries']" position="after">
+                   <group string="Envio de correo">
+                       <field name="x_is_auto_invoice_send"/>
+                   </group>
+               </xpath>
+           </field>
+       </record>
+    </data>
+</odoo>
