@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="button_delete" model="ir.ui.view">
+            <field name="name">button.delete</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='button_cancel']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <button name="button_delete" string="Eliminar partidas" type="object"
+                            groups="account.group_account_invoice"
+                            attrs="{'invisible' : ['|', ('id', '=', False), ('state', '!=', 'draft')]}" confirm="¿Estás seguro de eliminar todos los artículos mostrados en líneas de factura?"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
