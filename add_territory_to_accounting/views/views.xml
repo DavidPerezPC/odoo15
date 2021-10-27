@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="add_territory_data_acoount" model="ir.ui.view">
+            <field name="name">add.territory.data.acoount</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_out_invoice_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_date']" position="before">
+                    <field name="x_territory" optional="show"/>
+                    <field name="x_sector" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

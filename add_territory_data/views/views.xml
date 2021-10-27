@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="add_territory_1" model="ir.ui.view">
+            <field name="name">add territory</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="x_territory" optional="show"/>
+                    <field name="x_sector" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="add_territory_2" model="ir.ui.view">
+            <field name="name">add territory</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="x_territory" optional="show"/>
+                    <field name="x_sector" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="add_territory_3" model="ir.ui.view">
+            <field name="name">add territory</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='phone']" position="before">
+                    <field name="x_zone" optional="show"/>
+                    <field name="industry_id" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="add_territory_4" model="ir.ui.view">
+            <field name="name">add territory</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="x_territory" optional="show"/>
+                    <field name="x_sector" optional="hide"/>
+                    <field name="x_warehouse_id" optional="show"/>
+                    <field name="x_warehouse_compute" invisible="1"/>
+                    <field name="user_id"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="add_territory_5" model="ir.ui.view">
+            <field name="name">add territory</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="x_warehouse_id" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
