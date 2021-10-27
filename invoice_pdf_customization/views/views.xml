@@ -1,0 +1,1109 @@
+<odoo>
+    <data>
+        <template id="report_without_payment_lang_inherit" inherit_id="account.report_invoice">
+            <xpath expr="//t[@t-set='lang']" position="after">
+                <!--                <t t-set="lang" t-value="'en_US'"/>-->
+                <t t-set="lang" t-value="'en_US' if o.l10n_mx_edi_external_trade else lang"/>
+            </xpath>
+        </template>
+        <template id="report_with_payment_lang_inherit" inherit_id="account.report_invoice_with_payments">
+            <xpath expr="//t[@t-set='lang']" position="after">
+                <!--                <t t-set="lang" t-value="'en_US'"/>-->
+                <t t-set="lang" t-value="'en_US' if o.l10n_mx_edi_external_trade else lang"/>
+            </xpath>
+        </template>
+        <template id="report_invoice_inherit" inherit_id="account.report_invoice_document">
+
+            <xpath expr="//t[@t-value='o.with_context(lang=lang)']" position="after">
+                <t t-set="invoice_client" t-value="o.is_invoice_client()"></t>
+            </xpath>
+            <!--Facturas de clientes-->
+            <!--                <t t-if="invoice_client">-->
+            <xpath expr="//t[@t-set='address']" position="replace">
+                <t t-set='address'></t>
+            </xpath>
+
+            <xpath expr="//div[hasclass('page')]" position="before">
+                <t t-set="is_cfdi_signed" t-value="bool(o._get_l10n_mx_edi_signed_edi_document())"/>
+                <t t-set="cfdi_data" t-value="o._l10n_mx_edi_decode_cfdi()"/>
+                <section class="header-tables" t-if="invoice_client"
+                         style="margin-top:-3rem;font-size: 10px;position:relative;top: -3px;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4" style="padding-left: 0px;">
+                                <t t-set="warehouse_data"
+                                   t-value="o.invoice_line_ids.mapped('sale_line_ids.order_id.warehouse_id')"></t>
+                                <t t-if="warehouse_data">
+                                    <div class="text-left">
+                                        <span>
+                                            <strong>
+                                                <t t-if="o.l10n_mx_edi_external_trade">Address expedition</t>
+                                                <t t-else="">Lugar de Expedición</t>
+                                            </strong>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span t-field="warehouse_data[0].partner_id.name"/>,
+                                        </div>
+                                        <div>
+                                            <span t-field="warehouse_data[0].partner_id.street"/>,
+                                        </div>
+                                        <div>
+                                            Col.
+                                            <span t-field="warehouse_data[0].partner_id.l10n_mx_edi_colony"/>
+                                            <span t-field="warehouse_data[0].partner_id.zip"/>,
+                                        </div>
+                                        <div>
+                                            <span t-field="warehouse_data[0].partner_id.city"/>,<span
+                                                t-field="warehouse_data[0].partner_id.state_id.name"/>,<span
+                                                t-field="warehouse_data[0].partner_id.country_id.name"/>,
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 0.4rem;">
+                                        <b>
+                                            <span>Régimen fiscal :</span>
+                                        </b>
+                                        <span t-esc="o.company_id.l10n_mx_edi_fiscal_regime">-</span>
+                                        <span t-field="o.company_id.l10n_mx_edi_fiscal_regime"></span>
+                                    </div>
+                                </t>
+                            </div>
+                            <div class="col-4" style="padding:0px;">
+                                <t t-if="cfdi_data">
+                                    <div>
+                                        <b>
+                                            <span>USO CFDI:</span>
+                                        </b>
+                                        <span t-esc="cfdi_data.get('usage')"></span>
+                                        <span t-field="o.l10n_mx_edi_usage"></span>
+                                    </div>
+                                    <div>
+                                        <b>
+                                            <span>Método de pago:</span>
+                                        </b>
+                                        <span t-esc="cfdi_data.get('payment_method')"></span>
+                                        <t t-set="payment_method_name" t-value="cfdi_data.get('payment_method')"></t>
+                                        <t t-if="payment_method_name == 'PPD'">
+                                            <span>PAGO EN PARCIALIDADES O DIFERIDO</span>
+                                        </t>
+                                        <t t-if="payment_method_name == 'PUE'">
+                                            <span>PAGO EN UNA SOLA EXHIBICIÓN</span>
+                                        </t>
+                                    </div>
+                                    <div>
+                                        <b>
+                                            <span>Forma de pago:</span>
+                                        </b>
+                                        <span t-esc="o.l10n_mx_edi_payment_method_id.code"></span>
+                                        <span t-esc="o.l10n_mx_edi_payment_method_id.name"></span>
+                                    </div>
+                                    <div>
+                                        <b>
+                                            <span>Fecha y hora de certificación:</span>
+                                        </b>
+                                        <span t-esc="cfdi_data.get('stamp_date')"></span>
+                                    </div>
+                                </t>
+                            </div>
+                            <div class="col-4" style="text-align: right;padding:0px;">
+                                <div style="font-size:12px;">
+                                    <span>FACTURA:</span>
+                                    <b>
+                                        <span t-esc="o.name"/>
+                                    </b>
+                                </div>
+                                <div>
+                                    <b>
+                                        <span>Referencia:</span>
+                                    </b>
+                                    <span t-esc="o.invoice_origin"/>
+                                </div>
+                                <div>
+                                    <b>
+                                        <span>Fecha de Emisión:</span>
+                                    </b>
+                                    <span t-field="o.invoice_date"></span>
+                                </div>
+                                <div>
+                                    <b>
+                                        <span>Folio fiscal:</span>
+                                    </b>
+                                    <span t-esc="cfdi_data.get('uuid')"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </xpath>
+            <xpath expr="//div[hasclass('page')]" position="before">
+                <section class="order_data" t-if="invoice_client" style="font-size:10px;margin-top: 0.3rem;">
+                    <table style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td style="width:35%;">
+                                    <div style="width: 100%; padding-left: 0px; padding-right: 5px;">
+                                        <div>
+                                            <strong>VENDIDO A:</strong>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <span t-field="o.partner_id.display_name"/>,
+                                            </div>
+                                            <div>
+                                                <span t-field="o.partner_id.street"/>, Col.
+                                                <span t-field="o.partner_id.l10n_mx_edi_colony"/>
+                                                <span t-field="o.partner_id.zip"/>,
+                                            </div>
+                                            <div>
+                                                <span t-field="o.partner_id.city"/>,
+                                                <span t-field="o.partner_id.state_id.name"/>,
+                                                <span t-field="o.partner_id.country_id.name"/>,
+                                            </div>
+                                        </div>
+                                        <span t-if="o.partner_id.vat">
+                                            <t t-if="o.company_id.country_id.vat_label"
+                                               t-esc="o.company_id.country_id.vat_label" id="inv_tax_id_label">R.F.C
+                                            </t>
+                                            <t t-else="">Tax ID</t>:
+                                            <span t-field="o.partner_id.vat"/>
+                                        </span>
+                                        <div>DÍAS DE CRÉDITO:
+                                            <span t-field="o.invoice_payment_term_id"/>
+                                        </div>
+                                        <div>OC:
+                                            <span t-field="o.x_order_reference"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width:35%;">
+                                    <div style="width: 100%;">
+                                        <div>
+                                            <strong>ENVIAR A:</strong>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <span t-if="o.partner_shipping_id.ref">[<t
+                                                        t-esc="o.partner_shipping_id.ref"></t>] -
+                                                </span>
+                                                <span t-field="o.partner_shipping_id.name"/>,
+                                            </div>
+                                            <div>
+                                                <span t-field="o.partner_shipping_id.street"/>, Col.
+                                                <span t-field="o.partner_shipping_id.l10n_mx_edi_colony"/>
+                                                <span t-field="o.partner_shipping_id.zip"/>,
+                                            </div>
+                                            <div>
+                                                <span t-field="o.partner_shipping_id.city"/>,
+                                                <span t-field="o.partner_shipping_id.state_id.name"/>,
+                                                <span t-field="o.partner_shipping_id.country_id.name"/>,
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </xpath>
+
+            <xpath expr="//table[@name='invoice_line_table']" position="replace">
+                <table class="table table-xsm o_main_table"
+                       style="font-size: 10px; width: 100%; padding:0px;margin:0px;"
+                       name="invoice_line_table" t-if="invoice_client">
+                    <thead>
+                        <t t-if="o.l10n_mx_edi_external_trade">
+                            <t t-set="style_header" t-value="'padding:0px;margin:0px;font-size: 9px;'"/>
+                        </t>
+                        <t t-if="not o.l10n_mx_edi_external_trade">
+                            <t t-set="style_header" t-value="'padding:0px;margin:0px;font-size: 10px'"/>
+                        </t>
+                        <tr class="text-center" t-att-style="style_header">
+                            <th name="th_quantity" style="padding:0px;margin:0px;">
+                                <span>CANT.</span>
+                            </th>
+                            <th name="th_uom" style="padding:0px;margin:0px;padding-left:2px">
+                                <span>UM</span>
+                            </th>
+                            <th name="th_barcode" t-if="not o.l10n_mx_edi_external_trade"
+                                style="padding:0px;margin:0px;width:10%;">
+                                <span>CODIGO</span>
+                            </th>
+                            <th name="th_clv_uni" style="padding:0px;margin:0px;padding-left:2px">
+                                <span>CLV UNI</span>
+                            </th>
+                            <th name="th_clv_prod_serv" style="padding:0px;margin:0px;padding-left:2px">
+                                <span>CLV PROD SERV</span>
+                            </th>
+                            <th name="th_description" style="padding:0px;margin:0px;width:30%;">
+                                <span>DESCRIPCIÓN</span>
+                            </th>
+                            <th name="th_priceunit" style="padding:0px;margin:0px;"
+                                t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                <span>PRECIO</span>
+                            </th>
+                            <th name="th_price_unit" t-if="not o.l10n_mx_edi_external_trade"
+                                style="padding:0px;margin:0px;width:10%;"
+                                t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                <span>DESCUENTO</span>
+                            </th>
+                            <th name="th_subtotal" t-if="o.l10n_mx_edi_external_trade" class="text-right"
+                                style="padding:0px;margin:0px;">
+                                <span groups="account.group_show_line_subtotals_tax_excluded">IMPORTE</span>
+                            </th>
+                            <th name="th_price_discount" style="padding:0px;margin:0px;"
+                                t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                <span>DESC PROM</span>
+                            </th>
+                            <th name="th_subtotal" t-if="not o.l10n_mx_edi_external_trade" class="text-right"
+                                style="padding:0px;margin:0px;">
+                                <span groups="account.group_show_line_subtotals_tax_excluded">IMPORTE</span>
+                            </th>
+                            <!--Exportacion-->
+                            <th t-if="o.l10n_mx_edi_external_trade" name="th_custom_unit" class="text-right"
+                                style="padding:0px;margin:0px;">
+                                <span>UNIDAD ADUANA</span>
+                            </th>
+                            <th t-if="o.l10n_mx_edi_external_trade" name="th_custom_qty" class="text-right"
+                                style="padding:0px;margin:0px;">
+                                <span>CANTIDAD ADUANA</span>
+                            </th>
+                            <th t-if="o.l10n_mx_edi_external_trade" name="th_unit_value_customs" class="text-right"
+                                style="padding:0px;margin:0px;">
+                                <span>VALOR UNITARIO ADUANA</span>
+                            </th>
+                            <th t-if="o.l10n_mx_edi_external_trade" name="th_value_dollars" class="text-right"
+                                style="padding:0px;margin:0px;">
+                                <span>VALOR DOLARES</span>
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <t t-if="o.l10n_mx_edi_external_trade">
+                        <t t-set="style_tbody" t-value="'padding:0px;margin:0px;font-size: 8px;'"/>
+                    </t>
+                    <t t-if="not o.l10n_mx_edi_external_trade">
+                        <t t-set="style_tbody" t-value="'padding:0px;margin:0px;font-size: 9px'"/>
+                    </t>
+                    <tbody class="invoice_tbody" t-att-style="style_tbody">
+                        <t t-set="current_subtotal" t-value="0"/>
+                        <t t-set="lines"
+                           t-value="o.invoice_line_ids.sorted(key=lambda l: (-l.sequence, l.date, l.move_name, -l.id), reverse=True)"/>
+
+                        <t t-foreach="lines" t-as="line">
+                            <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal"
+                               groups="account.group_show_line_subtotals_tax_excluded"/>
+                            <t t-set="current_subtotal" t-value="current_subtotal + line.price_total"
+                               groups="account.group_show_line_subtotals_tax_included"/>
+
+                            <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                <t t-if="not line.display_type" name="account_invoice_line_accountable">
+                                    <td class="text-center" style="padding:0px;margin:0px;">
+                                        <span t-field="line.quantity"/>
+                                    </td>
+                                    <td class="text-center" style="padding:0px;margin:0px;">
+                                        <span t-field="line.product_uom_id" groups="uom.group_uom"/>
+                                    </td>
+                                    <td class="text-center" style="padding:0px;margin:0px;"
+                                        t-if="not o.l10n_mx_edi_external_trade">
+                                        <span t-field="line.product_id.barcode"/>
+                                    </td>
+                                    <td class="text-center" style="padding:0px;margin:0px;">
+                                        <span t-esc="line.product_uom_id.unspsc_code_id.code"></span>
+                                    </td>
+                                    <td class="text-center" style="padding:0px;margin:0px;">
+                                        <span t-esc="line.product_id.unspsc_code_id.code"></span>
+                                    </td>
+                                    <td class="text-left" name="account_invoice_line_name"
+                                        style="padding:0px;margin:0px;padding-left:2px;padding-right:2px;">
+                                        <span t-field="line.product_id.display_name" t-options="{'widget': 'text'}"/>
+                                        <span t-if="o.l10n_mx_edi_external_trade">Fracción Arrancelaria:</span>
+                                        <span t-if="o.l10n_mx_edi_external_trade"
+                                              t-field="line.product_id.l10n_mx_edi_tariff_fraction_id.code"/>
+                                        <span t-if="o.l10n_mx_edi_external_trade">Marca Comercial:</span>
+                                        <span t-if="o.l10n_mx_edi_external_trade" t-field="line.company_id.name"/>
+                                    </td>
+                                    <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"
+                                        style="padding:0px;margin:0px;">
+                                        <span class="text-nowrap" t-field="line.price_unit"/>
+                                    </td>
+                                    <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"
+                                        t-if="not o.l10n_mx_edi_external_trade" style="padding:0px;margin:0px;">
+                                        <t t-esc="(line.quantity * line.price_unit) * ((line.discount-line.discount_promotions)/100.0)"
+                                           t-options='{"widget": "monetary", "display_currency": o.currency_id}'></t>
+                                    </td>
+                                    <td t-if="o.l10n_mx_edi_external_trade" class="text-right o_price_total"
+                                        style="padding:0px;margin:0px;">
+                                        <span class="text-nowrap">
+                                            <t t-esc="line.price_unit * line.quantity"
+                                               t-options='{"widget": "monetary", "display_currency": o.currency_id}'></t>
+                                        </span>
+                                    </td>
+                                    <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"
+                                        style="padding:0px;margin:0px;">
+                                        <span class="text-nowrap">
+                                            <t t-esc="line.quantity * line.price_unit * (line.discount_promotions/100.0)"
+                                               t-options='{"widget": "monetary", "display_currency": o.currency_id}'></t>
+                                        </span>
+                                    </td>
+                                    <td t-if="not o.l10n_mx_edi_external_trade" class="text-right o_price_total"
+                                        style="padding:0px;margin:0px;">
+                                        <span class="text-nowrap">
+                                            <t t-esc="line.price_unit * line.quantity"
+                                               t-options='{"widget": "monetary", "display_currency": o.currency_id}'></t>
+                                        </span>
+                                    </td>
+                                    <td t-if="o.l10n_mx_edi_external_trade" class="text-right"
+                                        style="padding:0px;margin:0px;">
+                                        <span class="text-nowrap">
+                                            <t t-esc="line.l10n_mx_edi_umt_aduana_id.name"></t>
+                                        </span>
+                                    </td>
+                                    <td t-if="o.l10n_mx_edi_external_trade" class="text-right"
+                                        style="padding:0px;margin:0px;">
+                                        <span class="text-nowrap">
+                                            <t t-esc="line.l10n_mx_edi_qty_umt"></t>
+                                        </span>
+                                    </td>
+                                    <td t-if="o.l10n_mx_edi_external_trade" class="text-right"
+                                        style="padding:0px;margin:0px;">
+                                        <span class="text-nowrap">
+                                            <t t-esc="line.l10n_mx_edi_price_unit_umt"></t>
+                                        </span>
+                                    </td>
+                                    <td t-if="o.l10n_mx_edi_external_trade" class="text-right"
+                                        style="padding:0px;margin:0px;">
+                                        <span class="text-nowrap">
+                                            <t t-esc="line.l10n_mx_edi_qty_umt * line.l10n_mx_edi_price_unit_umt">></t>
+                                        </span>
+                                    </td>
+                                </t>
+
+                                <t t-if="line.display_type == 'line_section'">
+                                    <td colspan="99">
+                                        <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                    </td>
+                                    <t t-set="current_section" t-value="line"/>
+                                    <t t-set="current_subtotal" t-value="0"/>
+                                </t>
+                                <t t-if="line.display_type == 'line_note'">
+                                    <td colspan="99">
+                                        <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                    </td>
+                                </t>
+                            </tr>
+                            <t t-if="current_section and (line_last or lines[line_index+1].display_type == 'line_section')">
+                                <tr class="is-subtotal text-right">
+                                    <td colspan="99">
+                                        <strong class="mr16">Subtotal</strong>
+                                        <span
+                                                t-esc="current_subtotal"
+                                                t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                        />
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </tbody>
+                </table>
+            </xpath>
+            <xpath expr="//div[@id='total']" position="replace">
+                <div id="total" class="row" style="font-size: 10px;">
+                    <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+                        <table class="table table-sm" style="page-break-inside: avoid;">
+                            <t t-set="lines" t-value="o.invoice_line_ids.sorted(key=lambda l: (-l.sequence, l.date, l.move_name, -l.id), reverse=True)"/>
+                            <t t-set="total_subtotal"
+                               t-value="sum([(l.price_unit * l.quantity) for l in lines])"/>
+                            <t t-set="total_discount_line"
+                               t-value="sum([(l.quantity * l.price_unit) * ((l.discount-l.discount_promotions)/100.0)+
+                                            (l.quantity * l.price_unit * (l.discount_promotions/100.0)) for l in lines])"/>
+                            <tr class="border-black o_subtotal" style="padding:0px;margin:0px;">
+                                <td style="padding:0px;margin:0px;">
+                                    <strong>Subtotal</strong>
+                                </td>
+                                <td class="text-right" style="padding:0px;margin:0px;">
+                                    <t t-esc="total_subtotal"
+                                       t-options='{"widget": "monetary", "display_currency": o.currency_id}'></t>
+                                </td>
+                            </tr>
+                            <tr class="border-black ">
+                                <td style="padding:0px;margin:0px;">
+                                    <strong>Descto Linea</strong>
+                                </td>
+                                <td class="text-right" style="padding:0px;margin:0px;">
+                                    <t t-esc="total_discount_line"
+                                       t-options='{"widget": "monetary", "display_currency": o.currency_id}'></t>
+                                </td>
+                            </tr>
+                            <t t-foreach="o.amount_by_group" t-as="amount_by_group">
+                                <tr style="">
+                                    <t t-set="tax_name" t-value="amount_by_group[0]"/>
+                                    <t t-if="o.l10n_mx_edi_external_trade" t-set="tax_name"
+                                       t-value="tax_name.replace('IVA','Tax')"/>
+                                    <t t-if="len(o.line_ids.filtered(lambda line: line.tax_line_id)) in [0, 1] and o.amount_untaxed == amount_by_group[2]">
+                                        <td style="padding:0px;margin:0px;">
+                                            <span class="text-nowrap" t-esc="tax_name"/>
+                                        </td>
+                                        <td class="text-right o_price_total" style="padding:0px;margin:0px;">
+                                            <span class="text-nowrap" t-esc="amount_by_group[3]"/>
+                                        </td>
+                                    </t>
+                                    <t t-else="">
+                                        <td style="padding:0px;margin:0px;">
+                                            <span t-esc="tax_name"/>
+                                        </td>
+                                        <td class="text-right o_price_total" style="padding:0px;margin:0px;">
+                                            <span class="text-nowrap" t-esc="amount_by_group[3]"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                            <tr class="border-black o_total" style="padding:0px;margin:0px;">
+                                <td style="padding:0px;margin:0px;">
+                                    <strong>Total</strong>
+                                </td>
+                                <td class="text-right" style="padding:0px;margin:0px;">
+                                    <span class="text-nowrap" t-field="o.amount_total"/>
+                                </td>
+                            </tr>
+                            <t t-if="print_with_payments">
+                                <t t-if="o.payment_state != 'invoicing_legacy'">
+                                    <t t-set="payments_vals" t-value="o.sudo()._get_reconciled_info_JSON_values()"/>
+                                    <t t-foreach="payments_vals" t-as="payment_vals">
+                                        <tr>
+                                            <td style="padding:0px;margin:0px;">
+                                                <i class="oe_form_field text-right oe_payment_label">Paid on
+                                                    <t t-esc="payment_vals['date']" t-options='{"widget": "date"}'/>
+                                                </i>
+                                            </td>
+                                            <td class="text-right" style="padding:0px;margin:0px;">
+                                                <span t-esc="payment_vals['amount']"
+                                                      t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-if="len(payments_vals) > 0">
+                                        <tr class="border-black">
+                                            <td style="padding:0px;margin:0px;">
+                                                <strong>Amount Due</strong>
+                                            </td>
+                                            <td class="text-right" style="padding:0px;margin:0px;">
+                                                <span t-field="o.amount_residual"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </t>
+                            </t>
+                        </table>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//div[@id='informations']" position="attributes">
+                <attribute name="style">display:none;</attribute>
+            </xpath>
+            <xpath expr="//span[@t-field='o.name']/.." position="attributes">
+                <attribute name="style">display:none;</attribute>
+            </xpath>
+            <xpath expr="//span[@t-field='o.invoice_payment_term_id.note']/.." position="attributes">
+                <attribute name="style">display:none;</attribute>
+            </xpath>
+            <xpath expr="//tr[hasclass('o_subtotal')]/.." position="attributes">
+                <attribute name="t-if">invoice_client</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('page')]" position="inside">
+                <div class="main" t-if="not invoice_client">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <strong>Usuario:</strong>
+                                <span t-field="o.user_id.name"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <strong>Proveedor:</strong>
+                                <span>[</span>
+                                <span t-field="o.partner_id.ref" t-options="{'widget': 'text'}"/>
+                                <span>]</span>
+                                <span t-field="o.partner_id.name"/>
+                            </div>
+                            <div class="col-4">
+                                <strong>Factura:</strong>
+                                <span t-field="o.name"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <strong>Condición de pago:</strong>
+                                <span t-field="o.invoice_payment_term_id"/>
+                            </div>
+                            <div class="col-6">
+                                <strong>No. Orden:</strong>
+                                <span t-esc="o.invoice_origin"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <t t-set="stock_picking_id" t-value="o.calculate_no_entrada()"/>
+                                <strong>No. Entrada:</strong>
+                                <span></span>
+                                <span t-if="stock_picking_id" t-esc="stock_picking_id"/>
+                            </div>
+                            <div class="col-3">
+                                <strong>Moneda:</strong>
+                                <span t-field="o.currency_id.name"/>
+                            </div>
+                        </div>
+                        <div class="row" style="border: 1px solid black;">
+                            <div class="col-3">
+                                <strong>Ref. Factura Proveedor</strong>
+                            </div>
+                            <div class="col-3">
+                                <strong>Fecha Fact</strong>
+                            </div>
+                            <div class="col-3" style="text-align:right">
+                                <strong>Monto</strong>
+                            </div>
+                            <div class="col-3" style="text-align:right">
+                                <strong>Tarifa Impuesto</strong>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <span t-field="o.ref"/>
+                            </div>
+                            <div class="col-3">
+                                <!--<t t-esc = "'{0:,. 2f}'. format (int (line.credit)). replace (',', '')" />-->
+                                <span t-field="o.invoice_date"/>
+
+                            </div>
+                            <div class="col-3" style="text-align:right">
+                                <!--<span t-field="o.amount_total"/>-->
+                                <span t-field="o.amount_total"/>
+                            </div>
+                            <div class="col-3" style="text-align:right">
+                                <span t-field="o.amount_tax"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:20px">
+                            <div class="col-3">
+                                Num Guía
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom:20px">
+                            <div class="col-6">
+                                Referencia
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div style="margin-left:-2%;" class="col-6">DISTRIBUCION CONTABLE:</div>
+                        </div>
+                    </div>
+
+                    <t t-set="details_move_values" t-value="o.calculate_lines_details()"/>
+                    <table style="margin-left: auto; margin-right: auto; font-size: 13px; width: 100%; border-collapse: collapse; border-spacing: 0;">
+                        <thead style="border-bottom:1px solid black">
+                            <tr class="text-left border-black ">
+                                <th>
+                                    <span>Cuenta Contable/ Cuenta Analítica/ Etiquetas Analíticas:</span>
+                                </th>
+                                <th></th>
+                            </tr>
+                            <tr class="text-left border-black" style="border-bottom:1px solid black;">
+                                <th>
+                                    <span>Producto</span>
+                                </th>
+                                <th>
+                                    <span>Tarifa</span>
+                                </th>
+                                <th style="text-align:right">
+                                    <span>Cantidad</span>
+                                </th>
+                                <th style="text-align:right">
+                                    <span>Cargo</span>
+                                </th>
+                                <th style="text-align:right">
+                                    <span>Abono</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="invoice_tbody" style=" border-top: 1em solid transparent;">
+                            <t t-if="'details_product' in details_move_values.keys()">
+                                <tr class="sub-header">
+                                    <td>
+                                        <strong>
+                                            <span style="text-decoration:underline">Detalle del Producto:</span>
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <t t-foreach="details_move_values['details_product']" t-as="line">
+                                    <!-- Validación para los movimientos de iva o movimiento acreditado del producto-->
+                                    <div class="row">
+                                        <tr class="col-xs-12 text-left" style="font-size:10px; width:100%;">
+                                            <td colspan="4">
+                                                <span t-field="line.account_id.code"/>
+                                                <span t-field="line.account_id.name"/>/
+                                                <span t-if="line.analytic_account_id"
+                                                      t-field="line.analytic_account_id.display_name"/>/
+                                                <t t-if="line.analytic_tag_ids" t-foreach="line.analytic_tag_ids"
+                                                   t-as="tags">
+                                                    <span t-field="tags.display_name"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                    </div>
+                                    <tr>
+                                        <td>&amp;nbsp;&amp;nbsp;
+                                            <span t-field="line.product_id.display_name"/>
+                                        </td>
+                                        <td style="font-size:9.5px;">
+                                            <t t-foreach="line.tax_ids" t-as="tax_line">
+                                                <span>[</span>
+                                                <span t-field="tax_line.name"/>
+                                                <span>]</span>
+                                                <br/>
+                                            </t>
+                                        </td><!--Tarifa-->
+                                        <td style="text-align:right"><span t-field="line.quantity"/>&amp;nbsp;
+                                        </td>
+                                        <td style="text-align:right">
+                                            <span t-if="line.debit" t-field="line.debit"
+                                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                        <td style="text-align:right">
+                                            <span t-if="line.credit" t-field="line.credit"
+                                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr class="text-left">
+                                    <td colspan="3"/>
+                                    <td style="border-top:1px solid black; text-align:right;">
+                                        <span t-esc="details_move_values['subtotal_products']"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tbody class="section section-step" style="border-top: 1em solid transparent;">
+                            <t t-if="details_move_values['details_tax']">
+                                <tr class="sub-header">
+                                    <td>
+                                        <strong>
+                                            <span style="text-decoration:underline">Detalle del Impuesto:</span>
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <t t-foreach="details_move_values['details_tax']" t-as="line">
+                                    <tr class="text-left">
+                                        <td>
+                                            <span t-field="line.account_id.code"/>
+                                            <span t-if="line.analytic_account_id"
+                                                  t-field="line.analytic_account_id.display_name"/>
+                                            <span t-field="line.account_id.name"/>
+                                        </td>
+                                        <td/>
+                                        <td>
+                                            <span></span>
+                                        </td>
+                                        <td style="text-align:right">
+                                            <span t-if="line.debit" t-field="line.debit"
+                                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                        <td style="text-align:right">
+                                            <span t-if="line.credit" t-field="line.credit"
+                                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr class="text-left">
+                                    <td colspan="3"/>
+                                    <td style="border-top:1px solid black; text-align:right;">
+                                        <span t-esc="details_move_values['subtotal_tax']"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tbody class="section" style="border-top: 5em solid transparent;">
+                            <t t-if="'details_credit' in details_move_values.keys()">
+                                <t t-foreach="details_move_values['details_credit']" t-as="line">
+                                    <tr class="text-left section-header" style="margin-top:100px;">
+                                        <td>
+                                            <span t-field="line.account_id.code"/>
+                                            <span t-if="line.analytic_account_id"
+                                                  t-field="line.analytic_account_id.display_name"/>
+                                            <span t-field="line.account_id.name"/>
+                                        </td>
+                                        <td colspan="2"/>
+                                        <td style="text-align:right">
+                                            <span t-if="line.debit" t-field="line.debit"
+                                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                        <td style="text-align:right">
+                                            <span t-if="line.credit" t-field="line.credit"
+                                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                            <tr class="text-left">
+                                <td colspan="3"/>
+                                <td style="border-top:1px solid black; text-align:right">
+                                    <strong>
+                                        <span t-if="details_move_values['total_debit']"
+                                              t-esc="details_move_values['total_debit']"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </strong>
+                                </td>
+                                <td style="border-top:1px solid black; text-align:right;">
+                                    <strong>
+                                        <span t-if="details_move_values['total_credit']"
+                                              t-esc="details_move_values['total_credit']"
+                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </xpath>
+            <xpath expr="//p[@name='incoterm']" position="replace">
+                <p t-if="o.invoice_incoterm_id and o.l10n_mx_edi_external_trade" name="incoterm">
+                    <strong>Incoterm: </strong><span t-field="o.invoice_incoterm_id.code"/> - <span t-field="o.invoice_incoterm_id.name"/>
+                </p>
+            </xpath>
+        </template>
+
+        <template id="report_footer_invoice_inherit" inherit_id="l10n_mx_edi.report_invoice_document_mx">
+            <xpath expr="//p[@t-if='o.narration']" position="after">
+                <t t-if="not o.l10n_mx_edi_external_trade">
+                    <div class="footer_custom container text-center"
+                         style="border: 1px solid; padding: 10px;padding-top: 5px;padding-right: 5px;padding-left: 5px;border-radius: 15px;page-break-inside: avoid !important; font-size: 7px;"
+                         t-if="invoice_client">
+                        <t t-set="footer_values" t-value="o.get_footer_values()"></t>
+                        <div id="footer_first_section" class="row">
+                            <div t-attf-class="#{'col-12' if report_type != 'html' else 'col-sm-10 col-md-12'} ml-auto">
+                                <div>
+                                    <div style="text-align:justify;">
+                                        <span t-esc="footer_values['promissory_note_one']"/>
+                                        <b>&amp;nbsp;
+                                            <span t-esc="footer_values['company']"/>
+                                        </b>
+                                        <span t-esc="footer_values['promissory_note_two']"/>
+                                        <b>
+                                            <span t-esc="footer_values['reiterate']"/>
+                                        </b>
+                                    </div>
+                                    <div class="row" style="margin-top:0.4rem;padding-right: 15px;padding-left: 15px;">
+                                        <div class="col-6 text-left">
+                                            <div class="font-weight-bold">AVAL</div>
+                                            <div>
+                                                <div>
+                                                    <span t-field="o.partner_id.name"/>,
+                                                </div>
+                                                <div>
+                                                    <span t-field="o.partner_id.street"/>,
+                                                </div>
+                                                <div>
+                                                    Col.
+                                                    <span t-field="o.partner_id.l10n_mx_edi_colony"/>
+                                                    <span t-field="o.partner_id.zip"/>,
+                                                </div>
+                                                <div>
+                                                    <span t-field="o.partner_id.city"/>,<span
+                                                        t-field="o.partner_id.state_id.name"/>,<span
+                                                        t-field="o.partner_id.country_id.name"/>,
+                                                </div>
+                                            </div>
+                                            <span t-if="o.partner_id.vat">
+                                                <t t-if="o.company_id.country_id.vat_label"
+                                                   t-esc="o.company_id.country_id.vat_label" id="inv_tax_id_label"></t>
+                                                <t t-else="">Tax ID</t>:
+                                                <span t-field="o.partner_id.vat"/>
+                                            </span>
+                                            <br/>
+                                            <br/>
+                                            <div>
+                                                <b>FIRMA:</b>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 text-left">
+                                            <div class="font-weight-bold">DEUDOR</div>
+                                            <div>
+                                                <div>
+                                                    <span t-field="o.partner_id.name"/>,
+                                                </div>
+                                                <div>
+                                                    <span t-field="o.partner_id.street"/>,
+                                                </div>
+                                                <div>
+                                                    Col.
+                                                    <span t-field="o.partner_id.l10n_mx_edi_colony"/>
+                                                    <span t-field="o.partner_id.zip"/>,
+                                                </div>
+                                                <div>
+                                                    <span t-field="o.partner_id.city"/>,<span
+                                                        t-field="o.partner_id.state_id.name"/>,<span
+                                                        t-field="o.partner_id.country_id.name"/>,
+                                                </div>
+                                            </div>
+                                            <span t-if="o.partner_id.vat">
+                                                <t t-if="o.company_id.country_id.vat_label"
+                                                   t-esc="o.company_id.country_id.vat_label" id="inv_tax_id_label"></t>
+                                                <t t-else="">Tax ID</t>:
+                                                <span t-field="o.partner_id.vat"/>
+                                            </span>
+                                            <br/>
+                                            <br/>
+                                            <div>
+                                                <b>FIRMA:</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+            <xpath expr="//span[@t-esc='o._l10n_mx_edi_cfdi_amount_to_text()']" position="replace"></xpath>
+            <xpath expr="//p[@name='payment_communication']" position="replace">
+                <div style="font-size: 10px;">
+                    <p t-if="o.move_type == 'out_invoice'" style="padding-bottom:0px;margin-bottom:0px;">
+                        <p style="padding:0px;margin:0px;" t-if="o.l10n_mx_edi_external_trade">
+                            <b>
+                                <span>Amount with lyrics:</span>
+                            </b>
+                        </p>
+                        <span t-if="o.l10n_mx_edi_external_trade"
+                              t-esc="o.currency_id.with_context({'lang':'en_US'}).amount_to_text(o.amount_total)"/>
+                        <span t-if="not o.l10n_mx_edi_external_trade" t-esc="o._l10n_mx_edi_cfdi_amount_to_text()"/>
+                    </p>
+                    <p t-if="o.move_type == 'out_invoice'" style="padding:0px;margin:0px;">Comentarios</p>
+                    <p t-if="o.move_type in ('out_invoice', 'in_refund') and o.payment_reference"
+                       name="payment_communication" style="font-size:10px;padding:0px;margin:0px;">
+                        Por favor utilice la siguiente referencia al realizar su pago:
+                        <b>
+                            <span t-field="o.payment_reference"/>
+                        </b>
+                    </p>
+                    <p/>
+                    <t t-set="lista" t-value="list()"/>
+                    <t t-foreach="o.company_id.partner_id.bank_ids" t-as="xb">
+                        <t t-if="xb.x_accounts_to_show">
+                            <t t-set="valor" t-value="lista.append(1)"/>
+                        </t>
+                    </t>
+                    <!--Validación para mostrar o no tabla creada-->
+                    <t t-if="len(lista) > 0">
+                        <table t-if="o.move_type == 'out_invoice'" style="width:350px; page-break-inside: avoid;"
+                               class="table table-sm">
+                            <tbody style="font-size: 8px;">
+                                <t t-if="o.l10n_mx_edi_external_trade == false">
+                                    <tr style="color:#ff7f27">
+                                        <th style="width:100px">BANCO</th>
+                                        <th style="width:50px">CUENTA</th>
+                                        <th style="width:60px">SUCURSAL</th>
+                                        <th style="width:90px">CLABE</th>
+                                    </tr>
+                                    <t t-foreach="o.company_id.partner_id.bank_ids" t-as="xb">
+                                        <t t-if="xb.x_accounts_to_show">
+                                            <t t-if="xb.currency_id.name == 'MXN'">
+                                                <tr>
+                                                    <td style="width:100px">
+                                                        <span t-esc="xb.bank_id.name"/>
+                                                    </td>
+                                                    <td style="width:50px">
+                                                        <span t-esc="xb.acc_number"/>
+                                                    </td>
+                                                    <td style="width:60px">
+                                                        <span t-esc="xb.x_branch_office"/>
+                                                    </td>
+                                                    <td style="width:90px">
+                                                        <span t-esc="xb.l10n_mx_edi_clabe"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="not xb.currency_id">
+                                                <tr>
+                                                    <td style="width:100px">
+                                                        <span t-esc="xb.bank_id.name"/>
+                                                    </td>
+                                                    <td style="width:50px">
+                                                        <span t-esc="xb.acc_number"/>
+                                                    </td>
+                                                    <td style="width:60px">
+                                                        <span t-esc="xb.x_branch_office"/>
+                                                    </td>
+                                                    <td style="width:90px">
+                                                        <span t-esc="xb.l10n_mx_edi_clabe"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </t>
+                                <t t-if="o.l10n_mx_edi_external_trade == true">
+                                    <tr style="color:#ff7f27">
+                                        <th style="width:100px">BANK</th>
+                                        <th style="width:50px">BILL</th>
+                                        <th style="width:60px">BRANCH OFFICE</th>
+                                        <th style="width:90px">CLABE</th>
+                                    </tr>
+                                    <t t-foreach="o.company_id.partner_id.bank_ids" t-as="xb">
+                                        <t t-if="xb.x_accounts_to_show">
+                                            <t t-if="xb.currency_id.name == 'USD'">
+                                                <tr>
+                                                    <td style="width:100px">
+                                                        <span t-esc="xb.bank_id.name"/>
+                                                    </td>
+                                                    <td style="width:50px">
+                                                        <span t-esc="xb.acc_number"/>
+                                                    </td>
+                                                    <td style="width:60px">
+                                                        <span t-esc="xb.x_branch_office"/>
+                                                    </td>
+                                                    <td style="width:90px">
+                                                        <span t-esc="xb.l10n_mx_edi_clabe"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+            </xpath>
+            <xpath expr="//div[@id='complement']" position="replace">
+                <div class="row" id='complement' style="font-size: 5px;margin-top: 0.5rem;">
+                    <div t-if="cfdi_vals.get('sello')" class="barcode col-3">
+                        <img alt="Barcode" t-att-src="'/report/barcode/?type=QR&amp;value=%s&amp;width=120&amp;height=120' % quote_plus(
+                            'https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?' + keep_query(
+                                re=o.l10n_mx_edi_cfdi_supplier_rfc, rr=o.l10n_mx_edi_cfdi_customer_rfc,
+                                tt='%.*f' % (o.currency_id.decimal_places, o.l10n_mx_edi_cfdi_amount), id=o.l10n_mx_edi_cfdi_uuid)
+                                + '&amp;fe=%s' % quote_plus(
+                                    cfdi_vals['sello'][-8:], 'utf-8', 'strict', '=/').replace('%2B', '+'))"/>
+                    </div>
+                    <div class="complement-details col-9" style="font-size: 5px;">
+                        <div class="digital-stamp">
+                            <span>Sello digital del emisor</span>
+                        </div>
+                        <div class="digital-stamp-content">
+                            <span t-esc="cfdi_vals.get('sello')"/>
+                        </div>
+                        <div class="digital-stamp">
+                            <span>Sello digital de SAT</span>
+                        </div>
+                        <div class="digital-stamp-content">
+                            <span t-esc="cfdi_vals.get('sello_sat')"/>
+                        </div>
+                        <div class="digital-stamp">
+                            <span>Cadena original del complemento del certificado digital del SAT</span>
+                        </div>
+                        <div class="digital-stamp-content">
+                            <span class="nowrap" t-esc="cfdi_vals.get('cadena')"/>
+                        </div>
+                        <div class="digital-stamp">
+                            <span>Información Extra</span>
+                        </div>
+                        <div class="digital-stamp-content">
+                            <span>Certificado del emisor:</span>
+                            <span t-esc="cfdi_vals.get('certificate_number')"/>
+                            <span>| Certificado SAT:</span>
+                            <span t-esc="cfdi_vals.get('certificate_sat_number')"/>
+                            <span>| Lugar de expedición:</span>
+                            <span t-esc="cfdi_vals.get('expedition')"/>
+                            <span>| Régimen Fiscal:</span>
+                            <span t-esc="cfdi_vals.get('fiscal_regime')"/>
+                            <span>| Fecha de Emisión:</span>
+                            <span t-esc="cfdi_vals.get('emission_date_str')"/>
+                            <span>| Fecha de Certificación:</span>
+                            <span t-esc="cfdi_vals.get('stamp_date')"/>
+                            <span>| Folio Fiscal:</span>
+                            <span t-esc="cfdi_vals.get('uuid')"/>
+                        </div>
+                        <div class="digital-stamp-content text-center">
+                            <strong>Este documento es una representación impresa de un CFDI</strong>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+        <template id="report_footer_invoice_extended_inherit"
+                  inherit_id="l10n_mx_edi_extended.report_invoice_document_mx">
+            <xpath expr="//div[@t-if='is_cfdi_signed and o.l10n_mx_edi_external_trade']" position="replace">
+                <div t-if="is_cfdi_signed and o.l10n_mx_edi_external_trade">
+                    <div class="row">
+                        <div class="col-12">
+                            <div align="center">
+                                <span>
+                                    <strong>External Trade</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-sm text-center mt4 mb4" align="center" style="font-size:10px">
+                                <thead>
+                                    <tr style="background-color:grey; color:white;">
+                                        <th class="text-center">Operation Type</th>
+                                        <th class="text-center">Certificate Key</th>
+                                        <th class="text-center">Certificate Source</th>
+                                        <th class="text-center"
+                                            t-if="cfdi_vals['ext_trade_nb_certificate_origin'] == 1">Number Certificate
+                                            Source
+                                        </th>
+                                        <th class="text-center">Subdivision</th>
+                                        <th class="text-center" t-if="cfdi_vals['ext_trade_nb_reliable_exporter']">
+                                            Number of Reliable Exporter
+                                        </th>
+                                        <th class="text-center">Incoterm</th>
+                                        <th class="text-center">Rate USD</th>
+                                        <th class="text-center">Total USD</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span t-esc="cfdi_vals['ext_trade_operation_type']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="cfdi_vals['ext_trade_certificate_key']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="cfdi_vals['ext_trade_certificate_source']"/>
+                                        </td>
+                                        <td t-if="cfdi_vals['ext_trade_nb_certificate_origin'] == 1">
+                                            <span t-esc="cfdi_vals['ext_trade_certificate_origin']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="cfdi_vals['ext_trade_subdivision']"/>
+                                        </td>
+                                        <td t-if="cfdi_vals['ext_trade_nb_reliable_exporter']">
+                                            <span t-esc="cfdi_vals['ext_trade_nb_reliable_exporter']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="cfdi_vals['ext_trade_incoterm']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="cfdi_vals['ext_trade_rate_usd']"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="cfdi_vals['ext_trade_total_usd']"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

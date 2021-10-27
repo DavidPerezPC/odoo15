@@ -1,0 +1,644 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* invoice_pdf_customization
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-21 19:36+0000\n"
+"PO-Revision-Date: 2021-07-21 19:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "&amp;nbsp;"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "&amp;nbsp;&amp;nbsp;"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ", Col."
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<b>\n"
+"                                            <span>Fecha y hora de certificación:</span>\n"
+"                                        </b>"
+msgstr ""
+"<b>\n"
+"                                            <span>Date and time of certification:</span>\n"
+"                                        </b>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<b>\n"
+"                                            <span>Forma de pago:</span>\n"
+"                                        </b>"
+msgstr ""
+"<b>\n"
+"                                            <span>Way to pay:</span>\n"
+"                                        </b>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<b>\n"
+"                                            <span>Método de pago:</span>\n"
+"                                        </b>"
+msgstr ""
+"<b>\n"
+"                                            <span>PAYMETN TERM:</span>\n"
+"                                        </b>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<b>\n"
+"                                            <span>Régimen fiscal :</span>\n"
+"                                        </b>"
+msgstr ""
+"<b>\n"
+"                                            <span>Tax Regime :</span>\n"
+"                                        </b>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<b>\n"
+"                                            <span>USO CFDI:</span>\n"
+"                                        </b>"
+msgstr ""
+"<b>\n"
+"                                            <span>CFDI USE:</span>\n"
+"                                        </b>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<b>\n"
+"                                        <span>Fecha de Emisión:</span>\n"
+"                                    </b>"
+msgstr ""
+"<b>\n"
+"                                        <span>Invoice date:</span>\n"
+"                                    </b>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<b>\n"
+"                                        <span>Folio fiscal:</span>\n"
+"                                    </b>"
+msgstr ""
+"<b>\n"
+"                                        <span>UUID:</span>\n"
+"                                    </b>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<b>\n"
+"                                        <span>Referencia:</span>\n"
+"                                    </b>"
+msgstr ""
+"<b>\n"
+"                                        <span>Reference:</span>\n"
+"                                    </b>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid ""
+"<b>\n"
+"                                <span>Amount with lyrics:</span>\n"
+"                            </b>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "<b>FIRMA:</b>"
+msgstr "<b>SIGNATURE:</b>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<span "
+"groups=\"account.group_show_line_subtotals_tax_excluded\">IMPORTE</span>"
+msgstr ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">TOTAL "
+"PRICE</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_extended_inherit
+msgid ""
+"<span>\n"
+"                                    <strong>External Trade</strong>\n"
+"                                </span>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>Abono</span>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>CANT.</span>"
+msgstr "<span>QUANTITY</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>CANTIDAD ADUANA</span>"
+msgstr "CUSTOM QUANTITY"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>CLV PROD SERV</span>"
+msgstr "<span>Serv Prod Key</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>CLV UNI</span>"
+msgstr "<span>UM</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>CODIGO</span>"
+msgstr "<span>CODE</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid ""
+"<span>Cadena original del complemento del certificado digital del SAT</span>"
+msgstr "<span>Original chain complement of digital certification SAT</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>Cantidad</span>"
+msgstr "<span>QUANTITY</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>Cargo</span>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "<span>Certificado del emisor:</span>"
+msgstr "<span>Emitter certificate:</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>Cuenta Contable/ Cuenta Analítica/ Etiquetas Analíticas:</span>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>DESC PROM</span>"
+msgstr "<span>DISC PRO</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>DESCRIPCIÓN</span>"
+msgstr "<span>DESCRIPTION OF GOODS</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>DESCUENTO</span>"
+msgstr "<span>DISCOUNT</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>FACTURA:</span>"
+msgstr "<span>Invoice: </span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "<span>Información Extra</span>"
+msgstr "<span>Extra Info</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>PAGO EN PARCIALIDADES O DIFERIDO</span>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>PAGO EN UNA SOLA EXHIBICIÓN</span>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>PRECIO</span>"
+msgstr "<span>UNIT PRICE</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>Producto</span>"
+msgstr "<span>PRODUCT</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "<span>Sello digital de SAT</span>"
+msgstr "<span>Digital stamp SAT</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "<span>Sello digital del emisor</span>"
+msgstr "<span>Digital stamp of the emitter</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>Tarifa</span>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>UM</span>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>UNIDAD ADUANA</span>"
+msgstr "CUSTOM UNIT"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>VALOR DOLARES</span>"
+msgstr "VALUE DOLLARS"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<span>VALOR UNITARIO ADUANA</span>"
+msgstr "UNIT VALUE CUSTOMS"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "<span>| Certificado SAT:</span>"
+msgstr "<span> | SAT Certificate:</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "<span>| Fecha de Certificación:</span>"
+msgstr "<span> | Certification Date:</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "<span>| Fecha de Emisión:</span>"
+msgstr "<span> | Emission Date:</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "<span>| Folio Fiscal:</span>"
+msgstr "<span> | Fiscal Folio:</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "<span>| Lugar de expedición:</span>"
+msgstr "<span> | Expedition place:</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "<span>| Régimen Fiscal:</span>"
+msgstr "<span> | Fiscal Regime:</span>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "SUB-TOTAL"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<strong>\n"
+"                                            <span style=\"text-decoration:underline\">Detalle del Impuesto:</span>\n"
+"                                        </strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<strong>\n"
+"                                            <span style=\"text-decoration:underline\">Detalle del Producto:</span>\n"
+"                                        </strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Amount Due</strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Condición de pago:</strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Descto Linea</strong>"
+msgstr "<strong>Discount</strong>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>ENVIAR A:</strong>"
+msgstr "<strong>SHIPPING TO:</strong>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid ""
+"<strong>Este documento es una representación impresa de un CFDI</strong>"
+msgstr "<strong>This document is a printed representation of a CFDI</strong>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Factura:</strong>"
+msgstr "<strong>INVOICE</strong>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Fecha Fact</strong>"
+msgstr "<strong>Invoice Date</strong>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Moneda:</strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Monto</strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<strong>No. Entrada:</strong>\n"
+"                                <span/>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>No. Orden:</strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"<strong>Proveedor:</strong>\n"
+"                                <span>[</span>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Ref. Factura Proveedor</strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Subtotal</strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Tarifa Impuesto</strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>Usuario:</strong>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "<strong>VENDIDO A:</strong>"
+msgstr "<strong>CUSTOMER:</strong>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "AVAL"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "Address expedition"
+msgstr "FORWARDING ADDRESS"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "BANCO"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "Barcode"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "CLABE"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "CUENTA"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_extended_inherit
+msgid "Certificate Key"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_extended_inherit
+msgid "Certificate Source"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "Col."
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "Comentarios"
+msgstr "<strong>Comments:</strong>"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "DEUDOR"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "DISTRIBUCION CONTABLE:"
+msgstr "DISTRIBUICION CONTABLE:"
+
+#. module: invoice_pdf_customization
+#: model:ir.model.fields,field_description:invoice_pdf_customization.field_account_move_line__discount_promotions
+msgid "Descuento Promociones (%)"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.custom_account_move_form_view
+msgid "Disc. Promo%"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model:ir.model.fields,field_description:invoice_pdf_customization.field_account_move__display_name
+#: model:ir.model.fields,field_description:invoice_pdf_customization.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:invoice_pdf_customization.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "DÍAS DE CRÉDITO:"
+msgstr "Days of Credit:"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "Fracción Arrancelaria:"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model:ir.model.fields,field_description:invoice_pdf_customization.field_account_move__id
+#: model:ir.model.fields,field_description:invoice_pdf_customization.field_account_move_line__id
+#: model:ir.model.fields,field_description:invoice_pdf_customization.field_sale_order_line__id
+msgid "ID"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_extended_inherit
+msgid "Incoterm"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model:ir.model,name:invoice_pdf_customization.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model:ir.model,name:invoice_pdf_customization.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model:ir.model.fields,field_description:invoice_pdf_customization.field_account_move____last_update
+#: model:ir.model.fields,field_description:invoice_pdf_customization.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:invoice_pdf_customization.field_sale_order_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "Lugar de Expedición"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "Marca Comercial:"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "Num Guía"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_extended_inherit
+msgid ""
+"Number Certificate\n"
+"                                            Source"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_extended_inherit
+msgid "Number of Reliable Exporter"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "OC:"
+msgstr "PO:"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_extended_inherit
+msgid "Operation Type"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "Paid on"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "Por favor utilice la siguiente referencia al realizar su pago:"
+msgstr "Please use the following communication for your payment :"
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "R.F.C"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_extended_inherit
+msgid "Rate USD"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid ""
+"Referencia\n"
+"                                <span/>"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+msgid "SUCURSAL"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model:ir.model,name:invoice_pdf_customization.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_extended_inherit
+msgid "Subdivision"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_inherit
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "Tax ID"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_footer_invoice_extended_inherit
+msgid "Total USD"
+msgstr ""
+
+#. module: invoice_pdf_customization
+#: model_terms:ir.ui.view,arch_db:invoice_pdf_customization.report_invoice_inherit
+msgid "on"
+msgstr ""

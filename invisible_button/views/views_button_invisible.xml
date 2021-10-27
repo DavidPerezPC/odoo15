@@ -1,0 +1,19 @@
+<odoo>
+  <data>
+    <record id="Button_invisible_promotions" model="ir.ui.view">
+        <field name="name">Button.invisible.promotions</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_coupon.sale_order_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//button[@name='recompute_coupon_lines']" position="replace">
+
+                <button name="recompute_coupon_lines" class="btn btn-secondary" string="Promotions"
+                            help="When clicked, the content of the order will be checked to detect (and apply) possible promotion programs."
+                            type="object" states="draft,sent"/>
+            </xpath>
+
+        </field>
+    </record>
+  </data>
+</odoo>
