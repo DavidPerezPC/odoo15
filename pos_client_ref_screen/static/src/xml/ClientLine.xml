@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="point_of_sale.template" xml:space="preserve">
+    <t t-name="ClientLine" t-inherit="point_of_sale.ClientLine" t-inherit-mode="extension" owl="1">
+         <xpath expr="//tr/td[1]" position="before">
+
+                 <td>   [<t t-if="props.partner.ref" t-esc="props.partner.ref" />
+                        <t t-else="" t-esc="'N/A'"/>]</td>
+                 <!--      <td>   <t t-esc="props.partner.customer_rank" />
+                 </td>
+                 <td>   <t t-esc="props.partner.property_warehouse_id" />
+                 </td>-->
+         </xpath>
+    </t>
+
+</templates>
