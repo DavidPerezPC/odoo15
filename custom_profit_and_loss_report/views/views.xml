@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+        <record id="perdidas_ganancias_contabilidad" model="ir.ui.view">
+            <field name="name">perdidas.ganancias.contabilidad</field>
+            <field name="model">custom.profit.loss</field>
+            <field name="arch" type="xml">
+                <form string="Perdidas y ganancias">
+                    <sheet>
+                        <group>
+                            <group string="Periodo">
+                                <!--Selección del periodo contable-->
+                                <field name="account_period"/>
+                                <label for="initial_date" string="Fechas"
+                                       attrs="{'invisible':[('account_period', '!=', 'custom')]}"/>
+                                <div class="o_row" attrs="{'invisible':[('account_period', '!=', 'custom')]}">
+                                    <field name="initial_date" widget="daterange"
+                                           options="{'related_end_date': 'end_date'}"/>
+                                    <span>a</span>
+                                    <field name="end_date" widget="daterange"
+                                           options="{'related_start_date': 'initial_date'}"/>
+                                </div>
+
+                                <!--Selección si hay comparación-->
+<!--                                <field name="comparison"/>-->
+<!--                                <field name="number_of_periods"-->
+<!--                                       attrs="{'invisible':[('comparison', 'in', ['without_comparison','custom',False])]}"/>-->
+<!--                                <label for="initial_date_comparison" string="Fechas"-->
+<!--                                       attrs="{'invisible':[('comparison', '!=', 'custom')]}"/>-->
+<!--                                <div class="o_row" attrs="{'invisible':[('comparison', '!=', 'custom')]}">-->
+<!--                                    <field name="initial_date_comparison" widget="daterange"-->
+<!--                                           options="{'related_end_date': 'end_date_comparison'}"/>-->
+<!--                                    <span>a</span>-->
+<!--                                    <field name="end_date_comparison" widget="daterange"-->
+<!--                                           options="{'related_start_date': 'initial_date_comparison'}"/>-->
+<!--                                </div>-->
+
+                                <field name="extend_option"/>
+                                <field name="zone_filter"/>
+
+                            </group>
+                            <group string="Contabilidad">
+                                <field name="account_journal_ids"
+                                       widget="many2many_tags" options="{'no_create': true}"/>
+                                <field name="account_analytic_ids"
+                                       widget="many2many_tags" options="{'no_create': true}"/>
+                                <field name="account_analytic_tag_ids"
+                                       widget="many2many_tags" options="{'no_create': true}"/>
+                            </group>
+                        </group>
+
+                        <footer>
+                            <button name="print_report" type="object" string="Imprimir" class="btn btn-primary"/>
+<!--                            <button name="export_xlsx" type="object" string="Exportar (XLSX)" class="btn btn-primary"/>-->
+                            <button string="Cerrar" class="btn-secondary" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="perdidas_ganancias_accion" model="ir.actions.act_window">
+            <field name="name">perdidas ganancias</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">custom.profit.loss</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="perdiii" name="Estado de resultados por zonas" parent="account.account_reports_legal_statements_menu"
+                  action="perdidas_ganancias_accion" sequence="1"/>
+    </data>
+</odoo>

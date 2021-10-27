@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="report_invoice_inherit_font_color" inherit_id="account.report_invoice_document">
+            <xpath expr="//div[hasclass('page')]" position="after">
+                <style t-if="o.move_type == 'out_invoice'">
+                    span {color:black;}
+                    div {color:black;}
+                    p {color:black;}
+                    b {color:black;}
+                    thead th span {color: #af8127;}
+                    tbody td span {color: black;}
+                </style>
+            </xpath>
+        </template>
+    </data>
+</odoo>

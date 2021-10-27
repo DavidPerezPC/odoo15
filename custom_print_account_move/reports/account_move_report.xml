@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="custom_report_account_move" model="ir.actions.report">
+            <field name="name">Asiento contable</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">custom_print_account_move.print_account_move</field>
+            <field name="report_file">custom_print_account_move.print_account_move</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="custom_print_account_move">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <style>
+                            table{
+                                vertical-align: middle;
+                            }
+                            th{
+                                font-size: 11px;
+                                vertical-align: middle;
+                            }
+                            td{
+                                font-size: 9px;
+                                vertical-align: middle;
+                            }
+                            tr{
+                                vertical-align: middle;
+                            }
+                        </style>
+                        <table class="table table-sm">
+                            <thead>
+                                <th>Folio</th>
+                                <th>Referencia</th>
+                                <th>Fecha contable</th>
+                                <th>Diario</th>
+                                <th>Moneda</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td t-esc="o.display_name"/>
+                                    <td t-esc="o.ref"/>
+                                    <td t-esc="o.date"/>
+                                    <td t-esc="o.journal_id.name"/>
+                                    <td t-esc="o.currency_id.name"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <table class="table table-sm">
+                            <thead>
+                                <th>Cuenta</th>
+                                <th>Contacto</th>
+                                <th>Descripción</th>
+                                <th>Cuenta Analítica</th>
+                                <th>Etiquetas Analíticas</th>
+                                <th>Moneda</th>
+                                <th>Impuestos</th>
+                                <th style="text-align: right">Debe</th>
+                                <th style="text-align: right">Haber</th>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.line_ids" t-as="l">
+                                    <td style="vertical-align: middle;" t-esc="str(l.account_id.code) + ' ' + str(l.account_id.name) or ' '"/>
+                                    <td style="vertical-align: middle;" t-esc="l.partner_id.name or ' '"/>
+                                    <td style="vertical-align: middle;" t-esc="l.name or ' '"/>
+                                    <td style="vertical-align: middle;" t-esc="l.analytic_account_id.name or ' '"/>
+                                    <td style="vertical-align: middle;" t-if="l.analytic_tag_ids">
+                                        <t t-foreach="l.analytic_tag_ids" t-as="t">
+                                            <span style="vertical-align: middle;" t-esc="t.name"/>
+                                            <br/>
+                                        </t>
+                                    </td>
+                                    <td t-else="">
+                                        <t t-esc="' '"/>
+                                    </td>
+                                    <td style="text-align: center;vertical-align: middle;" t-esc="l.currency_id.name or ' '"/>
+                                    <td style="vertical-align: middle;" t-if="l.tax_ids">
+                                        <t t-foreach="l.tax_ids" t-as="x">
+                                            <span style="text-align: center;" t-esc="x.name"/>
+                                            <br/>
+                                        </t>
+                                    </td>
+                                    <td t-else="">
+                                        <t t-esc="' '"/>
+                                    </td>
+                                    <td style="text-align: right;vertical-align: middle;" t-esc="'{0:,.2f}'.format(l.debit)"/>
+                                    <td style="text-align: right;vertical-align: middle;" t-esc="'{0:,.2f}'.format(l.credit)"/>
+                                </tr>
+                                <tr>
+                                    <td colspan="6"/>
+                                    <td><span style="text-align: center;">Totales</span></td>
+                                    <td style="text-align: right;" t-esc="'{0:,.2f}'.format(sum(line.debit for line in o.line_ids))"/>
+                                    <td style="text-align: right;" t-esc="'{0:,.2f}'.format(sum(line.credit for line in o.line_ids))"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <template id="print_account_move">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="custom_print_account_move.custom_print_account_move" t-lang="'es_MX'"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

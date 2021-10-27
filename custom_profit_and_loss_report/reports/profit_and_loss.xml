@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="custom_paperformat_us_letter_horizontal" model="report.paperformat">
+            <field name="name">Carta Horizontal</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">30</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="custom_profit_and_loss_report" model="ir.actions.report">
+            <field name="name">Reporte de estado de resultados</field>
+            <field name="model">custom.profit.loss</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">custom_profit_and_loss_report.custom_profit_and_loss</field>
+            <field name="report_file">custom_profit_and_loss_report.custom_profit_and_loss</field>
+            <field name="binding_model_id" ref="model_custom_profit_loss"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="custom_profit_and_loss_report.custom_paperformat_us_letter_horizontal"/>
+        </record>
+
+        <record id="custom_profit_and_loss_report_xlsx" model="ir.actions.report">
+            <field name="name">Reporte de estado de resultados</field>
+            <field name="model">custom.profit.loss</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">custom_profit_and_loss_report.prof_and_loss_xlsx</field>
+            <field name="report_file">Reporte de estado de resultados</field>
+            <field name="binding_model_id" ref="model_custom_profit_loss"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="custom_profit_and_loss">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <link rel="stylesheet" href="/custom_profit_and_loss_report/static/src/css/style.css"/>
+                        <div class="page">
+                            <t t-set="values" t-value="o.get_lines_pdf()"/>
+                            <t t-set="category" t-value="o.get_account_tags()"/>
+                            <t t-set="state"    t-value="o.get_move_state()"/>
+                            <t t-set="date"     t-value="o.get_date()"/>
+
+                            <!--Variables-->
+                            <!--Ingresos -->
+                            <t t-set="sin_inc" t-value="0"/>
+                            <t t-set="tij_inc" t-value="0"/>
+                            <t t-set="mex_inc" t-value="0"/>
+                            <t t-set="son_inc" t-value="0"/>
+                            <t t-set="nor_inc" t-value="0"/>
+                            <t t-set="eu_inc"  t-value="0"/>
+                            <t t-set="occ_inc" t-value="0"/>
+                            <t t-set="bcs_inc" t-value="0"/>
+                            <t t-set="chi_inc" t-value="0"/>
+                            <t t-set="ind_inc" t-value="0"/>
+                            <!--Descuentos -->
+                            <t t-set="sin_des" t-value="0"/>
+                            <t t-set="tij_des" t-value="0"/>
+                            <t t-set="mex_des" t-value="0"/>
+                            <t t-set="son_des" t-value="0"/>
+                            <t t-set="nor_des" t-value="0"/>
+                            <t t-set="eu_des"  t-value="0"/>
+                            <t t-set="occ_des" t-value="0"/>
+                            <t t-set="bcs_des" t-value="0"/>
+                            <t t-set="chi_des" t-value="0"/>
+                            <t t-set="ind_des" t-value="0"/>
+                            <!--Otros ingresos -->
+                            <t t-set="sin_oth" t-value="0"/>
+                            <t t-set="tij_oth" t-value="0"/>
+                            <t t-set="mex_oth" t-value="0"/>
+                            <t t-set="son_oth" t-value="0"/>
+                            <t t-set="nor_oth" t-value="0"/>
+                            <t t-set="eu_oth"  t-value="0"/>
+                            <t t-set="occ_oth" t-value="0"/>
+                            <t t-set="bcs_oth" t-value="0"/>
+                            <t t-set="chi_oth" t-value="0"/>
+                            <t t-set="ind_oth" t-value="0"/>
+                            <!--Costos-->
+                            <t t-set="sin_cos" t-value="0"/>
+                            <t t-set="tij_cos" t-value="0"/>
+                            <t t-set="mex_cos" t-value="0"/>
+                            <t t-set="son_cos" t-value="0"/>
+                            <t t-set="nor_cos" t-value="0"/>
+                            <t t-set="eu_cos"  t-value="0"/>
+                            <t t-set="occ_cos" t-value="0"/>
+                            <t t-set="bcs_cos" t-value="0"/>
+                            <t t-set="chi_cos" t-value="0"/>
+                            <t t-set="ind_cos" t-value="0"/>
+                            <!--Amortización-->
+                            <t t-set="sin_dep" t-value="0"/>
+                            <t t-set="tij_dep" t-value="0"/>
+                            <t t-set="mex_dep" t-value="0"/>
+                            <t t-set="son_dep" t-value="0"/>
+                            <t t-set="nor_dep" t-value="0"/>
+                            <t t-set="eu_dep"  t-value="0"/>
+                            <t t-set="occ_dep" t-value="0"/>
+                            <t t-set="bcs_dep" t-value="0"/>
+                            <t t-set="chi_dep" t-value="0"/>
+                            <t t-set="ind_dep" t-value="0"/>
+                            <!--Gastos-->
+                            <t t-set="sin_ex" t-value="0"/>
+                            <t t-set="tij_ex" t-value="0"/>
+                            <t t-set="mex_ex" t-value="0"/>
+                            <t t-set="son_ex" t-value="0"/>
+                            <t t-set="nor_ex" t-value="0"/>
+                            <t t-set="eu_ex"  t-value="0"/>
+                            <t t-set="occ_ex" t-value="0"/>
+                            <t t-set="bcs_ex" t-value="0"/>
+                            <t t-set="chi_ex" t-value="0"/>
+                            <t t-set="ind_ex" t-value="0"/>
+
+                            <table class="profit-table" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            RESULTADO
+                                            <t t-if="o.account_period == 'current_month'">
+                                                <span>MENSUAL</span>
+                                            </t>
+                                            <t t-elif="o.account_period == 'current_trimester'">
+                                                <span>TRIMESTRAL</span>
+                                            </t>
+                                            <t t-elif="o.account_period == 'current_year'">
+                                                <span>ANUAL</span>
+                                            </t>
+                                            <t t-elif="o.account_period == 'last_month'">
+                                                <span>DEL ÚLTIMO MES</span>
+                                            </t>
+                                            <t t-elif="o.account_period == 'last_quarter'">
+                                                <span>DEL ÚLTIMO CUARTO</span>
+                                            </t>
+                                            <t t-elif="o.account_period == 'last_year'">
+                                                <span>DEL ÚLTIMO AÑO</span>
+                                            </t>
+                                            <t t-if="o.zone_filter != 'zone'">
+                                                <span>CONSOLIDADO<span t-esc="category"/></span>
+                                            </t>
+                                            <t t-else="">
+                                                <span>DE ZONAS CONSOLIDADO<span t-esc="category"/></span>
+                                                <span t-esc="state"/>
+                                            </t>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>Correspondiente<span t-esc="date"/></span>
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+
+                            <table class="profit-table" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: left;">Concepto</th>
+                                        <th>SINALOA</th>
+                                        <th>BCN TIJUANA</th>
+                                        <th>BCN MEXICALI</th>
+                                        <th>SONORA</th>
+                                        <th>NOROESTE</th>
+                                        <th>E.U.</th>
+                                        <th>OCCIDENTE</th>
+                                        <th>BCS</th>
+                                        <th>CHIHUAHUA</th>
+                                        <th>INDEFINIDO</th>
+                                        <th>TOTAL</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <t t-set="incomes" t-value="values.get('Incomes')"/>
+                                    <t t-set="discounts" t-value="values.get('Discounts')"/>
+                                    <t t-set="others" t-value="values.get('Others')"/>
+                                    <t t-set="costs" t-value="values.get('Costs')"/>
+                                    <t t-set="depreciations" t-value="values.get('Depreciations')"/>
+                                    <t t-set="expenses" t-value="values.get('Expenses')"/>
+                                    <t t-set="total" t-value="values.get('Total')"/>
+
+                                    <!--Ingresos-->
+                                    <tr>
+                                        <td style="text-align: left;font-weight: bold;" colspan="12">INGRESOS</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="text-align: left;">Ventas Totales</td>
+                                        <td t-esc="'{0:,.2f}'.format(abs(incomes[0]) + abs(discounts[0]))"/>
+                                        <td t-esc="'{0:,.2f}'.format(abs(incomes[1]) + abs(discounts[1]))"/>
+                                        <td t-esc="'{0:,.2f}'.format(abs(incomes[2]) + abs(discounts[2]))"/>
+                                        <td t-esc="'{0:,.2f}'.format(abs(incomes[3]) + abs(discounts[3]))"/>
+                                        <td t-esc="'{0:,.2f}'.format(abs(incomes[4]) + abs(discounts[4]))"/>
+                                        <td t-esc="'{0:,.2f}'.format(abs(incomes[5]) + abs(discounts[5]))"/>
+                                        <td t-esc="'{0:,.2f}'.format(abs(incomes[6]) + abs(discounts[6]))"/>
+                                        <td t-esc="'{0:,.2f}'.format(abs(incomes[7]) + abs(discounts[7]))"/>
+                                        <td t-esc="'{0:,.2f}'.format(abs(incomes[8]) + abs(discounts[8]))"/>
+                                        <td t-esc="'{0:,.2f}'.format(abs(incomes[9]) + abs(discounts[9]))"/>
+                                        <td t-esc="'{0:,.2f}'.format(abs(incomes[10]) + abs(discounts[10]))"/>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="text-align: left;">Desc.Y/o Dev</td>
+                                        <td t-esc="'{0:,.2f}'.format(-discounts[0])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-discounts[1])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-discounts[2])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-discounts[3])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-discounts[4])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-discounts[5])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-discounts[6])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-discounts[7])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-discounts[8])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-discounts[9])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-discounts[10])"/>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: left;">Ventas Netas</td>
+                                        <td t-esc="'{0:,.2f}'.format(-incomes[0])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-incomes[1])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-incomes[2])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-incomes[3])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-incomes[4])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-incomes[5])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-incomes[6])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-incomes[7])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-incomes[8])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-incomes[9])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-incomes[10])"/>
+                                    </tr>
+
+                                    <!--Costos-->
+                                    <tr>
+                                        <td style="text-align: left;font-weight: bold;" colspan="12">COSTOS</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="text-align: left;">Costos</td>
+                                        <td t-esc="'{0:,.2f}'.format(costs[0])"/>
+                                        <td t-esc="'{0:,.2f}'.format(costs[1])"/>
+                                        <td t-esc="'{0:,.2f}'.format(costs[2])"/>
+                                        <td t-esc="'{0:,.2f}'.format(costs[3])"/>
+                                        <td t-esc="'{0:,.2f}'.format(costs[4])"/>
+                                        <td t-esc="'{0:,.2f}'.format(costs[5])"/>
+                                        <td t-esc="'{0:,.2f}'.format(costs[6])"/>
+                                        <td t-esc="'{0:,.2f}'.format(costs[7])"/>
+                                        <td t-esc="'{0:,.2f}'.format(costs[8])"/>
+                                        <td t-esc="'{0:,.2f}'.format(costs[9])"/>
+                                        <td t-esc="'{0:,.2f}'.format(costs[10])"/>
+                                    </tr>
+
+                                    <!--Otros ingresos-->
+                                    <tr>
+                                        <td style="text-align: left;font-weight: bold;" colspan="12">OTROS INGRESOS</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="text-align: left;">Otros Ingresos</td>
+                                        <td t-esc="'{0:,.2f}'.format(-others[0])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-others[1])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-others[2])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-others[3])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-others[4])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-others[5])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-others[6])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-others[7])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-others[8])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-others[9])"/>
+                                        <td t-esc="'{0:,.2f}'.format(-others[10])"/>
+                                    </tr>
+
+                                    <!--Amortización-->
+                                    <tr>
+                                        <td style="text-align: left;font-weight: bold;" colspan="12">AMORTIZACIÓN</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="text-align: left;">Depreciación</td>
+                                        <td t-esc="'{0:,.2f}'.format(depreciations[0])"/>
+                                        <td t-esc="'{0:,.2f}'.format(depreciations[1])"/>
+                                        <td t-esc="'{0:,.2f}'.format(depreciations[2])"/>
+                                        <td t-esc="'{0:,.2f}'.format(depreciations[3])"/>
+                                        <td t-esc="'{0:,.2f}'.format(depreciations[4])"/>
+                                        <td t-esc="'{0:,.2f}'.format(depreciations[5])"/>
+                                        <td t-esc="'{0:,.2f}'.format(depreciations[6])"/>
+                                        <td t-esc="'{0:,.2f}'.format(depreciations[7])"/>
+                                        <td t-esc="'{0:,.2f}'.format(depreciations[8])"/>
+                                        <td t-esc="'{0:,.2f}'.format(depreciations[9])"/>
+                                        <td t-esc="'{0:,.2f}'.format(depreciations[10])"/>
+                                    </tr>
+
+                                    <!--Gastos-->
+                                    <tr>
+                                        <td style="text-align: left;font-weight: bold;" colspan="12">GASTOS</td>
+                                    </tr>
+                                    <t t-foreach="expenses" t-as="expense">
+                                        <tr>
+                                            <td style="text-align: left;" t-esc="expense"/>
+                                            <td t-esc="'{0:,.2f}'.format(expense_value[0])"/>
+                                            <td t-esc="'{0:,.2f}'.format(expense_value[1])"/>
+                                            <td t-esc="'{0:,.2f}'.format(expense_value[2])"/>
+                                            <td t-esc="'{0:,.2f}'.format(expense_value[3])"/>
+                                            <td t-esc="'{0:,.2f}'.format(expense_value[4])"/>
+                                            <td t-esc="'{0:,.2f}'.format(expense_value[5])"/>
+                                            <td t-esc="'{0:,.2f}'.format(expense_value[6])"/>
+                                            <td t-esc="'{0:,.2f}'.format(expense_value[7])"/>
+                                            <td t-esc="'{0:,.2f}'.format(expense_value[8])"/>
+                                            <td t-esc="'{0:,.2f}'.format(expense_value[9])"/>
+                                            <td t-esc="'{0:,.2f}'.format(expense_value[10])"/>
+                                        </tr>
+                                    </t>
+
+                                    <!--Totales-->
+                                    <tr>
+                                        <td style="text-align: left;font-weight: bold;">Beneficio</td>
+                                        <td t-esc="'{0:,.2f}'.format(total[0])"/>
+                                        <td t-esc="'{0:,.2f}'.format(total[1])"/>
+                                        <td t-esc="'{0:,.2f}'.format(total[2])"/>
+                                        <td t-esc="'{0:,.2f}'.format(total[3])"/>
+                                        <td t-esc="'{0:,.2f}'.format(total[4])"/>
+                                        <td t-esc="'{0:,.2f}'.format(total[5])"/>
+                                        <td t-esc="'{0:,.2f}'.format(total[6])"/>
+                                        <td t-esc="'{0:,.2f}'.format(total[7])"/>
+                                        <td t-esc="'{0:,.2f}'.format(total[8])"/>
+                                        <td t-esc="'{0:,.2f}'.format(total[9])"/>
+                                        <td t-esc="'{0:,.2f}'.format(total[10])"/>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

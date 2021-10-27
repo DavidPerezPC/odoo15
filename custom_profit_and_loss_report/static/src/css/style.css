@@ -1,0 +1,22 @@
+.profit-table table {
+    width : 100%;
+}
+.profit-table th,
+.profit-table td {
+    padding: 5px;
+    font-family: Times New Roman;
+    font-size:11px;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+}
+.profit-table th {
+    color: #AF8127;
+    font-weight: bold;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.profit-table td {
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+}

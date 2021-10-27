@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="custom_account_move_line_tree" model="ir.ui.view">
+           <field name="name">custom.account.move.line.tree</field>
+           <field name="model">account.move.line</field>
+           <field name="inherit_id" ref="account.view_move_line_tree"/>
+           <field name="arch" type="xml">
+               <xpath expr="//field[@name='analytic_account_id']" position="after">
+                   <field name="x_account_analytic_group" invisible="1"/>
+                   <field name="x_has_multiple_analytic_lines" invisible="1"/>
+               </xpath>
+           </field>
+       </record>
+
+        <record id="custom_multiple_lines_account_move_line_form" model="ir.ui.view">
+            <field name="name">custom.multiple.lines.account.move.line.form</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_move_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='analytic_tag_ids']" position="after">
+                    <field name="x_has_multiple_analytic_lines" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
