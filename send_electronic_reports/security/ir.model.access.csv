@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_send_elecronic_reports,send_elecronic_reports,model_send_electronic_reports,base.group_system,1,1,1,1
+access_unstamped_document_report,unstamped_document_report,model_report_send_electronic_reports_print_unstamped_document_report,base.group_system,1,1,1,1

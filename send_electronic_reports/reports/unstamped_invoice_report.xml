@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="custom_profit_and_loss_report" model="ir.actions.report">
+            <field name="name">Reporte de documentos no timbrados</field>
+            <field name="model">send.electronic.reports</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">send_electronic_reports.print_unstamped_document_report</field>
+            <field name="report_file">send_electronic_reports.print_unstamped_document_report</field>
+            <field name="binding_model_id" ref="model_send_electronic_reports"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="unstamped_document_report">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <style>
+                            table {
+                            width : 100%;
+                            }
+                            th, td {
+                            padding: 5px;
+                            font-size:10px;
+                            font-weight: normal;
+                            text-align: center;
+                            vertical-align: middle;
+                            }
+                            th {
+                            color: #AF8127;
+                            font-weight: bold;
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                            }
+                            td {
+                            border-bottom: 1px solid black;
+                            border-collapse: collapse;
+                            }
+                        </style>
+
+                        <t t-foreach="docs" t-as="o">
+                            <t t-if="o.move_type == 'out_invoice'">
+                                <table style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Número de cliente</th>
+                                            <th>Nombre del cliente</th>
+                                            <th>Fecha de factura</th>
+                                            <th>Folio</th>
+                                            <th>Referencia</th>
+                                            <th>Importe</th>
+                                            <th>Estatus SAT</th>
+                                            <th style="width:20px">Error</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="records" t-as="a">
+                                            <td t-esc="a.partner_id.ref or ' '"/>
+                                            <td t-esc="a.partner_id.name or ' '"/>
+                                            <td t-esc="a.invoice_date or ' '"/>
+                                            <td t-esc="a.name or ' '"/>
+                                            <td t-esc="a.ref or ' '"/>
+                                            <td t-esc="'{0:,.2f}'.format(a.amount_total) or ' '"/>
+                                            <t t-set="status" t-value="a.l10n_mx_edi_sat_status or ' '"/>
+                                            <t t-if="status == 'none'">
+                                                <td t-esc="'Estado no defenido'"/>
+                                            </t>
+                                            <t t-elif="status == 'undefined'">
+                                                <td t-esc="'No Sincronizado Aún'"/>
+                                            </t>
+                                            <t t-elif="status == 'not_found'">
+                                                <td t-esc="'No encontrado'"/>
+                                            </t>
+                                            <t t-elif="status == 'cancelled'">
+                                                <td t-esc="'Cancelado'"/>
+                                            </t>
+                                            <t t-else="">
+                                                <td t-esc="'Valido'"/>
+                                            </t>
+                                            <t t-set="error" t-value="' '"/>
+                                            <t t-foreach="a.edi_document_ids" t-as="d">
+                                                <t t-if="d.error">
+                                                    <t t-set="error" t-value="d.error"/>
+                                                </t>
+                                            </t>
+                                            <td t-esc="error or ' '"/>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <t t-else="">
+                                <table style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Número de cliente</th>
+                                            <th>Nombre del cliente</th>
+                                            <th>Fecha de pago</th>
+                                            <th>Origen</th>
+                                            <th>Referencia</th>
+                                            <th>Importe</th>
+                                            <th>Estatus SAT</th>
+                                            <th style="width:20px">Error</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="records" t-as="a">
+                                            <td t-esc="a.partner_id.ref or ' '"/>
+                                            <td t-esc="a.partner_id.name or ' '"/>
+                                            <td t-esc="a.date or ' '"/>
+                                            <td t-esc="a.name or ' '"/>
+                                            <td t-esc="a.ref or ' '"/>
+                                            <td t-esc="'{0:,.2f}'.format(a.amount) or ' '"/>
+                                            <t t-set="status" t-value="a.l10n_mx_edi_sat_status or ' '"/>
+                                            <t t-if="status == 'none'">
+                                                <td t-esc="'Estado no defenido'"/>
+                                            </t>
+                                            <t t-elif="status == 'undefined'">
+                                                <td t-esc="'No Sincronizado Aún'"/>
+                                            </t>
+                                            <t t-elif="status == 'not_found'">
+                                                <td t-esc="'No encontrado'"/>
+                                            </t>
+                                            <t t-elif="status == 'cancelled'">
+                                                <td t-esc="'Cancelado'"/>
+                                            </t>
+                                            <t t-else="">
+                                                <td t-esc="'Valido'"/>
+                                            </t>
+                                            <t t-set="error" t-value="' '"/>
+                                            <t t-foreach="a.edi_document_ids" t-as="d">
+                                                <t t-if="d.error">
+                                                    <t t-set="error" t-value="d.error"/>
+                                                </t>
+                                            </t>
+                                            <td t-esc="error or ' '"/>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <template id="print_unstamped_document_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="send_electronic_reports.unstamped_document_report" t-lang="o.company_id.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
