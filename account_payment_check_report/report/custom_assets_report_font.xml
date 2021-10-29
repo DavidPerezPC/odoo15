@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Template: Sin uso debido a cambios hechos en ODOO v15 -->
+<odoo>
+    <template id="report_assets_common_custom_fonts" name="Custom QWeb fonts" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/account_payment_check_report/static/src/less/custom_check_ms_gothic.less"/>
+            <link rel="stylesheet" type="text/less" href="/account_payment_check_report/static/src/less/custom_check_utilities.less"/>
+        </xpath>
+    </template>
+</odoo>

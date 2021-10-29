@@ -24,8 +24,14 @@
         "static/src/xml/qweb_templates.xml",
     ],
 
+     "assets": {
+        "web.assets_backend": [
+            "custom_mrp_replenish/static/src/js/client_action.js",
+        ]
+    },
+
     'data': [
-        'views/templates.xml',
+        # 'views/templates.xml',
     ],
 
     'demo': [

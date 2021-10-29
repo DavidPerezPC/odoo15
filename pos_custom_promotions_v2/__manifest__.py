@@ -12,8 +12,16 @@
     'description': "Personalizacion para manejo de promociones y descuentos POS V.2",
     'summary': "Personalizacion para manejo de promociones y descuentos POS V.2",
 
+    # Modificación ODOO V15
+     "assets": {
+        "point_of_sale.assets": [
+            "pos_custom_promotions_v2/static/src/js/models.js",
+            "pos_custom_promotions_v2/static/src/js/Screens/ProductScreen/ControlButtons/PromocionesButtonLey.js",
+        ]
+    },
+
     'data': [
-        'views/templates.xml',
+        # 'views/templates.xml',
         'views/pos_order_views.xml',
     ],
 

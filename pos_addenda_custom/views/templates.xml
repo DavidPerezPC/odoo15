@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Template: Sin uso debido a cambios hechos en ODOO v15 -->
+<odoo>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_addenda_custom/static/src/js/Screens/PaymentScreen.js"></script>
+            <script type="text/javascript" src="/pos_addenda_custom/static/src/js/Popups/AdendaPopup.js"></script>
+            <script type="text/javascript" src="/pos_addenda_custom/static/src/js/adenda.js"></script>
+        </xpath>
+    </template>
+
+</odoo>

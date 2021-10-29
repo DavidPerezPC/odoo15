@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="report_payment_check_document_c">
+
+  <t t-if="not o and doc">
+      <t t-set="o" t-value="doc"/>
+  </t>
+
+  <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+
+  <t t-if="o and 'company_id' in o">
+      <t t-set="company" t-value="o.company_id"/>
+  </t>
+  <t t-if="not o or not 'company_id' in o">
+      <t t-set="company" t-value="res_company"/>
+  </t>
+
+	<div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id">
+		<!--HEADER-->
+		<div class="header" style=" border: 1px solid #ffffff;">
+			<div class="row justify-content-end" style=" height:2cm !important;">
+				<!--TIPO,NRO Y FECHA FACTURA-->
+				<div class="col-5 custom_ms_gothic custom_size_13pt" name="company_address" style="padding-left: 50px !important;border:1px solid #ffffff;">
+					<div style="margin-top:38px!important;min-height:25px!important;border:1px solid #ffffff;" class="py-0 text-right">
+						<span t-if="o.check_number" t-field="o.check_number" style="margin-right:48px;"/>
+						<span t-if="not o.check_number" t-field="o.ref" style="margin-right:48px;"/>
+					</div>
+					<div style="margin-top:2px;">
+						<span t-field="o.date" />
+					</div>
+				</div>
+				<!--END DATOS FACTURA-->
+			</div>
+		</div><!--FIN HEADER-->
+
+		<div class="page" style=" border: 1px solid #ffffff; border-radius: 10px;">
+			<!--MY COMPANY CHECK-->
+			<div class="row" style="border-radius:10px; margin-top:4px;min-height:70mm;">
+				<div class="col-9 custom_ms_gothic custom_size_13pt" style="border:1px solid #ffffff;">
+					<span class="text-center" t-if="o.show_legend" t-esc="'PARA ABONO EN CUENTA DEL BENEFICIARIO'" style="margin-left:30%;" />
+					<span style="color:#ffffff!important;">0</span>
+					<div style="margin-top:2px!important;margin-left:7px;" t-field="o.partner_id.name" />
+					<div style="margin-top:7px;margin-left:7px;">
+						<span>***</span><span t-esc="o._l10n_mx_edi_cfdi_amount_to_text()"></span><span>***</span>
+					</div>
+				</div>
+				<div class="col-3" style="border:1px solid #ffffff;">
+					<div class="custom_ms_gothic custom_size_13pt" style="text-align:right;padding-top:28px;margin-right:18px;">
+						<span t-esc="o._get_custom_amount_space(15, False)"/><span t-field="o.amount" t-options="{'widget':'float', 'precision':2}"/>
+					</div>
+				</div>
+			</div>
+			<!--END MY COMPANY-->
+
+			<!-- Beneficiario -->
+			<div class="row" style="border:1px solid #ffffff; height:18mm; border-radius:10px;font-size:12px;">
+				<div name="invoice_address" class="col-8 pl-1 pr-5" style="line-height:13px;padding-top:2px;">
+					<strong class="d-block mb-1" style="color:#ffffff;">CONCEPTO DEL PAGO</strong>
+					<span class="custom_ms_gothic custom_size_13pt" t-field="o.ref" />
+					<span class="custom_ms_gothic custom_size_13pt" t-field="o.journal_id" />
+				</div>
+				<div class="col-4 pl-0 pr-1">
+					<div class="custom_ms_gothic custom_size_13pt" style="margin-left:145px;">
+						<span t-if="o.check_number" t-field="o.check_number" />
+						<span t-if="not o.check_number" t-field="o.ref" />
+					</div>
+					<div class="text-right" style="margin-top:19px;margin-right:5px;">
+						<strong style="color:#ffffff;">Fec </strong>
+						<span class="custom_ms_gothic custom_size_13pt" t-field="o.date" />
+					</div>
+				</div>
+			</div>
+			<!-- END PROVEEDOR -->
+
+			<div class="row" style="min-height:162mm!important;">
+				<table class="table" style="font-size: 9px; margin-top:2%;">
+					<thead style="color:#ffffff;">
+						<tr class="border-0">
+							<th class="py-0 text-center" style="width:9.9%!important; border: 1px solid #ffffff;">CUENTA</th>
+							<th class="py-0 text-center" style="width:9.9%!important; border: 1px solid #ffffff; ">SUBCUENTA</th>
+							<th class="py-0 text-center" style="width:43.4%!important; border: 1px solid #ffffff;">
+								<span>NOMBRE</span>
+							</th>
+							<th class="py-0 text-center" style="width:12.5%!important;border: 1px solid #ffffff;">PARCIAL</th>
+							<th class="py-0 text-center" style="width:11.8%!important;border: 1px solid #ffffff;">DEBE</th>
+							<th class="py-0 text-center" style="width:12.5%!important;border: 1px solid #ffffff;">HABER</th>
+						</tr>
+					</thead>
+					<tbody class="custom_ms_gothic custom_size_13pt">
+						<tr t-foreach="o.reconciled_bill_ids" t-as="p">
+							<td class="p-1 text-left border-0">
+								<span t-field="p.name" />
+							</td>
+							<td class="p-1 text-left border-0">
+								<span t-field="p.ref" />
+							</td>
+							<td class="p-1 text-left border-0">
+								<span t-field="p.payment_reference" />
+							</td>
+							<td class="p-1 text-center border-0">
+								<span t-esc="p.invoice_origin" />
+							</td>
+							<td class="p-1 text-right border-0">
+								<span t-field="p.amount_total"></span>
+							</td>
+							<td class="p-1 text-right border-0">
+								<span t-esc="o._get_invoice_payment_amount(p)" t-options="{&quot;widget&quot;:&quot;monetary&quot;,&quot;display_currency&quot;:o.currency_id}"></span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<footer class="row py-0 justify-content-end">
+			<div class="col-4 text-right custom_ms_gothic custom_size_13pt">
+				<span t-esc="o._get_custom_amount_space(15, False)"/><span t-field="o.amount" t-options="{'widget': 'float', 'precision': 2}" />
+			</div>
+		</footer>
+
+	</div>
+  <!--<t t-call="report.external_layout_footer"/>-->
+
+</template>
+
+<template id="report_payment_check_citibanamex">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="account_payment_check_report.report_payment_check_document_c" t-lang="o.partner_id.lang"/>
+        </t>
+    </t>
+</template>
+	<!--Para customizar el formato*/-->
+	<record id="paperformat_us_letter_lowmargin_c" model="report.paperformat">
+    <field name="name">US Letter low margin</field>
+    <field name="default" eval="True"/>
+    <field name="format">Letter</field>
+    <field name="page_height">0</field>
+    <field name="page_width">0</field>
+    <field name="orientation">Portrait</field>
+    <field name="margin_top">30</field>
+    <field name="margin_bottom">5</field>
+    <field name="margin_left">5</field>
+    <field name="margin_right">5</field>
+    <field name="header_line" eval="False"/>
+    <field name="header_spacing">24</field>
+    <field name="dpi">80</field>
+</record>
+
+
+        <!-- QWeb Reports -->
+       <!-- <report
+            id="account_payment_check_report.account_payment_check_report_citibanamex"
+            model="account.payment"
+            string="Cheque Citibanamex"
+            report_type="qweb-pdf"
+            name="account_payment_check_report.report_payment_check_citibanamex"
+            file="account_payment_check_report.report_payment_check_citibanamex"
+			paperformat="account_payment_check_report.paperformat_us_letter_lowmargin_c"
+
+        />-->
+<!--Asignando formato personalizado paperformat="account_payment_check_report.paperformat_euro_lowmargin"/>-->
+<!--attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"-->
+
+</data>
+</odoo>

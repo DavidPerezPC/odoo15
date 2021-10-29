@@ -10,9 +10,17 @@
     'description': "Personalizacion para agregar Impresion Ticket en el PDV",
     'summary': "Personalizacion para agregar Impresion Ticket en el PDV",
 
+    # Modificación ODOO V15
+     "assets": {
+        "point_of_sale.assets": [
+            "pos_impresion_ticket/static/src/js/Screens/ProductScreen/ControlButtons/PrintBillButtonLey.js",
+            "pos_impresion_ticket/static/src/js/Screens/ImprimirTicketScreen.js",
+        ]
+    },
+
     'data': [
         'views/pos_config_views.xml',
-        'views/templates.xml',
+        # 'views/templates.xml',
     ],
 
     'qweb': [

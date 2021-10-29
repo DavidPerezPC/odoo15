@@ -9,8 +9,16 @@
      'author': "DataWorks",
     'description': "",
     'depends': ['base','point_of_sale'],
+
+    # Modidicación ODOO V15
+     "assets": {
+        "point_of_sale.assets": [
+            "pos_client_ref_screen/static/src/js/models.js",
+        ]
+    },
+
     'data': [
-         'views/templates.xml',
+         # 'views/templates.xml',
 
     ],
     'demo': [
