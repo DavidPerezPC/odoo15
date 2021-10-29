@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stall_stall,stall_stall,model_stall_stall,base.group_user,1,1,1,1
+access_cattle_entry,cattle_entry,model_stall_cattle_entry,base.group_user,1,1,1,1

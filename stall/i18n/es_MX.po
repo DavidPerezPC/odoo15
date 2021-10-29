@@ -1,0 +1,767 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stall
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20210320\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-29 14:42+0000\n"
+"PO-Revision-Date: 2021-10-29 08:49-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 3.0\n"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__transfer_loss_percentage
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__transfer_loss_percentage
+msgid "% transfer loss"
+msgstr "% Merma traslado"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid ""
+"<span>\n"
+"                                                        <strong>% transfer loss</strong>\n"
+"                                                    </span>"
+msgstr ""
+"<span>\n"
+"                                                        <strong>% Merma traslado</strong>\n"
+"                                                    </span>"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid ""
+"<span>\n"
+"                                                        <strong>Final time</strong>\n"
+"                                                    </span>"
+msgstr ""
+"<span>\n"
+"                                                        <strong>Hora final</strong>\n"
+"                                                    </span>"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid ""
+"<span>\n"
+"                                                        <strong>Gross weight</strong>\n"
+"                                                    </span>"
+msgstr ""
+"<span>\n"
+"                                                        <strong>Peso bruto</strong>\n"
+"                                                    </span>"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid ""
+"<span>\n"
+"                                                        <strong>Neto weight</strong>\n"
+"                                                    </span>"
+msgstr ""
+"<span>\n"
+"                                                        <strong>Peso neto</strong>\n"
+"                                                    </span>"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid ""
+"<span>\n"
+"                                                        <strong>Start time</strong>\n"
+"                                                    </span>"
+msgstr ""
+"<span>\n"
+"                                                        <strong>Hora inicial</strong>\n"
+"                                                    </span>"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid ""
+"<span>\n"
+"                                                        <strong>Tara weight</strong>\n"
+"                                                    </span>"
+msgstr ""
+"<span>\n"
+"                                                        <strong>Peso Tara</strong>\n"
+"                                                    </span>"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid ""
+"<span>\n"
+"                                                        <strong>Transfer loss</strong>\n"
+"                                                    </span>"
+msgstr ""
+"<span>\n"
+"                                                        <strong>Merma traslado</strong>\n"
+"                                                    </span>"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid "<span>Kg</span>"
+msgstr ""
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_needaction
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_needaction
+msgid "Action Needed"
+msgstr "Acción Requerida"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__active
+#: model:ir.model.fields,field_description:stall.field_stall_stall__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__activity_ids
+#: model:ir.model.fields,field_description:stall.field_stall_stall__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__activity_exception_decoration
+#: model:ir.model.fields,field_description:stall.field_stall_stall__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de excepción de actividad"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__activity_state
+#: model:ir.model.fields,field_description:stall.field_stall_stall__activity_state
+msgid "Activity State"
+msgstr "Estado de actividad"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__activity_type_icon
+#: model:ir.model.fields,field_description:stall.field_stall_stall__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono de tipo de actividad"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__another_document
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__another_document
+msgid "Another document"
+msgstr "Otro documento"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_search
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+#: model_terms:ir.ui.view,arch_db:stall.stall_configuration_kanban_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_attachment_count
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_attachment_count
+msgid "Attachment Count"
+msgstr "Recuento de archivos adjuntos"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid "Cancel"
+msgstr "Cancelar ticket"
+
+#. module: stall
+#: model:ir.model,name:stall.model_stall_cattle_entry
+#: model:ir.ui.menu,name:stall.stall_cattle_entry
+msgid "Cattle entry"
+msgstr "Entrada de ganado"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__cattle_type
+msgid "Cattle type"
+msgstr "Tipo ganado"
+
+#. module: stall
+#: model:ir.ui.menu,name:stall.stall_cattle_type
+msgid "Cattle type catalog"
+msgstr "Tipos de ganado"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__to_distribute
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid "Cbz distribute"
+msgstr "Cbz distribuir"
+
+#. module: stall
+#: model:ir.model.fields.selection,name:stall.selection__stall_cattle_entry__state__close
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__comments
+msgid "Comments"
+msgstr "Comentarios"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__comments
+msgid "Commments"
+msgstr "Comentarios"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__company_purchase_order
+msgid "Company purchase order"
+msgstr "Compañía O.C."
+
+#. module: stall
+#: model:ir.ui.menu,name:stall.stall_configuration
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__corralero
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__corralero
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid "Corralero"
+msgstr "Corralero"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__create_uid
+#: model:ir.model.fields,field_description:stall.field_stall_stall__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__create_date
+#: model:ir.model.fields,field_description:stall.field_stall_stall__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__dead_heads
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__dead_heads
+msgid "Dead heads"
+msgstr "Cabezas muertas"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__display_name
+#: model:ir.model.fields,field_description:stall.field_stall_stall__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__drivers_name
+msgid "Drivers name"
+msgstr "Nombre chofer"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__cattle_type
+msgid "Field function: It shows the different types of cattle that exist."
+msgstr "Función de campo: Muestra los diferentes tipos de ganado que existen."
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__drivers_name
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__partner_id
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__vehicle
+msgid "Field function: Show users who are introducers."
+msgstr "Introductores existentes en el sistema"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__shipping_date
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__ticket_date
+msgid "Field function: Show users who are slaughter date."
+msgstr "Función de campo: Mostrar a los usuarios la fecha del sacrificio."
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__specie_id
+msgid "Field function: Show users who are specie."
+msgstr "Función de campo: muestra a los usuarios el catálogo de especies."
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__final_time
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__final_time
+msgid "Final time"
+msgstr "Hora final"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_follower_ids
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_channel_ids
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_partner_ids
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Socios)"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__activity_type_icon
+#: model:ir.model.fields,help:stall.field_stall_stall__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icono de Font Awesome ej. fa-tasks"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__gross_weight
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__gross_weight
+msgid "Gross weight"
+msgstr "Peso bruto"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__heads_parts_distribute
+msgid "Heads parts distribute"
+msgstr "Cabezas partes distribuidas"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid ""
+"Heads ptes\n"
+"                                                            distribute"
+msgstr ""
+"Cbz ptes\n"
+"                                                            distribuir"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__heads_parts_distribute
+msgid "Heads ptes distribute"
+msgstr "Cabezas partes distribuidas"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__heads_received
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__heads_received
+msgid "Heads received"
+msgstr "Cabezas recibidas"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__heads_shipped
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__heads_shipped
+msgid "Heads shipped"
+msgstr "Cabezas enviadas"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__health_guide
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__health_guide
+msgid "Health guide"
+msgstr "Guía sanitaria"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__hurt_heads
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__hurt_heads
+msgid "Hurt heads"
+msgstr "Cabezas lastimadas"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__id
+#: model:ir.model.fields,field_description:stall.field_stall_stall__id
+msgid "ID"
+msgstr "ID"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__activity_exception_icon
+#: model:ir.model.fields,field_description:stall.field_stall_stall__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__activity_exception_icon
+#: model:ir.model.fields,help:stall.field_stall_stall__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__message_needaction
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__message_unread
+#: model:ir.model.fields,help:stall.field_stall_stall__message_needaction
+#: model:ir.model.fields,help:stall.field_stall_stall__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado hay nuevos mensajes que requieren su atención."
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__message_has_error
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__message_has_sms_error
+#: model:ir.model.fields,help:stall.field_stall_stall__message_has_error
+#: model:ir.model.fields,help:stall.field_stall_stall__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid "Information"
+msgstr "Información"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__partner_id
+msgid "Introducer"
+msgstr "Introductor"
+
+#. module: stall
+#: model:ir.ui.menu,name:stall.stall_introducer_type_cattle
+msgid "Introducer/type of cattle relationship"
+msgstr "Relación introductor/tipo de ganado"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_is_follower
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_is_follower
+msgid "Is Follower"
+msgstr "Es un seguidor"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__kgs_dead
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__kgs_dead
+msgid "Kgs dead"
+msgstr "Kgs muertos"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__kgs_sent
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__kgs_sent
+msgid "Kgs sent"
+msgstr "Kgs enviados"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry____last_update
+#: model:ir.model.fields,field_description:stall.field_stall_stall____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__write_uid
+#: model:ir.model.fields,field_description:stall.field_stall_stall__write_uid
+msgid "Last Updated by"
+msgstr "Ultima modificación realizada por"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__write_date
+#: model:ir.model.fields,field_description:stall.field_stall_stall__write_date
+msgid "Last Updated on"
+msgstr "Ultima modificación realizada el"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__lot_number
+msgid "Lot number"
+msgstr "Núm. Lote"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_main_attachment_id
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjuntos principales"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_has_error
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de Envío de Mensaje"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_ids
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__my_activity_date_deadline
+#: model:ir.model.fields,field_description:stall.field_stall_stall__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Siguiente plazo de actividad"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_stall__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__neto_weight
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__neto_weight
+msgid "Neto weight"
+msgstr "Peso neto"
+
+#. module: stall
+#: code:addons/stall/models/stall_cattle_entry.py:0
+#, python-format
+msgid "New"
+msgstr "Nuevo"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__activity_date_deadline
+#: model:ir.model.fields,field_description:stall.field_stall_stall__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Siguiente plazo de actividad"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__activity_summary
+#: model:ir.model.fields,field_description:stall.field_stall_stall__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de la siguiente actividad"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__activity_type_id
+#: model:ir.model.fields,field_description:stall.field_stall_stall__activity_type_id
+msgid "Next Activity Type"
+msgstr "Siguiente tipo de actividad"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_needaction_counter
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_has_error_counter
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_has_error_counter
+msgid "Number of errors"
+msgstr "Numero de errores"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__message_needaction_counter
+#: model:ir.model.fields,help:stall.field_stall_stall__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__message_has_error_counter
+#: model:ir.model.fields,help:stall.field_stall_stall__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de envío"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__message_unread_counter
+#: model:ir.model.fields,help:stall.field_stall_stall__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes no leidos"
+
+#. module: stall
+#: model:ir.model.fields.selection,name:stall.selection__stall_cattle_entry__state__open
+msgid "Open"
+msgstr "Abierto"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__origin_site
+msgid "Origin site"
+msgstr "Sitio origen"
+
+#. module: stall
+#: model:ir.ui.menu,name:stall.stall_source_sites
+msgid "Origin sites"
+msgstr "Sitios de origen"
+
+#. module: stall
+#: model:ir.ui.menu,name:stall.stall_source_sites_introducer
+msgid "Origin sites/introducer"
+msgstr "Sitios de origen/introductor"
+
+#. module: stall
+#: model:ir.ui.menu,name:stall.stall_passage_concepts
+msgid "Passage concept"
+msgstr "Conceptos de pesaje"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid "Pen distribution"
+msgstr "Distribución de Corrales"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__plate_number
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__plate_number
+msgid "Plate number"
+msgstr "Núm. de Placa"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__purchase_order
+msgid "Purchase order"
+msgstr "Orden de compra"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_search
+#: model_terms:ir.ui.view,arch_db:stall.stall_configuration_kanban_search
+msgid "Records"
+msgstr "Registros"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid "Remission"
+msgstr "Remisión"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__name
+msgid "Remission number"
+msgstr "# Remisión prov."
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__activity_user_id
+#: model:ir.model.fields,field_description:stall.field_stall_stall__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_has_sms_error
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega del SMS"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__sequence_ticket
+msgid "Sequence"
+msgstr "Secuencía"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__shipping_date
+msgid "Shipping date"
+msgstr "Fecha Envío"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__shipping_method
+msgid "Shipping method"
+msgstr "Medio de Envío"
+
+#. module: stall
+#: model:ir.model,name:stall.model_stall_stall
+msgid "Slaughterhouse"
+msgstr "Sacrificio"
+
+#. module: stall
+#: model:ir.ui.menu,name:stall.stall_specie_catalog
+msgid "Species"
+msgstr "Especies"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__specie_id
+msgid "Species name"
+msgstr "Nombre de la especie"
+
+#. module: stall
+#: model:ir.ui.menu,name:stall.menu_root
+#: model:ir.ui.menu,name:stall.stall_stall
+msgid "Stall"
+msgstr "Caseta"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__start_time
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__start_time
+msgid "Start time"
+msgstr "Hora inicial"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__state
+msgid "State"
+msgstr "Estado"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__activity_state
+#: model:ir.model.fields,help:stall.field_stall_stall__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Vencida: la fecha tope ya ha pasado\n"
+"Hoy: La fecha tope es hoy\n"
+"Planificada: futuras actividades."
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__sunny_heads
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__sunny_heads
+msgid "Sunny heads"
+msgstr "Cabezas asoleadas"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__tara_weight
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__tara_weight
+msgid "Tara weight"
+msgstr "Peso tara"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__company_purchase_order
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__livestock_supplier
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__origin_site
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__shipping_method
+msgid "The livestock supplier will be chosen in this field."
+msgstr "El proveedor de ganado será elegido en este campo."
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__ticket_date
+msgid "Ticket date"
+msgstr "Fecha Ticket"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid "Ticket detail"
+msgstr "Detalle Ticket"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__to_distribute
+msgid "To distribute"
+msgstr "Para distribuir"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__transfer_loss
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__transfer_loss
+msgid "Transfer loss"
+msgstr "Merma traslado"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__transit_guide
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__transit_guide
+msgid "Transit guide"
+msgstr "Guía de tránsito"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__activity_exception_decoration
+#: model:ir.model.fields,help:stall.field_stall_stall__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción registrada."
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_unread
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes sin leer"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__message_unread_counter
+#: model:ir.model.fields,field_description:stall.field_stall_stall__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Nº de mensajes sin leer"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid "Validate"
+msgstr "Validar"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__vehicle
+msgid "Vehicle"
+msgstr "Vehículo"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__website_message_ids
+#: model:ir.model.fields,field_description:stall.field_stall_stall__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: stall
+#: model:ir.model.fields,help:stall.field_stall_cattle_entry__website_message_ids
+#: model:ir.model.fields,help:stall.field_stall_stall__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"
+
+#. module: stall
+#: model_terms:ir.ui.view,arch_db:stall.stall_cattle_entry_view_form
+msgid "Weigh"
+msgstr "Peso"
+
+#. module: stall
+#: model:ir.model.fields,field_description:stall.field_stall_cattle_entry__livestock_supplier
+msgid "livestock supplier"
+msgstr "Prov. Ganado"
+
+#. module: stall
+#: model:ir.actions.act_window,name:stall.action_window
+msgid "stall Table"
+msgstr "Tablero"
+
+#. module: stall
+#: model:ir.actions.act_window,name:stall.stall_cattle_entry_action
+msgid "stall.cattle.entry.action"
+msgstr "Entrada de ganado"

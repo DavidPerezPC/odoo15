@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="stall_cattle_entry_view_tree">
+            <field name="name">stall.cattle.entry.view.tree</field>
+            <field name="model">stall.cattle.entry</field>
+            <field name="arch" type="xml">
+                <tree sample="1">
+                    <field name="sequence_ticket"/>
+                    <field name="company_purchase_order"/>
+                    <field name="partner_id" optional="show"/>
+                    <field name="livestock_supplier" optional="show"/>
+                    <field name="origin_site" optional="show"/>
+                    <field name="ticket_date" optional="show"/>
+                    <field name="name" optional="show"/>
+                    <field name="purchase_order" optional="show"/>
+                    <field name="lot_number" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="stall_cattle_entry_view_form">
+            <field name="name">stall.cattle.entry.view.form</field>
+            <field name="model">stall.cattle.entry</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                        <button name="action_validate" string="Validate" type="object" class="btn btn-primary"/>
+                        <button name="action_cancel" string="Cancel" type="object" class="btn btn-secondary"/>
+                    </header>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="sequence_ticket"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group style="float:left;">
+                                <field name="name" attrs="{'required': 1 }" options="{'no_create':True}"/>
+                                <field name="partner_id" attrs="{'required': 1 }" options="{'no_create':True}"
+                                       domain="[('category_id.name', '=', 'Introductor')]"/>
+                                <field name="livestock_supplier" attrs="{'required': 1 }" options="{'no_create':True}"
+                                       domain="[('category_id.name', '=', 'Proveedor de ganado')]"/>
+                                <field name="origin_site" attrs="{'required': 1 }" options="{'no_create':True}"/>
+                                <field name="active" invisible="1"/>
+                            </group>
+                            <group style="float:right;">
+                                <field name="ticket_date" attrs="{'required': 1 }" widget="date"/>
+                                <field name="company_purchase_order" attrs="{'required': 1 }"
+                                       options="{'no_create':True}"/>
+                                <field name="purchase_order" attrs="{'required': 1 }"/>
+                                <field name="lot_number" attrs="{'required': 1 }" options="{'no_create':True}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Remission" name="remission_page">
+                                <h3>Information</h3>
+                                <group>
+                                    <group style="float:left;">
+                                        <field name="shipping_date" attrs="{'required': 1 }" widget="date"/>
+                                        <field name="shipping_method" attrs="{'required': 1 }"
+                                               options="{'no_create':True}"/>
+                                        <field name="drivers_name" attrs="{'required': 1 }"
+                                               options="{'no_create':True}"
+                                               domain="[('category_id.name', '=', 'Chofer')]"/>
+                                        <field name="vehicle" attrs="{'required': 1 }" options="{'no_create':True}"/>
+                                        <field name="plate_number" attrs="{'required': 1 }"/>
+                                        <field name="active" invisible="1"/>
+                                    </group>
+                                    <group style="float:right;">
+                                        <field name="health_guide" attrs="{'required': 1 }"/>
+                                        <field name="transit_guide" attrs="{'required': 1 }"/>
+                                        <field name="another_document" attrs="{'required': 1 }"/>
+                                        <field name="specie_id" attrs="{'required': 1 }" options="{'no_create':True}"/>
+                                        <field name="cattle_type" attrs="{'required': 1 }"
+                                               options="{'no_create':True}"/>
+                                        <field name="heads_shipped" attrs="{'required': 1 }"/>
+                                        <field name="kgs_sent" attrs="{'required': 1 }"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Ticket detail" name="ticket_detail_page">
+                                <h3>Information</h3>
+                                <group>
+                                    <group style="float:left;">
+                                        <table style="width:100%">
+                                            <tr style="width:14%">
+                                                <td style="width:15%">
+                                                    <span>
+                                                        <strong>Gross weight</strong>
+                                                    </span>
+                                                </td>
+                                                <td style="width:10%">
+                                                    <field name="gross_weight" attrs="{'required': 1 }"/>
+                                                </td>
+                                                <td style="width:5%">
+                                                    <span>Kg</span>
+                                                </td>
+                                                <td style="width:20%">
+                                                    <button name="action_weigh" icon="fa-balance-scale" string="Weigh"
+                                                            title="Weigh"
+                                                            type="object" class="btn btn-primary"
+                                                            style="border-radius: 5px;"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="width:14%">
+                                                <td style="width:15%">
+                                                    <span>
+                                                        <strong>Tara weight</strong>
+                                                    </span>
+                                                </td>
+                                                <td style="width:10%">
+                                                    <field name="tara_weight" attrs="{'required': 1 }"/>
+                                                </td>
+                                                <td style="width:5%">
+                                                    <span>Kg</span>
+                                                </td>
+                                                <td style="width:20%">
+                                                    <button name="action_tara_weigh" icon="fa-balance-scale"
+                                                            string="Weigh"
+                                                            title="Weigh"
+                                                            type="object" class="btn btn-primary"
+                                                            style="border-radius: 5px;"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="width:14%">
+                                                <td style="width:15%">
+                                                    <span>
+                                                        <strong>Neto weight</strong>
+                                                    </span>
+                                                </td>
+                                                <td style="width:10%">
+                                                    <field name="neto_weight" attrs="{'required': 1 }"/>
+                                                </td>
+                                                <td style="width:5%">
+                                                    <span>Kg</span>
+                                                </td>
+                                            </tr>
+                                            <tr style="width:14%">
+                                                <td style="width:15%">
+                                                    <span>
+                                                        <strong>Transfer loss</strong>
+                                                    </span>
+                                                </td>
+                                                <td style="width:10%">
+                                                    <field name="transfer_loss" attrs="{'required': 1 }"/>
+                                                </td>
+                                                <td style="width:5%">
+                                                    <span>Kg</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr style="width:14%">
+                                                <td style="width:15%">
+                                                    <span>
+                                                        <strong>% transfer loss</strong>
+                                                    </span>
+                                                </td>
+                                                <td style="width:10%">
+                                                    <field name="transfer_loss_percentage" attrs="{'required': 1 }"/>
+                                                </td>
+                                                <td style="width:5%">
+                                                    <span>Kg</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr style="width:14%">
+                                                <td style="width:15%">
+                                                    <span>
+                                                        <strong>Start time</strong>
+                                                    </span>
+                                                </td>
+                                                <td style="width:10%">
+                                                    <field name="start_time" attrs="{'required': 1 }"
+                                                           widget="float_time"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="width:14%">
+                                                <td style="width:15%">
+                                                    <span>
+                                                        <strong>Final time</strong>
+                                                    </span>
+                                                </td>
+                                                <td style="width:10%">
+                                                    <field name="final_time" attrs="{'required': 1 }"
+                                                           widget="float_time"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </group>
+                                    <group style="float:right;">
+                                        <field name="heads_received" attrs="{'required': 1 }"/>
+                                        <field name="hurt_heads" attrs="{'required': 1 }"/>
+                                        <field name="sunny_heads" attrs="{'required': 1 }"/>
+                                        <field name="dead_heads" attrs="{'required': 1 }"/>
+                                        <field name="kgs_dead" attrs="{'required': 1 }"/>
+                                        <field name="comments" attrs="{'required': 1 }"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Pen distribution" name="pen_distribution_page">
+                                <div class="row mt16 o_settings_container">
+                                    <group col="3" string="Information">
+                                        <group class="col-12 col-lg-6 o_setting_box">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="border-right: 1px solid #bbbbbb;">Cbz distribute</td>
+                                                        <td>
+                                                            <field name="to_distribute" attrs="{'required': 1 }"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </group>
+                                        <group class="col-12 col-lg-6 o_setting_box">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="border-right: 1px solid #bbbbbb;">Heads ptes
+                                                            distribute
+                                                        </td>
+                                                        <td>
+                                                            <field name="heads_parts_distribute"
+                                                                   attrs="{'required': 1 }"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </group>
+                                        <group class="col-12 col-lg-6 o_setting_box">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="border-right: 1px solid #bbbbbb;">Corralero</td>
+                                                        <td>
+                                                            <field name="corralero"
+                                                                   domain="[('job_id', '=', 'Corralero')]"
+                                                                   attrs="{'required': 1 }"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </group>
+                                    </group>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="stall_cattle_entry_search">
+            <field name="name">stall.cattle.entry.search</field>
+            <field name="model">stall.cattle.entry</field>
+            <field name="arch" type="xml">
+                <search string="Records">
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                    <field name="partner_id"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record id="sequence_ticket" model="ir.sequence">
+            <field name="name">Sequence ticket</field>
+            <field name="code">ticket.sequence</field>
+            <field name="active">True</field>
+            <field name="prefix">CT</field>
+            <field name="padding">6</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="stall_cattle_entry_action">
+            <field name="name">stall.cattle.entry.action</field>
+            <field name="res_model">stall.cattle.entry</field>
+            <field name="view_mode">tree,form,search</field>
+        </record>
+
+        <!-- menu categories -->
+        <menuitem id="stall_cattle_entry" action="stall_cattle_entry_action"
+                  name="Cattle entry"
+                  parent="stall_configuration" sequence="7"/>
+    </data>
+</odoo>
