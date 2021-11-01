@@ -7,7 +7,7 @@
 
     'description': """
         Módulo creado para agregar territorio en el módulo de ventas en los diferentes tipos de ventas.
-        Se agregó el sector y el almacén junto con el territorio.
+        Se agregó el sector y el almacén junto con el territorio
     """,
 
     'author': "Soporte Grupo Ley",
